@@ -2,6 +2,10 @@
 # (http://manuals.rubyonrails.com/read/book/17). It allows you to automate
 # (among other things) the deployment of your application.
 
+# Mongrel cluster tasks
+require 'mongrel_cluster/recipes'
+
+
 # =============================================================================
 # REQUIRED VARIABLES
 # =============================================================================
@@ -37,6 +41,10 @@ set :user, "chris"            # defaults to the currently logged in user
 # set :cvs, "/path/to/cvs"       # defaults to searching the PATH
 # set :gateway, "gate.host.com"  # default to no gateway
 
+set :use_sudo, false
+set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+
+
 # =============================================================================
 # SSH OPTIONS
 # =============================================================================
@@ -51,3 +59,9 @@ set :user, "chris"            # defaults to the currently logged in user
 # narrow the set of servers to a subset of a role by specifying options, which
 # must match the options given for the servers to select (like :primary => true)
 
+desc "Link in production config and other stuff"
+task :after_update_code do
+  run <<-CMD
+    ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml 
+  CMD
+end
