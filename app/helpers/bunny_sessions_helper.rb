@@ -1,0 +1,2 @@
+module BunnySessionsHelper
+end

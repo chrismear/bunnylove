@@ -1,0 +1,21 @@
+<%= standard_flashes %>
+
+<h3>New bunny?</h3>
+<% form_for :bunny, :url => secret_new_bunny_path do |f| -%>
+  <p>What's your username on MeCha?<br />
+  <%= f.text_field :username %></p>
+  <p>Choose a password:<br />
+  <%= f.password_field :password %></p>
+  <p>Confirm that password:<br />
+  <%= f.password_field :password_confirmation %></p>
+  <p><%= submit_tag "Sign me up for Valentiney goodness!" %></p>
+<% end -%>
+
+<h3>Already signed up?</h3>
+<% form_tag bunny_sessions_path do -%>
+  <p>Username<br />
+  <%= text_field_tag "username" %></p>
+  <p>Password<br />
+  <%= password_field_tag "password" %></p>
+  <p><%= submit_tag "Lemme in!" %></p>
+<% end -%>

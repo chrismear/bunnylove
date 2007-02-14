@@ -1,0 +1,46 @@
+<p>Hi <%=h @bunny.username %>! <em><%= link_to("Click here to log out", bunny_session_path("current"), :method => :delete) %></em></p>
+
+<%= standard_flashes %>
+
+<h3>Valentines you've received</h3>
+<% if @received_valentines.empty? -%>
+  <p>Oh no! You don't have any valentines yet!</p>
+<% else -%>
+  <p>You've received <%= pluralize(@received_valentines.length, "valentine") %>, you lucky bunny!</p>
+  <ul>
+  <% @received_valentines.each do |v| -%>
+    <li>
+      <%=h v.message %><br />
+      <em><%= v.created_at.to_s(:short_timestamp) %></em>
+    </li>
+  <% end -%>
+  </ul>
+<% end -%>
+
+<h3>Valentines you've sent</h3>
+<% if @sent_valentines.empty? -%>
+  <p>You haven't sent any valentines yet!</p>
+<% else -%>
+  <p>You've sent <%= pluralize(@sent_valentines.length, "valentine") %> so far</p>
+  <ul>
+  <% @sent_valentines.each do |v| -%>
+    <li>
+      <strong>To: <%=h v.recipient_username %></strong><br />
+      <%=h v.message %><br />
+      <em><%= v.created_at.to_s(:short_timestamp) %></em>
+    </li>
+  <% end -%>
+  </ul>
+<% end -%>
+
+
+<h3>Send an anonymous Valentine</h3>
+<% form_tag valentines_path do -%>
+  <p>Who are you sending this anonymous Valentine to? (Just the username, please!)<br />
+  <%= text_field_tag :recipient, @recipient, :size => 30 %></p>
+  <p>And what would you like to say? (Keep it clean and friendly, pwetty pwease.)<br />
+  <%= text_area_tag :message, @message, :rows => 10, :cols => 50 %></p>
+  <p>Happy? All good? Then...<br />
+  <%= submit_tag "...send my Valentine!" %></p>
+<% end -%>
+  
