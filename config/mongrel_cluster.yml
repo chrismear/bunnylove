@@ -1,6 +1,6 @@
 --- 
 cwd: /var/www/bunnylove.org.uk/application/current
-port: "9000"
+port: "9500"
 environment: production
 address: 127.0.0.1
 pid_file: log/mongrel.pid
