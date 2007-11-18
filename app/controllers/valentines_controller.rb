@@ -3,11 +3,23 @@ class ValentinesController < ApplicationController
   end
   
   def create
-    if current_bunny
-      flash[:error] = "No more Valentines this year, sorry!"
-      redirect_to(bunny_path(current_bunny))
-    else
+    sender = current_bunny
+    unless sender
+      reset_session
       redirect_to(homepage_path)
+    end
+    
+    @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create(:username => params[:recipient])
+    
+    @message = params[:message]
+    
+    valentine = Valentine.create(:sender => sender, :recipient => @recipient, :message => @message)
+    
+    if valentine
+      flash[:success] = "Your Valentine has been sent!"
+      redirect_to(bunny_path(sender))
+    else
+      render(:action => :new)
     end
   end
 end
