@@ -9,7 +9,7 @@ class BunnySessionsController < ApplicationController
         self.current_bunny.remember_me
         cookies[:bunny_auth_token] = { :value => self.current_bunny.remember_token , :expires => self.current_bunny.remember_token_expires_at }
       end
-      redirect_back_or_default(bunny_path(self.current_bunny))
+      redirect_back_or_default(bunny_path("current"))
       flash[:success] = "Logged in successfully"
     else
       flash[:error] = "We couldn't find those details. Please try again."

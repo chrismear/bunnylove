@@ -53,10 +53,10 @@ class BunniesController < ApplicationController
   end
   
   def show
-    @bunny = Bunny.find(params[:id])
-    if @bunny != current_bunny
+    @bunny = current_bunny
+    unless @bunny
       reset_session
-      redirect_to(homepage_path)
+      redirect_to(homepage_path) and return
     end
     
     @received_valentines = @bunny.received_valentines

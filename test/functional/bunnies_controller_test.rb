@@ -150,7 +150,7 @@ class BunniesControllerTest < Test::Unit::TestCase
   def test_show
     login_as(:bunny => :chrismear)
     
-    get :show, :id => 1
+    get :show, :id => "current"
     
     assert_response :success
     assert_template "bunnies/show"
