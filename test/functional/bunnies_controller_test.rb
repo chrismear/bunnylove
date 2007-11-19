@@ -121,7 +121,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     @request.session[:pre_bunny] = 2
     get :check, :id => 2
     assert_response :redirect
-    assert_redirected_to "/bunnies/2"
+    assert_redirected_to "/bunnies/current"
     
     assert_equal 2, @response.session[:bunny]
     assert bunnies(:unconfirmed_bunny).signed_up?

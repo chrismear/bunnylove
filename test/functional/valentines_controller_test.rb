@@ -26,7 +26,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
       post :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :redirect
-    assert_redirected_to "/bunnies/1"
+    assert_redirected_to "/bunnies/current"
     
     valentine = Valentine.find(:first, :order => "id DESC")
     

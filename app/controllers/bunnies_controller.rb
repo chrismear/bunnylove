@@ -47,7 +47,7 @@ class BunniesController < ApplicationController
     if @bunny.check_secret!
       self.current_bunny = @bunny
       flash[:success] = "Okay, you're all set. Have fun!"
-      redirect_to(bunny_path(@bunny))
+      redirect_to(bunny_path("current"))
     else
       flash[:error] = "Uh-oh. I couldn't find your code on your MeCha profile page. Are you sure you put it there?"
       render(:action => :secret)

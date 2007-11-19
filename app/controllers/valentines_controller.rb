@@ -17,7 +17,7 @@ class ValentinesController < ApplicationController
     
     if valentine
       flash[:success] = "Your Valentine has been sent!"
-      redirect_to(bunny_path(sender))
+      redirect_to(bunny_path("current"))
     else
       render(:action => :new)
     end
