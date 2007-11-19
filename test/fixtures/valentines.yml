@@ -24,5 +24,5 @@ from_bob:
   sender_id: 5
   recipient_id: 1
   created_at: <%= 5.hours.ago.to_s(:db) %>
-  message: "Gubh neg zber ybiryl, naq zber grzcrengr."
+  message: "Gubh neg zber ybiryl, naq zber grzcrengr.\nNaq fb ba."
 

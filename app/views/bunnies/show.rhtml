@@ -10,7 +10,7 @@
   <ul>
   <% @received_valentines.each do |v| -%>
     <li>
-      <%=h decode_message(v.message) %><br />
+      <%= htmlize_linebreaks(h(decode_message(v.message))) %><br />
       <em><%= v.created_at.to_s(:short_timestamp) %></em>
     </li>
   <% end -%>
@@ -26,7 +26,7 @@
   <% @sent_valentines.each do |v| -%>
     <li>
       <strong>To: <%=h v.recipient_username %></strong><br />
-      <%=h decode_message(v.message) %><br />
+      <%= htmlize_linebreaks(h(decode_message(v.message))) %><br />
       <em><%= v.created_at.to_s(:short_timestamp) %></em>
     </li>
   <% end -%>

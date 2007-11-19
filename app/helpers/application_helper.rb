@@ -24,4 +24,8 @@ module ApplicationHelper
   def decode_message(message)
     Valentine.rot13(message)
   end
+  
+  def htmlize_linebreaks(message)
+    message.gsub(/\n/, "<br />")
+  end
 end

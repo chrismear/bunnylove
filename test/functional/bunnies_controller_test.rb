@@ -160,8 +160,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     
     # Received valentines
     assert_select "li", /compare thee/
-    assert_select "li", /more lovely/
-    
+    assert_match /more temperate\.<br \/>And so on\./, @response.body
     # Sent valentines count
     assert_select "p", /sent 2 valentines/
     
