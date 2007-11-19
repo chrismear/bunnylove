@@ -22,7 +22,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
   
   def test_create
     login_as(:bunny => :chrismear)
-    assert_difference Valentine, :count do
+    assert_difference "Valentine.count" do
       post :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :redirect
@@ -37,7 +37,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
   end
   
   def test_create_when_not_logged_in
-    assert_no_difference Valentine, :count do
+    assert_no_difference "Valentine.count" do
       post :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :redirect

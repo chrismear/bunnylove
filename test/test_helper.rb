@@ -28,7 +28,7 @@ class Test::Unit::TestCase
   # Add more helper methods to be used by all tests here...
   
   def assert_sign_up_form
-    assert_select "form[action=/bunnies/new;secret][method=post]" do
+    assert_select "form[action=/bunnies/new/secret][method=post]" do
       assert_select "input[name='bunny[username]']"
       assert_select "input[name='bunny[password]'][type=password]"
       assert_select "input[name='bunny[password_confirmation]'][type=password]"

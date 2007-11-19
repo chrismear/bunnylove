@@ -20,7 +20,7 @@ class BunniesControllerTest < Test::Unit::TestCase
   end
   
   def test_secret
-    assert_difference Bunny, :count do
+    assert_difference "Bunny.count" do
       post :secret, :bunny => {:username => "taz", :password => "letmein", :password_confirmation => "letmein"}
     end
     
@@ -34,14 +34,14 @@ class BunniesControllerTest < Test::Unit::TestCase
     
     assert_select "a[href=http://metachat.org/users/taz]"
     
-    assert_select "form[action=/bunnies/#{bunny.id};check][method=post]" do
+    assert_select "form[action=/bunnies/#{bunny.id}/check][method=post]" do
       assert_select "input[type=submit]"
     end
   end
   
   def test_secret_with_already_confirmed_bunny
     # Password entered doesn't matter, since we're just going to redirect them to a login page.
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "chrismear", :password => "whatever", :password_confirmation => "doesn't matter"}
     end
     
@@ -54,7 +54,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     # Must enter the correct password to be shown the 'check' screen, otherwise someone else could enter the name of an unconfirmed bunny, get to the 'secret' page, and if the actual bunny has already added the secret to their MetaChat user page, then the imposter could just click the "let me in" button and be logged in automatically.
     # But if someone does abandon the sign-up process halfway through, they should be able to come back and resume it.
     # In the future, perhaps we should allow someone to enter a username that already has an unconfirmed bunny record in the DB, choose a new password, which then forces a new secret to be generated. This would make resuming abandoned sign-ups easier (since they're not required to remember the password they chose last time), while still stopping imposters from hijacking unconfirmed accounts.
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "unconfirmed", :password => "qwerty", :password_confirmation => "qwerty"}
     end
     
@@ -69,14 +69,14 @@ class BunniesControllerTest < Test::Unit::TestCase
     
     assert_select "a[href=http://metachat.org/users/unconfirmed]"
     
-    assert_select "form[action=/bunnies/2;check][method=post]" do
+    assert_select "form[action=/bunnies/2/check][method=post]" do
       assert_select "input[type=submit]"
     end
   end
   
   def test_secret_with_unconfirmed_bunny_which_already_has_password_and_bad_password_has_been_entered
     # Should throw up an error if bad password is given.
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "unconfirmed", :password => "wrong_password", :password_confirmation => "wrong_password"}
     end
     
@@ -86,7 +86,7 @@ class BunniesControllerTest < Test::Unit::TestCase
   end
   
   def test_secret_with_automatically_created_bunny
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "automatic", :password => "letmein", :password_confirmation => "letmein"}
     end
     
@@ -98,7 +98,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     
     assert_select "a[href=http://metachat.org/users/automatic]"
     
-    assert_select "form[action=/bunnies/4;check][method=post]" do
+    assert_select "form[action=/bunnies/4/check][method=post]" do
       assert_select "input[type=submit]"
     end
     
@@ -106,7 +106,7 @@ class BunniesControllerTest < Test::Unit::TestCase
   end
   
   def test_secret_with_new_bunny_and_errors
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "new_bunny", :password => "password", :password_confirmation => "incorrect password confirmation"}
     end
     

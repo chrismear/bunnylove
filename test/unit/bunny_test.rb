@@ -4,35 +4,35 @@ class BunnyTest < Test::Unit::TestCase
   fixtures :bunnies, :valentines
   
   def test_should_create_bunny
-    assert_difference Bunny, :count do
+    assert_difference "Bunny.count" do
       bunny = create_bunny
       assert !bunny.new_record?
     end
   end
   
   def test_should_require_username
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       bunny = create_bunny(:username => "")
       assert bunny.errors.on(:username)
     end
   end
   
   def test_should_require_password
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       bunny = create_bunny(:password => nil)
       assert bunny.errors.on(:password)
     end
   end
   
   def test_should_require_password_confirmation
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       bunny = create_bunny(:password_confirmation => "")
       assert bunny.errors.on(:password_confirmation)
     end
   end
   
   def test_should_require_password_confirmation_to_be_the_same_as_the_password
-    assert_no_difference Bunny, :count do
+    assert_no_difference "Bunny.count" do
       bunny = create_bunny(:password_confirmation => "something else")
       assert bunny.errors.on(:password)
     end

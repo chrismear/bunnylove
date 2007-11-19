@@ -3167,3 +3167,1296 @@ Rendering  within layouts/application
 Rendering valentines/new
 Completed in 0.00217 (461 reqs/sec) | Rendering: 0.00209 (96%) | DB: 0.00058 (26%) | 200 OK [http://test.host/valentines/new]
   [4;35;1mSQL (0.000113)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000087)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000281)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000242)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000085)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000226)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000297)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'chrismear' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000191)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:48:10', `crypted_password` = 'ba842fcab40ac1023b5770eb71ca193471402e1f', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:48:10', `updated_at` = '2007-11-19 00:48:10' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000235)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;36;1mSQL (0.000559)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000234)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000279)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'mearca' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000218)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:48:10', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'mearca', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:48:10', `updated_at` = '2007-11-19 00:48:10' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000232)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'mearca') LIMIT 1[0m
+  [4;36;1mSQL (0.000582)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000069)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000094)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000244)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000271)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'non_existent_user') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000218)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mSQL (0.000099)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000198)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000177)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 4) [0m
+  [4;35;1mBunny Load (0.000220)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000286)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000107)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000575)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 2) [0m
+  [4;36;1mValentine Load (0.000178)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000205)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000241)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000105)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000248)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000229)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000100)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000095)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000090)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000090)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000103)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000096)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000274)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000203)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000230)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000200)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000238)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mValentine Load (0.000178)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000216)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mSQL (0.000098)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000067)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000092)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000241)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000222)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mValentine Create (0.000191)[0m   [0mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:48:10')[0m
+  [4;36;1mSQL (0.000443)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000122)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:48:12) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000349)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mBunny Update (0.000421)[0m   [0mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:48:12', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'unconfirmed', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-19 00:48:12', `updated_at` = '2007-11-19 00:48:12' WHERE `id` = 2[0m
+Redirected to http://test.host/bunnies/2
+Completed in 0.34398 (2 reqs/sec) | DB: 0.00102 (0%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mBunny Load (0.000420)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mSQL (0.009813)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000175)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:48:12) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000475)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.34902 (2 reqs/sec) | Rendering: 0.01360 (3%) | DB: 0.01088 (3%) | 200 OK [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000237)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000139)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#new (for 0.0.0.0 at 2007-11-19 00:48:12) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"bunnies"}
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00326 (306 reqs/sec) | Rendering: 0.00306 (93%) | DB: 0.00038 (11%) | 200 OK [http://test.host/bunnies/new]
+  [4;36;1mSQL (0.000169)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000128)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000135)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000134)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000134)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000122)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000134)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000130)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000448)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunniesController#show (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000390)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000343)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/show
+  [4;35;1mSQL (0.000386)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.recipient_id = 1) [0m
+  [4;36;1mValentine Load (0.000299)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000197)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.sender_id = 1) [0m
+  [4;36;1mValentine Load (0.000245)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mBunny Load (0.000236)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mBunny Load (0.000230)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+Completed in 0.04844 (20 reqs/sec) | Rendering: 0.04468 (92%) | DB: 0.00460 (9%) | 200 OK [http://test.host/bunnies/1]
+  [4;35;1mSQL (0.004395)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000312)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Redirected to http://test.host/
+Completed in 0.00074 (1360 reqs/sec) | DB: 0.00483 (656%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000154)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000076)[0m   [0mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:48:13) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"bad password"}
+  [4;36;1mBunny Load (0.000387)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunny_sessions/new
+Completed in 0.00638 (156 reqs/sec) | Rendering: 0.00321 (50%) | DB: 0.00062 (9%) | 200 OK [http://test.host/bunny_sessions?password=bad+password&username=chrismear]
+  [4;35;1mSQL (0.000156)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:48:13) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"qwerty"}
+  [4;35;1mBunny Load (0.000390)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00099 (1014 reqs/sec) | DB: 0.00061 (62%) | 302 Found [http://test.host/bunny_sessions?password=qwerty&username=chrismear]
+  [4;36;1mSQL (0.000138)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000086)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000281)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunnySessionsController#destroy (for 0.0.0.0 at 2007-11-19 00:48:13) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"current", "controller"=>"bunny_sessions"}
+  [4;35;1mBunny Load (0.000249)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000208)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:48:12', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:48:12', `updated_at` = '2007-11-19 00:48:13' WHERE `id` = 1[0m
+Cookie set: bunny_auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://test.host/
+Completed in 0.00193 (517 reqs/sec) | DB: 0.00096 (49%) | 302 Found [http://test.host/bunny_sessions/current]
+  [4;35;1mSQL (0.034677)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000375)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000440)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+  [4;36;1mBunny Load (0.000432)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00437 (228 reqs/sec) | DB: 0.03592 (822%) | 302 Found [http://test.host/]
+  [4;35;1mSQL (0.000254)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/index
+Completed in 0.00306 (326 reqs/sec) | Rendering: 0.00287 (93%) | DB: 0.00041 (13%) | 200 OK [http://test.host/]
+  [4;35;1mSQL (0.000116)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#privacy (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"privacy", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/privacy
+Completed in 0.00131 (764 reqs/sec) | Rendering: 0.00123 (94%) | DB: 0.00018 (13%) | 200 OK [http://test.host/privacy]
+  [4;35;1mSQL (0.000114)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000312)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000090)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000087)[0m   [0mBEGIN[0m
+
+
+Processing ValentinesController#new (for 0.0.0.0 at 2007-11-19 00:48:13) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"valentines"}
+Rendering template within layouts/application
+Rendering valentines/new
+Completed in 0.00397 (251 reqs/sec) | Rendering: 0.00197 (49%) | DB: 0.00086 (21%) | 200 OK [http://test.host/valentines/new]
+  [4;36;1mSQL (0.000130)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000079)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000491)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000297)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000072)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000235)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000299)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'chrismear' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000207)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:49:33', `crypted_password` = 'ba842fcab40ac1023b5770eb71ca193471402e1f', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:49:33', `updated_at` = '2007-11-19 00:49:33' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000265)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;36;1mSQL (0.000605)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000070)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000240)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000281)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'mearca' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000204)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:49:33', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'mearca', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:49:33', `updated_at` = '2007-11-19 00:49:33' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000231)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'mearca') LIMIT 1[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000094)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000089)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000248)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000225)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'non_existent_user') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000209)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mSQL (0.000078)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000108)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000196)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000180)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 4) [0m
+  [4;35;1mBunny Load (0.000214)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000375)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000073)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000205)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 2) [0m
+  [4;36;1mValentine Load (0.000169)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000251)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000313)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000093)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000260)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000266)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000110)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000083)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000068)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000068)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000066)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000113)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000096)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000080)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000312)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000174)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000218)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mSQL (0.000107)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000096)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000234)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mValentine Load (0.000177)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000216)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mSQL (0.000100)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000134)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000114)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000099)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000095)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000091)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000095)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000247)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000216)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mValentine Create (0.000172)[0m   [0mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:49:33')[0m
+  [4;36;1mSQL (0.000584)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000107)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000292)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000432)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;36;1mBunny Create (0.000290)[0m   [0;1mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('7c0fcacb54710c11856614e0528dd38319b768d9', '2007-11-19 00:57:35', '47f932015cb383c11b2bc67c53acf6cccb6bb198', NULL, NULL, 'zombiebunny', NULL, NULL, '2007-11-19 00:57:35')[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000099)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000508)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000299)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000066)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000235)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000310)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'chrismear' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000212)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:57:59', `crypted_password` = 'ba842fcab40ac1023b5770eb71ca193471402e1f', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:57:59', `updated_at` = '2007-11-19 00:57:59' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000227)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;36;1mSQL (0.000561)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000107)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000286)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000326)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'mearca' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000217)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:57:59', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'mearca', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:57:59', `updated_at` = '2007-11-19 00:57:59' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000241)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'mearca') LIMIT 1[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000149)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000270)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000397)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;36;1mBunny Create (0.000240)[0m   [0;1mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('fe031c138e57b5fd0a59e697d47965d0b2f454f5', '2007-11-19 00:57:59', 'adc5082b47c42d10f6c3ff49067cadaee91feb90', NULL, NULL, 'zombiebunny', NULL, NULL, '2007-11-19 00:57:59')[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000598)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000136)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000401)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000372)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'non_existent_user') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000363)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mSQL (0.000174)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000311)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000291)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 4) [0m
+  [4;35;1mBunny Load (0.000554)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000464)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000916)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000177)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000339)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 2) [0m
+  [4;36;1mValentine Load (0.000201)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000248)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000274)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000090)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000274)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000275)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000143)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000191)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000246)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;35;1mSQL (0.000165)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000070)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000236)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000108)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000147)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000227)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;35;1mSQL (0.000141)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000108)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000095)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000244)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = '') LIMIT 1[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000100)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000743)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000073)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000066)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000194)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mBunny Load (0.000260)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000220)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Create (0.000194)[0m   [0;1mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:57:59')[0m
+  [4;35;1mSQL (0.000175)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000634)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000280)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mValentine Load (0.000185)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000222)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000102)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000232)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000180)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000282)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000107)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000154)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000224)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000213)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000163)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000068)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000181)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000277)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000226)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000152)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000094)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000223)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000219)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000142)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000086)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000233)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000218)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Create (0.000170)[0m   [0;1mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:57:59')[0m
+  [4;35;1mSQL (0.000595)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000133)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:58:05) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000457)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mBunny Update (0.000404)[0m   [0mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:58:05', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'unconfirmed', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-19 00:58:06', `updated_at` = '2007-11-19 00:58:06' WHERE `id` = 2[0m
+Redirected to http://test.host/bunnies/2
+Completed in 0.34188 (2 reqs/sec) | DB: 0.00112 (0%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mBunny Load (0.000464)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mSQL (0.000555)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000404)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.32791 (3 reqs/sec) | Rendering: 0.00475 (1%) | DB: 0.00153 (0%) | 200 OK [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000213)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000148)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#new (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"bunnies"}
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00348 (287 reqs/sec) | Rendering: 0.00327 (94%) | DB: 0.00036 (10%) | 200 OK [http://test.host/bunnies/new]
+  [4;36;1mSQL (0.000135)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000096)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"taz", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000316)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'taz') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000254)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'taz') LIMIT 1[0m
+  [4;35;1mBunny Create (0.000184)[0m   [0mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('0f59967b302919dd2ccfe90393312e4f05a16825', '2007-11-19 00:58:06', 'e7fba398e72ecbb914906c6946a2a463b9551db6', NULL, NULL, 'taz', NULL, NULL, '2007-11-19 00:58:06')[0m
+  [4;36;1mBunny Update (0.000217)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-19 00:58:06', `crypted_password` = 'e7fba398e72ecbb914906c6946a2a463b9551db6', `username` = 'taz', `remember_token_expires_at` = NULL, `salt` = '0f59967b302919dd2ccfe90393312e4f05a16825', `secret` = '8c5746', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:58:06' WHERE `id` = 6[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00437 (229 reqs/sec) | Rendering: 0.00064 (14%) | DB: 0.00148 (33%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=taz]
+  [4;35;1mSQL (0.000186)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000218)[0m   [0;1mSELECT * FROM `bunnies` ORDER BY id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.009950)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000306)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"doesn't matter", "username"=>"chrismear", "password"=>"whatever"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000395)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunny_sessions/new
+Completed in 0.00117 (853 reqs/sec) | DB: 0.01125 (960%) | 302 Found [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=whatever&bunny%5Bpassword_confirmation%5D=doesn%27t+matter&bunny%5Busername%5D=chrismear]
+  [4;35;1mSQL (0.000251)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000107)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"automatic", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000276)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Update (0.000240)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:58:05', `crypted_password` = NULL, `username` = 'automatic', `remember_token_expires_at` = NULL, `salt` = NULL, `secret` = '8c5746', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:58:06' WHERE `id` = 4[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00251 (398 reqs/sec) | Rendering: 0.00062 (24%) | DB: 0.00125 (49%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=automatic]
+  [4;35;1mSQL (0.000181)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000238)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000688)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000179)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"incorrect password confirmation", "username"=>"new_bunny", "password"=>"password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000275)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'new_bunny') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000244)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'new_bunny') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00269 (372 reqs/sec) | Rendering: 0.00114 (42%) | DB: 0.00190 (70%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=password&bunny%5Bpassword_confirmation%5D=incorrect+password+confirmation&bunny%5Busername%5D=new_bunny]
+  [4;36;1mSQL (0.000194)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000109)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000149)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"wrong_password", "username"=>"unconfirmed", "password"=>"wrong_password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000380)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00216 (462 reqs/sec) | Rendering: 0.00111 (51%) | DB: 0.00090 (41%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=wrong_password&bunny%5Bpassword_confirmation%5D=wrong_password&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000221)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000140)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000168)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"qwerty", "username"=>"unconfirmed", "password"=>"qwerty"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000254)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00137 (727 reqs/sec) | Rendering: 0.00054 (39%) | DB: 0.00087 (63%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=qwerty&bunny%5Bpassword_confirmation%5D=qwerty&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000150)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000236)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000091)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000249)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunniesController#show (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000242)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000222)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/show
+  [4;35;1mSQL (0.000196)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.recipient_id = 1) [0m
+  [4;36;1mValentine Load (0.000285)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000213)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.sender_id = 1) [0m
+  [4;36;1mValentine Load (0.000246)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mBunny Load (0.000247)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mBunny Load (0.000241)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+Completed in 0.00899 (111 reqs/sec) | Rendering: 0.00623 (69%) | DB: 0.00272 (30%) | 200 OK [http://test.host/bunnies/1]
+  [4;35;1mSQL (0.000145)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000392)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Redirected to http://test.host/
+Completed in 0.00080 (1254 reqs/sec) | DB: 0.00065 (81%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000161)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000072)[0m   [0mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"bad password"}
+  [4;36;1mBunny Load (0.000350)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunny_sessions/new
+Completed in 0.00508 (196 reqs/sec) | Rendering: 0.00205 (40%) | DB: 0.00058 (11%) | 200 OK [http://test.host/bunny_sessions?password=bad+password&username=chrismear]
+  [4;35;1mSQL (0.000132)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"qwerty"}
+  [4;35;1mBunny Load (0.000289)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00087 (1145 reqs/sec) | DB: 0.00052 (60%) | 302 Found [http://test.host/bunny_sessions?password=qwerty&username=chrismear]
+  [4;36;1mSQL (0.000106)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000062)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000285)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunnySessionsController#destroy (for 0.0.0.0 at 2007-11-19 00:58:06) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"current", "controller"=>"bunny_sessions"}
+  [4;35;1mBunny Load (0.000407)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000267)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:58:05', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:58:05', `updated_at` = '2007-11-19 00:58:06' WHERE `id` = 1[0m
+Cookie set: bunny_auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://test.host/
+Completed in 0.00231 (433 reqs/sec) | DB: 0.00113 (48%) | 302 Found [http://test.host/bunny_sessions/current]
+  [4;35;1mSQL (0.000618)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000265)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+  [4;36;1mBunny Load (0.000285)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00269 (372 reqs/sec) | DB: 0.00124 (46%) | 302 Found [http://test.host/]
+  [4;35;1mSQL (0.000119)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/index
+Completed in 0.00301 (332 reqs/sec) | Rendering: 0.00284 (94%) | DB: 0.00022 (7%) | 200 OK [http://test.host/]
+  [4;35;1mSQL (0.000168)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#privacy (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"privacy", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/privacy
+Completed in 0.00127 (787 reqs/sec) | Rendering: 0.00120 (94%) | DB: 0.00027 (20%) | 200 OK [http://test.host/privacy]
+  [4;35;1mSQL (0.000113)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000297)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+  [4;35;1mBunny Load (0.000260)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Load (0.000241)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'bob') LIMIT 1[0m
+  [4;35;1mValentine Create (0.000165)[0m   [0mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('Back at ya.', 5, 1, '2007-11-19 00:58:06')[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00439 (227 reqs/sec) | DB: 0.00131 (29%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000173)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mValentine Load (0.000187)[0m   [0mSELECT * FROM `valentines` ORDER BY id DESC LIMIT 1[0m
+  [4;36;1mBunny Load (0.000260)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000220)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;36;1mBunny Load (0.000207)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;35;1mSQL (0.000597)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000178)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:58:06) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+Redirected to http://test.host/
+Completed in 0.00018 (5592 reqs/sec) | DB: 0.00191 (1069%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000185)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mSQL (0.000117)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+
+
+Processing ValentinesController#new (for 0.0.0.0 at 2007-11-19 00:58:06) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"valentines"}
+Rendering template within layouts/application
+Rendering valentines/new
+Completed in 0.00400 (249 reqs/sec) | Rendering: 0.00391 (97%) | DB: 0.00040 (9%) | 200 OK [http://test.host/valentines/new]
+  [4;35;1mSQL (0.000145)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000121)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:24) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000466)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mBunny Update (0.000438)[0m   [0mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:24', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'unconfirmed', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-19 00:59:25', `updated_at` = '2007-11-19 00:59:25' WHERE `id` = 2[0m
+Redirected to http://test.host/bunnies/2
+Completed in 0.56100 (1 reqs/sec) | DB: 0.00115 (0%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mBunny Load (0.000456)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mSQL (0.005168)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000410)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000480)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.34274 (2 reqs/sec) | Rendering: 0.00450 (1%) | DB: 0.00651 (1%) | 200 OK [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000214)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000149)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#new (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"bunnies"}
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00316 (316 reqs/sec) | Rendering: 0.00296 (93%) | DB: 0.00036 (11%) | 200 OK [http://test.host/bunnies/new]
+  [4;36;1mSQL (0.000141)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"taz", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000280)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'taz') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000238)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'taz') LIMIT 1[0m
+  [4;35;1mBunny Create (0.000186)[0m   [0mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('318b5735197a475914ee5e0f5f627ac85e56d1cf', '2007-11-19 00:59:25', '55fc2f427c0d02de427deabd43304c8497a29d6e', NULL, NULL, 'taz', NULL, NULL, '2007-11-19 00:59:25')[0m
+  [4;36;1mBunny Update (0.000251)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-19 00:59:25', `crypted_password` = '55fc2f427c0d02de427deabd43304c8497a29d6e', `username` = 'taz', `remember_token_expires_at` = NULL, `salt` = '318b5735197a475914ee5e0f5f627ac85e56d1cf', `secret` = 'a09da1', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:59:25' WHERE `id` = 6[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00431 (232 reqs/sec) | Rendering: 0.00060 (13%) | DB: 0.00142 (32%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=taz]
+  [4;35;1mSQL (0.000180)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000225)[0m   [0;1mSELECT * FROM `bunnies` ORDER BY id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.026828)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000136)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000305)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"doesn't matter", "username"=>"chrismear", "password"=>"whatever"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000277)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunny_sessions/new
+Completed in 0.00077 (1293 reqs/sec) | DB: 0.02795 (3616%) | 302 Found [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=whatever&bunny%5Bpassword_confirmation%5D=doesn%27t+matter&bunny%5Busername%5D=chrismear]
+  [4;35;1mSQL (0.000185)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000136)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"automatic", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000282)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Update (0.000236)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:24', `crypted_password` = NULL, `username` = 'automatic', `remember_token_expires_at` = NULL, `salt` = NULL, `secret` = 'a09da1', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:59:25' WHERE `id` = 4[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00246 (406 reqs/sec) | Rendering: 0.00064 (26%) | DB: 0.00123 (49%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=automatic]
+  [4;35;1mSQL (0.000184)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000256)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000519)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"incorrect password confirmation", "username"=>"new_bunny", "password"=>"password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000284)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'new_bunny') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000407)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'new_bunny') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.04086 (24 reqs/sec) | Rendering: 0.00127 (3%) | DB: 0.00191 (4%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=password&bunny%5Bpassword_confirmation%5D=incorrect+password+confirmation&bunny%5Busername%5D=new_bunny]
+  [4;36;1mSQL (0.000245)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000123)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000167)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"wrong_password", "username"=>"unconfirmed", "password"=>"wrong_password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000271)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00191 (524 reqs/sec) | Rendering: 0.00103 (54%) | DB: 0.00091 (47%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=wrong_password&bunny%5Bpassword_confirmation%5D=wrong_password&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000201)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000112)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000156)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"qwerty", "username"=>"unconfirmed", "password"=>"qwerty"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000251)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00147 (680 reqs/sec) | Rendering: 0.00057 (38%) | DB: 0.00079 (53%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=qwerty&bunny%5Bpassword_confirmation%5D=qwerty&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000236)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000071)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000276)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunniesController#show (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000246)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000248)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/show
+  [4;35;1mSQL (0.000243)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.recipient_id = 1) [0m
+  [4;36;1mValentine Load (0.000283)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000165)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.sender_id = 1) [0m
+  [4;36;1mValentine Load (0.000228)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mBunny Load (0.000229)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mBunny Load (0.000226)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+Completed in 0.00864 (115 reqs/sec) | Rendering: 0.00589 (68%) | DB: 0.00278 (32%) | 200 OK [http://test.host/bunnies/1]
+  [4;35;1mSQL (0.000155)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000334)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Redirected to http://test.host/
+Completed in 0.00075 (1342 reqs/sec) | DB: 0.00056 (75%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000164)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000071)[0m   [0mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"bad password"}
+  [4;36;1mBunny Load (0.000389)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunny_sessions/new
+Completed in 0.00517 (193 reqs/sec) | Rendering: 0.00204 (39%) | DB: 0.00062 (12%) | 200 OK [http://test.host/bunny_sessions?password=bad+password&username=chrismear]
+  [4;35;1mSQL (0.000159)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"qwerty"}
+  [4;35;1mBunny Load (0.000308)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00087 (1149 reqs/sec) | DB: 0.00057 (65%) | 302 Found [http://test.host/bunny_sessions?password=qwerty&username=chrismear]
+  [4;36;1mSQL (0.000117)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000136)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000273)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunnySessionsController#destroy (for 0.0.0.0 at 2007-11-19 00:59:25) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"current", "controller"=>"bunny_sessions"}
+  [4;35;1mBunny Load (0.000291)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000200)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:24', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:59:24', `updated_at` = '2007-11-19 00:59:25' WHERE `id` = 1[0m
+Cookie set: bunny_auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://test.host/
+Completed in 0.00208 (481 reqs/sec) | DB: 0.00102 (48%) | 302 Found [http://test.host/bunny_sessions/current]
+  [4;35;1mSQL (0.000592)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000259)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+  [4;36;1mBunny Load (0.000264)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00263 (379 reqs/sec) | DB: 0.00119 (45%) | 302 Found [http://test.host/]
+  [4;35;1mSQL (0.000118)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/index
+Completed in 0.00297 (336 reqs/sec) | Rendering: 0.00280 (94%) | DB: 0.00019 (6%) | 200 OK [http://test.host/]
+  [4;35;1mSQL (0.000135)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#privacy (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"privacy", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/privacy
+Completed in 0.00125 (801 reqs/sec) | Rendering: 0.00118 (94%) | DB: 0.00021 (16%) | 200 OK [http://test.host/privacy]
+  [4;35;1mSQL (0.000120)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000340)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+  [4;35;1mBunny Load (0.000342)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Load (0.000245)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'bob') LIMIT 1[0m
+  [4;35;1mValentine Create (0.000169)[0m   [0mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('Back at ya.', 5, 1, '2007-11-19 00:59:25')[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00528 (189 reqs/sec) | DB: 0.00147 (27%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000176)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mValentine Load (0.000207)[0m   [0mSELECT * FROM `valentines` ORDER BY id DESC LIMIT 1[0m
+  [4;36;1mBunny Load (0.000247)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000225)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;36;1mBunny Load (0.000227)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;35;1mSQL (0.000588)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000177)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:59:25) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+Redirected to http://test.host/
+Completed in 0.00016 (6132 reqs/sec) | DB: 0.00216 (1322%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000187)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mSQL (0.000114)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+
+
+Processing ValentinesController#new (for 0.0.0.0 at 2007-11-19 00:59:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"valentines"}
+Rendering template within layouts/application
+Rendering valentines/new
+Completed in 0.00208 (480 reqs/sec) | Rendering: 0.00198 (95%) | DB: 0.00037 (17%) | 200 OK [http://test.host/valentines/new]
+  [4;35;1mSQL (0.000132)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000104)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000690)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000490)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000075)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000255)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000330)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'chrismear' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000303)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:29', `crypted_password` = 'ba842fcab40ac1023b5770eb71ca193471402e1f', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:59:29', `updated_at` = '2007-11-19 00:59:29' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.001189)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;36;1mSQL (0.000640)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000098)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000259)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000310)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'mearca' AND bunnies.id <> 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000211)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:29', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'mearca', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:59:29', `updated_at` = '2007-11-19 00:59:29' WHERE `id` = 1[0m
+  [4;35;1mBunny Load (0.000233)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'mearca') LIMIT 1[0m
+  [4;36;1mSQL (0.000582)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000089)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000588)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;36;1mBunny Create (0.000202)[0m   [0;1mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('55a82424441b3637c574bec87951dbe29dfc81e8', '2007-11-19 00:59:29', 'd455f2421b1c8a8315b9a339551591428d508303', NULL, NULL, 'zombiebunny', NULL, NULL, '2007-11-19 00:59:29')[0m
+  [4;35;1mSQL (0.000149)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000072)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000259)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000220)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'non_existent_user') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000247)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+  [4;35;1mSQL (0.000123)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000205)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 3) [0m
+  [4;36;1mValentine Load (0.000166)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 4) [0m
+  [4;35;1mBunny Load (0.000255)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000262)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000106)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mBEGIN[0m
+  [4;35;1mValentine Load (0.000186)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 2) [0m
+  [4;36;1mValentine Load (0.000187)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000244)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000256)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.000132)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000248)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000252)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000227)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000109)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000158)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000243)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;35;1mSQL (0.000141)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000093)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000237)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000098)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000152)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000229)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'zombiebunny') LIMIT 1[0m
+  [4;35;1mSQL (0.000140)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000097)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000082)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000228)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = '') LIMIT 1[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000097)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000108)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000096)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000177)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mBunny Load (0.000239)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000221)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Create (0.000168)[0m   [0;1mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:59:30')[0m
+  [4;35;1mSQL (0.000162)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000069)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000240)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mValentine Load (0.000184)[0m   [0mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000217)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000088)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000239)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mValentine Load (0.000176)[0m   [0;1mSELECT * FROM `valentines` WHERE (`valentines`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000221)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000086)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000161)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000214)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000197)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000154)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000098)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000231)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000223)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000206)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000262)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mBunny Load (0.000231)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000240)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000148)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000071)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000229)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000259)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+  [4;36;1mValentine Create (0.000174)[0m   [0;1mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('I choo-choo-choose you!', 3, 1, '2007-11-19 00:59:30')[0m
+  [4;35;1mSQL (0.000559)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000094)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:31) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000400)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mBunny Update (0.000411)[0m   [0mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:31', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'unconfirmed', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-19 00:59:31', `updated_at` = '2007-11-19 00:59:31' WHERE `id` = 2[0m
+Redirected to http://test.host/bunnies/2
+Completed in 0.38458 (2 reqs/sec) | DB: 0.00103 (0%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mBunny Load (0.000505)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;35;1mSQL (0.010127)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:31) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000816)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.39225 (2 reqs/sec) | Rendering: 0.00535 (1%) | DB: 0.01159 (2%) | 200 OK [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000205)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000076)[0m   [0mBEGIN[0m
+
+
+Processing BunniesController#new (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"bunnies"}
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00234 (427 reqs/sec) | Rendering: 0.00220 (93%) | DB: 0.00028 (12%) | 200 OK [http://test.host/bunnies/new]
+  [4;36;1mSQL (0.000138)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000233)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"taz", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000277)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'taz') LIMIT 1[0m
+  [4;36;1mBunny Load (0.000244)[0m   [0;1mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'taz') LIMIT 1[0m
+  [4;35;1mBunny Create (0.000184)[0m   [0mINSERT INTO `bunnies` (`salt`, `updated_at`, `crypted_password`, `secret_confirmed_at`, `remember_token_expires_at`, `username`, `remember_token`, `secret`, `created_at`) VALUES('88e05420e82f6a4d7fda3726d4d8730d3113b8eb', '2007-11-19 00:59:32', '0ca5a2f80bd8b2438e0bdb066e4c810016952cdc', NULL, NULL, 'taz', NULL, NULL, '2007-11-19 00:59:32')[0m
+  [4;36;1mBunny Update (0.000221)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-19 00:59:32', `crypted_password` = '0ca5a2f80bd8b2438e0bdb066e4c810016952cdc', `username` = 'taz', `remember_token_expires_at` = NULL, `salt` = '88e05420e82f6a4d7fda3726d4d8730d3113b8eb', `secret` = '73223f', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:59:32' WHERE `id` = 7[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00429 (233 reqs/sec) | Rendering: 0.00059 (13%) | DB: 0.00137 (31%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=taz]
+  [4;35;1mSQL (0.000182)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000252)[0m   [0;1mSELECT * FROM `bunnies` ORDER BY id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.010608)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000143)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000285)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"doesn't matter", "username"=>"chrismear", "password"=>"whatever"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000384)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunny_sessions/new
+Completed in 0.00109 (914 reqs/sec) | DB: 0.01185 (1084%) | 302 Found [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=whatever&bunny%5Bpassword_confirmation%5D=doesn%27t+matter&bunny%5Busername%5D=chrismear]
+  [4;35;1mSQL (0.000429)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000300)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000271)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"letmein", "username"=>"automatic", "password"=>"letmein"}, "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000288)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;36;1mBunny Update (0.000227)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:31', `crypted_password` = NULL, `username` = 'automatic', `remember_token_expires_at` = NULL, `salt` = NULL, `secret` = '73223f', `remember_token` = NULL, `secret_confirmed_at` = NULL, `updated_at` = '2007-11-19 00:59:32' WHERE `id` = 4[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00240 (416 reqs/sec) | Rendering: 0.00062 (25%) | DB: 0.00172 (71%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=letmein&bunny%5Bpassword_confirmation%5D=letmein&bunny%5Busername%5D=automatic]
+  [4;35;1mSQL (0.000174)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;36;1mBunny Load (0.000236)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'automatic') LIMIT 1[0m
+  [4;35;1mSQL (0.000657)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000173)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"incorrect password confirmation", "username"=>"new_bunny", "password"=>"password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000251)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'new_bunny') LIMIT 1[0m
+  [4;35;1mBunny Load (0.000419)[0m   [0mSELECT * FROM `bunnies` WHERE (LOWER(bunnies.username) = 'new_bunny') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.04111 (24 reqs/sec) | Rendering: 0.00121 (2%) | DB: 0.00198 (4%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=password&bunny%5Bpassword_confirmation%5D=incorrect+password+confirmation&bunny%5Busername%5D=new_bunny]
+  [4;36;1mSQL (0.000213)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000117)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000153)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"wrong_password", "username"=>"unconfirmed", "password"=>"wrong_password"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000278)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/new
+Completed in 0.00200 (500 reqs/sec) | Rendering: 0.00104 (51%) | DB: 0.00083 (41%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=wrong_password&bunny%5Bpassword_confirmation%5D=wrong_password&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000178)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mSQL (0.000110)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000073)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000145)[0m   [0mSELECT count(*) AS count_all FROM `bunnies` [0m
+
+
+Processing BunniesController#secret (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"secret", "bunny"=>{"password_confirmation"=>"qwerty", "username"=>"unconfirmed", "password"=>"qwerty"}, "controller"=>"bunnies"}
+  [4;36;1mBunny Load (0.000258)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'unconfirmed') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/secret
+Completed in 0.00138 (724 reqs/sec) | Rendering: 0.00055 (39%) | DB: 0.00076 (55%) | 200 OK [http://test.host/bunnies/new/secret?bunny%5Bpassword%5D=qwerty&bunny%5Bpassword_confirmation%5D=qwerty&bunny%5Busername%5D=unconfirmed]
+  [4;36;1mSQL (0.000392)[0m   [0;1mSELECT count(*) AS count_all FROM `bunnies` [0m
+  [4;35;1mBunny Load (0.000251)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000072)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000257)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunniesController#show (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000260)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mBunny Load (0.000232)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunnies/show
+  [4;35;1mSQL (0.000226)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.recipient_id = 1) [0m
+  [4;36;1mValentine Load (0.000254)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.recipient_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mSQL (0.001375)[0m   [0mSELECT count(*) AS count_all FROM `valentines` WHERE (valentines.sender_id = 1) [0m
+  [4;36;1mValentine Load (0.000422)[0m   [0;1mSELECT * FROM `valentines` WHERE (valentines.sender_id = 1) ORDER BY created_at DESC[0m
+  [4;35;1mBunny Load (0.000224)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+  [4;36;1mBunny Load (0.000270)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 3) [0m
+Completed in 0.01025 (97 reqs/sec) | Rendering: 0.00610 (59%) | DB: 0.00436 (42%) | 200 OK [http://test.host/bunnies/1]
+  [4;35;1mSQL (0.000150)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mBEGIN[0m
+
+
+Processing BunniesController#check (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"check", "id"=>"2", "controller"=>"bunnies"}
+  [4;35;1mBunny Load (0.000297)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 2) [0m
+Redirected to http://test.host/
+Completed in 0.00070 (1430 reqs/sec) | DB: 0.00055 (78%) | 302 Found [http://test.host/bunnies/2/check]
+  [4;36;1mSQL (0.000147)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000073)[0m   [0mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"bad password"}
+  [4;36;1mBunny Load (0.000330)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering bunny_sessions/new
+Completed in 0.00481 (207 reqs/sec) | Rendering: 0.00203 (42%) | DB: 0.00055 (11%) | 200 OK [http://test.host/bunny_sessions?password=bad+password&username=chrismear]
+  [4;35;1mSQL (0.000141)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mBEGIN[0m
+
+
+Processing BunnySessionsController#create (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "username"=>"chrismear", "controller"=>"bunny_sessions", "password"=>"qwerty"}
+  [4;35;1mBunny Load (0.000355)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'chrismear') LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00096 (1043 reqs/sec) | DB: 0.00067 (69%) | 302 Found [http://test.host/bunny_sessions?password=qwerty&username=chrismear]
+  [4;36;1mSQL (0.000127)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000104)[0m   [0mBEGIN[0m
+  [4;36;1mBunny Load (0.000268)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing BunnySessionsController#destroy (for 0.0.0.0 at 2007-11-19 00:59:32) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"current", "controller"=>"bunny_sessions"}
+  [4;35;1mBunny Load (0.000244)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Update (0.000208)[0m   [0;1mUPDATE `bunnies` SET `created_at` = '2007-11-18 00:59:31', `crypted_password` = 'f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1', `username` = 'chrismear', `remember_token_expires_at` = NULL, `salt` = '45b80f0fc55f994d2056e59ea4ff1503d11a0e49', `secret` = 'abcdef', `remember_token` = NULL, `secret_confirmed_at` = '2007-11-18 01:59:31', `updated_at` = '2007-11-19 00:59:32' WHERE `id` = 1[0m
+Cookie set: bunny_auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://test.host/
+Completed in 0.00186 (536 reqs/sec) | DB: 0.00095 (51%) | 302 Found [http://test.host/bunny_sessions/current]
+  [4;35;1mSQL (0.000581)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000353)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000290)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+  [4;36;1mBunny Load (0.000276)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00269 (371 reqs/sec) | DB: 0.00150 (55%) | 302 Found [http://test.host/]
+  [4;35;1mSQL (0.000107)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#index (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/index
+Completed in 0.00296 (337 reqs/sec) | Rendering: 0.00280 (94%) | DB: 0.00018 (6%) | 200 OK [http://test.host/]
+  [4;35;1mSQL (0.000124)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mBEGIN[0m
+
+
+Processing MiscController#privacy (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"privacy", "controller"=>"misc"}
+Rendering template within layouts/application
+Rendering misc/privacy
+Completed in 0.00124 (806 reqs/sec) | Rendering: 0.00117 (94%) | DB: 0.00023 (18%) | 200 OK [http://test.host/privacy]
+  [4;35;1mSQL (0.000097)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+  [4;35;1mBunny Load (0.000306)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+  [4;35;1mBunny Load (0.000309)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) LIMIT 1[0m
+  [4;36;1mBunny Load (0.000236)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`username` = 'bob') LIMIT 1[0m
+  [4;35;1mValentine Create (0.000181)[0m   [0mINSERT INTO `valentines` (`message`, `recipient_id`, `sender_id`, `created_at`) VALUES('Back at ya.', 5, 1, '2007-11-19 00:59:32')[0m
+Redirected to http://test.host/bunnies/1
+Completed in 0.00470 (212 reqs/sec) | DB: 0.00135 (28%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000174)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mValentine Load (0.000210)[0m   [0mSELECT * FROM `valentines` ORDER BY id DESC LIMIT 1[0m
+  [4;36;1mBunny Load (0.000258)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 1) [0m
+  [4;35;1mBunny Load (0.000240)[0m   [0mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;36;1mBunny Load (0.000245)[0m   [0;1mSELECT * FROM `bunnies` WHERE (`bunnies`.`id` = 5) [0m
+  [4;35;1mSQL (0.000607)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000177)[0m   [0mSELECT count(*) AS count_all FROM `valentines` [0m
+
+
+Processing ValentinesController#create (for 0.0.0.0 at 2007-11-19 00:59:32) [POST]
+  Session ID: 
+  Parameters: {"message"=>"Back at ya.", "recipient"=>"bob", "action"=>"create", "controller"=>"valentines"}
+Redirected to http://test.host/
+Completed in 0.00016 (6213 reqs/sec) | DB: 0.00202 (1253%) | 302 Found [http://test.host/valentines?message=Back+at+ya.&recipient=bob]
+  [4;36;1mSQL (0.000154)[0m   [0;1mSELECT count(*) AS count_all FROM `valentines` [0m
+  [4;35;1mSQL (0.000096)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mBEGIN[0m
+
+
+Processing ValentinesController#new (for 0.0.0.0 at 2007-11-19 00:59:32) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"valentines"}
+Rendering template within layouts/application
+Rendering valentines/new
+Completed in 0.00206 (485 reqs/sec) | Rendering: 0.00199 (96%) | DB: 0.00032 (15%) | 200 OK [http://test.host/valentines/new]
+  [4;35;1mSQL (0.000126)[0m   [0mROLLBACK[0m
