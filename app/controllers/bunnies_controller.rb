@@ -1,4 +1,6 @@
 class BunniesController < ApplicationController
+  before_filter :bunny_login_required, :only => :show
+  
   def new
     @bunny = Bunny.new
   end
@@ -54,10 +56,6 @@ class BunniesController < ApplicationController
   
   def show
     @bunny = current_bunny
-    unless @bunny
-      reset_session
-      redirect_to(homepage_path) and return
-    end
     
     @received_valentines = @bunny.received_valentines
     @sent_valentines = @bunny.sent_valentines

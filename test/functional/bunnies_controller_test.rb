@@ -180,6 +180,6 @@ class BunniesControllerTest < Test::Unit::TestCase
     get :show, :id => "current"
     
     assert_response :redirect
-    assert_redirected_to "/"
+    assert_redirected_to "/bunny_sessions/new"
   end
 end
