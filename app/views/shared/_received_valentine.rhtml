@@ -1,0 +1,4 @@
+<li id="received_valentine_<%= v.id %>">
+  <%= htmlize_linebreaks(h(decode_message(v.message))) %><br />
+  <em><%= v.created_at.to_s(:short_timestamp) %></em>
+</li>

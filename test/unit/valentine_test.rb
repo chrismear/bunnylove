@@ -54,6 +54,13 @@ class ValentineTest < Test::Unit::TestCase
     assert_equal "V pubb-pubb-pubbfr lbh!", valentine.message
   end
   
+  def test_instantiating_valentine_with_empty_message
+    # Make sure we don't try and call nil.tr
+    assert_nothing_raised do
+      valentine = Valentine.new(:message => nil)
+    end
+  end
+  
   private
   
   def create_valentine(options={})

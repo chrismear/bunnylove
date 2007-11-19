@@ -13,6 +13,10 @@ class Valentine < ActiveRecord::Base
   end
   
   def Valentine.rot13(missive)
-    missive.tr "A-Za-z", "N-ZA-Mn-za-m"
+    if missive.respond_to?(:tr)
+      missive.tr "A-Za-z", "N-ZA-Mn-za-m"
+    else
+      nil
+    end
   end
 end

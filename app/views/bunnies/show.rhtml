@@ -7,12 +7,9 @@
   <p>Oh no! You don't have any valentines yet!</p>
 <% else -%>
   <p>You've received <%= pluralize(@received_valentines.length, "valentine") %>, you lucky bunny!</p>
-  <ul>
+  <ul id="received_valentines">
   <% @received_valentines.each do |v| -%>
-    <li>
-      <%= htmlize_linebreaks(h(decode_message(v.message))) %><br />
-      <em><%= v.created_at.to_s(:short_timestamp) %></em>
-    </li>
+    <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
   <% end -%>
   </ul>
 <% end -%>
@@ -22,25 +19,22 @@
   <p>You haven't sent any valentines yet!</p>
 <% else -%>
   <p>You've sent <%= pluralize(@sent_valentines.length, "valentine") %> so far</p>
-  <ul>
+  <ul id="sent_valentines">
   <% @sent_valentines.each do |v| -%>
-    <li>
-      <strong>To: <%=h v.recipient_username %></strong><br />
-      <%= htmlize_linebreaks(h(decode_message(v.message))) %><br />
-      <em><%= v.created_at.to_s(:short_timestamp) %></em>
-    </li>
+    <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
   <% end -%>
   </ul>
 <% end -%>
 
 
 <h3>Send an anonymous Valentine</h3>
-<% form_tag valentines_path do -%>
+<p class="errorMessage" style="display: none" id="create_valentine_form_error"></p>
+<% form_remote_tag :url => valentines_path, :html => {:action => valentines_path, :id => "create_valentine_form"}, :after => "createValentineFormSubmit()", :complete => "createValentineFormComplete()" do -%>
   <p>Who are you sending this anonymous Valentine to? (Just the username, please!)<br />
   <%= text_field_tag :recipient, @recipient, :size => 30 %></p>
   <p>And what would you like to say? (Keep it clean and friendly, pwetty pwease.)<br />
   <%= text_area_tag :message, @message, :rows => 10, :cols => 50 %></p>
   <p>Happy? All good? Then...<br />
-  <%= submit_tag "...send my Valentine!" %></p>
+  <%= submit_tag "...send my Valentine!", :id => "create_valentine_form_submit" %></p>
 <% end -%>
   

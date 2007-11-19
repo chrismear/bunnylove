@@ -64,12 +64,12 @@ class BunnyTest < Test::Unit::TestCase
     assert_nil bunny
   end
   
-  def test_should_have_sent_valentines
-    assert_equal [valentines(:to_unconfirmed_bunny), valentines(:to_confirmed_bunny)],
+  def test_should_have_sent_valentines_in_date_order
+    assert_equal [valentines(:to_confirmed_bunny), valentines(:to_unconfirmed_bunny)],
       bunnies(:chrismear).sent_valentines
   end
   
-  def test_should_have_received_valentines
+  def test_should_have_received_valentines_in_reverse_date_order
     assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob)],
       bunnies(:chrismear).received_valentines
   end

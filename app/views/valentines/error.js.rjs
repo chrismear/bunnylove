@@ -1,0 +1,4 @@
+page.replace_html("create_valentine_form_error", flash[:error])
+page.show("create_valentine_form_error")
+page << "createValentineFormComplete();"
+page << "Form.focusFirstElement('create_valentine_form');"

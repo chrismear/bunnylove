@@ -72,6 +72,8 @@ class BunniesControllerTest < Test::Unit::TestCase
     assert_select "form[action=/bunnies/2/check][method=post]" do
       assert_select "input[type=submit]"
     end
+    # TODO test that password is set
+    flunk
   end
   
   def test_secret_with_unconfirmed_bunny_which_already_has_password_and_bad_password_has_been_entered
@@ -102,7 +104,8 @@ class BunniesControllerTest < Test::Unit::TestCase
       assert_select "input[type=submit]"
     end
     
-    
+    # TODO test that password is set
+    flunk
   end
   
   def test_secret_with_new_bunny_and_errors

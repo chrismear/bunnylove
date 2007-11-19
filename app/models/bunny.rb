@@ -4,7 +4,7 @@ require 'uri'
 class Bunny < ActiveRecord::Base
   acts_as_authenticated
   
-  has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "created_at DESC"
+  has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "created_at ASC"
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
   def signed_up?
