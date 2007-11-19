@@ -4,7 +4,7 @@ module AuthenticatedTestHelper
   def login_as(options)
     raise ArgumentError, "User type not specified" unless options.respond_to?(:keys)
     user_type = options.keys.first
-    plural_user_type = (user_type.to_s + 's').to_sym
+    plural_user_type = (user_type.to_s.pluralize).to_sym
     user = options.values.first
     @request.session[user_type] = user ? self.send(plural_user_type, user).id : nil
   end

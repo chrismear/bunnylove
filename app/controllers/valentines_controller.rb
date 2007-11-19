@@ -6,7 +6,7 @@ class ValentinesController < ApplicationController
     sender = current_bunny
     unless sender
       reset_session
-      redirect_to(homepage_path)
+      redirect_to(homepage_path) and return
     end
     
     @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create(:username => params[:recipient])

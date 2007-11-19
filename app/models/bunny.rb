@@ -19,15 +19,11 @@ class Bunny < ActiveRecord::Base
   def check_secret!
     response = Net::HTTP.get_response(URI.parse("http://metachat.org/users/#{self.username}"))
     
-    if response.body =~ Regexp.new(self.secret)
+    if Metachat.check_secret(self.username, self.secret)
       self.update_attribute(:secret_confirmed_at, Time.now.utc)
       true
     else
       false
     end
-  end
-  
-  def password_required?
-    false
   end
 end

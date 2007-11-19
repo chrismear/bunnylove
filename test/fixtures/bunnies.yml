@@ -1,5 +1,37 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+chrismear:
   id: 1
-two:
+  username: chrismear
+  crypted_password: f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1 # qwerty
+  salt: 45b80f0fc55f994d2056e59ea4ff1503d11a0e49
+  created_at: <%= 1.day.ago.to_s(:db) %>
+  secret_confirmed_at: <%= 23.hours.ago.to_s(:db) %>
+  secret: abcdef
+
+unconfirmed_bunny:
   id: 2
+  username: unconfirmed
+  crypted_password: f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1 # qwerty
+  salt: 45b80f0fc55f994d2056e59ea4ff1503d11a0e49
+  created_at: <%= 1.day.ago.to_s(:db) %>
+  secret: abcdef
+
+confirmed_bunny:
+  id: 3
+  username: confirmed
+  crypted_password: f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1 # qwerty
+  salt: 45b80f0fc55f994d2056e59ea4ff1503d11a0e49
+  created_at: <%= 1.day.ago.to_s(:db) %>
+  secret: 12b345
+
+automatically_created_bunny:
+  id: 4
+  username: automatic
+  created_at: <%= 1.day.ago.to_s(:db) %>
+
+bob:
+  id: 5
+  username: bob
+  crypted_password: f9a0be9dfca2ff6f29f3145f2a6bff0267c744d1 # qwerty
+  salt: 45b80f0fc55f994d2056e59ea4ff1503d11a0e49
+  created_at: <%= 1.day.ago.to_s(:db) %>
+  secret: 12b345

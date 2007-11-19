@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+include AuthenticatedTestHelper
 
 class Test::Unit::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -25,4 +26,29 @@ class Test::Unit::TestCase
   self.use_instantiated_fixtures  = false
 
   # Add more helper methods to be used by all tests here...
+  
+  def assert_sign_up_form
+    assert_select "form[action=/bunnies/new;secret][method=post]" do
+      assert_select "input[name='bunny[username]']"
+      assert_select "input[name='bunny[password]'][type=password]"
+      assert_select "input[name='bunny[password_confirmation]'][type=password]"
+      assert_select "input[type=submit]"
+    end
+  end
+  
+  def assert_login_form
+    assert_select "form[action=/bunny_sessions][method=post]" do
+      assert_select "input[name=username]"
+      assert_select "input[name=password][type=password]"
+      assert_select "input[type=submit]"
+    end
+  end
+  
+  def assert_new_valentine_form
+    assert_select "form[action=/valentines][method=post]" do
+      assert_select "input[name=recipient]"
+      assert_select "textarea[name=message]"
+      assert_select "input[type=submit]"
+    end
+  end
 end
