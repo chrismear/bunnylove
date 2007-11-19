@@ -14,6 +14,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
   end
   
   def test_new
+    login_as(:bunny => :chrismear)
     get :new
     assert_response :success
     assert_template "valentines/new"
@@ -41,7 +42,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
       post :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :redirect
-    assert_redirected_to "/"
+    assert_redirected_to "/bunny_sessions/new"
     assert_nil @response.session[:bunny]
   end
 end

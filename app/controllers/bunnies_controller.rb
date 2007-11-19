@@ -1,5 +1,6 @@
 class BunniesController < ApplicationController
   before_filter :bunny_login_required, :only => :show
+  layout "logged_in", :only => :show
   
   def new
     @bunny = Bunny.new

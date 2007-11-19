@@ -1,4 +1,6 @@
 class ValentinesController < ApplicationController
+  before_filter :bunny_login_required
+  
   def new
   end
   
@@ -41,6 +43,15 @@ class ValentinesController < ApplicationController
           render(:action => :error)
         end
       end
+    end
+  end
+  
+  def received
+    @bunny = current_bunny
+    @received_valentines = @bunny.received_valentines
+    respond_to do |format|
+      format.html
+      format.rss
     end
   end
 end

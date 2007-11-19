@@ -116,6 +116,11 @@ module AuthenticatedSystem
           headers["WWW-Authenticate"] = %(Basic realm="Web Password")
           render :text => "Couldn't authenticate you", :status => '401 Unauthorized'
         end
+        accepts.rss do
+          headers["Status"]           = "Unauthorized"
+          headers["WWW-Authenticate"] = %(Basic realm="Web Password")
+          render :text => "Couldn't authenticate you", :status => '401 Unauthorized'
+        end
       end
       false
     end

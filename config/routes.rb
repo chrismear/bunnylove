@@ -3,7 +3,8 @@ ActionController::Routing::Routes.draw do |map|
                 :new => {:secret => :post},
                 :member => {:check => :post}
   map.resources "bunny_sessions"
-  map.resources "valentines"
+  map.resources "valentines",
+                :collection => {:received => :get}
   
   map.homepage "/", :controller => "misc", :action => "index"
   map.privacy "/privacy", :controller => "misc", :action => "privacy"
