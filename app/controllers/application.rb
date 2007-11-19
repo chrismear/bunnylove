@@ -2,8 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_bunnylove_session_id'
+  filter_parameter_logging :password
   
   include AuthenticatedSystem
 end
