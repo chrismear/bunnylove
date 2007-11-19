@@ -175,4 +175,11 @@ class BunniesControllerTest < Test::Unit::TestCase
     # Logout link
     assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
   end
+  
+  def test_show_when_not_logged_in
+    get :show, :id => "current"
+    
+    assert_response :redirect
+    assert_redirected_to "/"
+  end
 end
