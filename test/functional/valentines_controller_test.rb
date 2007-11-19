@@ -32,7 +32,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
     
     assert_equal bunnies(:chrismear), valentine.sender
     assert_equal bunnies(:bob), valentine.recipient
-    assert_equal "Back at ya.", valentine.message
+    assert_equal "Onpx ng ln.", valentine.message
     assert valentine.created_at
   end
   

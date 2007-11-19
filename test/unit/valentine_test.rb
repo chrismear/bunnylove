@@ -44,6 +44,16 @@ class ValentineTest < Test::Unit::TestCase
     assert valentine.created_at
   end
   
+  def test_rot13
+    assert_equal "Ebfrf ner erq", Valentine.rot13("Roses are red")
+    assert_equal "Chapghngvba, pvgl!", Valentine.rot13("Punctuation, city!")
+  end
+  
+  def test_saving_valentine_rot13s_message
+    valentine = create_valentine
+    assert_equal "V pubb-pubb-pubbfr lbh!", valentine.message
+  end
+  
   private
   
   def create_valentine(options={})

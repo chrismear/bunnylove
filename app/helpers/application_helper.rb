@@ -20,4 +20,8 @@ module ApplicationHelper
       content_tag("ul", error_messages, :class => "error_messages")
     end
   end
+  
+  def decode_message(message)
+    Valentine.rot13(message)
+  end
 end

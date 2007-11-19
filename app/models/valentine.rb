@@ -7,4 +7,12 @@ class Valentine < ActiveRecord::Base
   def recipient_username
     self.recipient.username if self.recipient
   end
+  
+  def message=(new_message)
+    self.write_attribute("message", self.class.rot13(new_message))
+  end
+  
+  def Valentine.rot13(missive)
+    missive.tr "A-Za-z", "N-ZA-Mn-za-m"
+  end
 end
