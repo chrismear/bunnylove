@@ -70,7 +70,7 @@ ActiveRecord::Base.send(:include, ActiveRecord::Acts::Authenticated)
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!( 
   :full => "%d %B %Y",
   :dmy => "%d/%m/%Y",
-  :short_timestamp => "%H:%M:%S %d %B %Y"
+  :short_timestamp => "at %I:%M %p on %d %B, %Y"
 ) 
 
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!( 

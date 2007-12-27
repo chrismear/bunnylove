@@ -43,8 +43,29 @@ a:hover {
   text-decoration: none;
 }
 
-li {
-  margin-bottom: 0.5em;
+ul#sent_valentines, ul#received_valentines {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 1em;
+}
+
+ul#sent_valentines li, ul#received_valentines li {
+  margin: 0 0 0.5em;
+  padding: 5px;
+  background-color: #e2acad;
+}
+
+ul#sent_valentines li div, ul#received_valentines li div {
+  margin: 0.5em 0;
+  font-family: Georgia, Garamond, Times, "Times New Roman", serif;
+}
+
+ul#sent_valentines li p, ul#received_valentines li p {
+  margin: 0.5em 0;
+}
+
+.timestamp {
+  font-size: 0.8em;
 }
 
 #footer {
@@ -74,4 +95,31 @@ p.successMessage {
    background-position: 15px 50%;
    color: white;
    padding: 5px 10px 5px 40px;
+}
+
+div.received_container, div.sent_container {
+  width: 48%;
+  float: left;
+  text-align: center;
+}
+
+div.send_container {
+  text-align: center;
+}
+
+div.send_container input {
+  width: 300px;
+  text-align: center;
+}
+
+div.send_container textarea {
+  text-align: center;
+  font-family: Georgia, Garamond, Times, "Times New Roman", serif;
+  font-size: small;
+  width: 300px;
+}
+
+
+.clear {
+  clear: both;
 }

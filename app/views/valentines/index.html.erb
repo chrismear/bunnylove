@@ -1,38 +1,43 @@
 <%= standard_flashes %>
 
-<h3>Valentines you've received</h3>
-<% if @received_valentines.empty? -%>
-  <p>Oh no! You don't have any valentines yet!</p>
-<% else -%>
-  <p>You've received <%= pluralize(@received_valentines.length, "valentine") %>, you lucky bunny!</p>
-<% end -%>
-<ul id="received_valentines">
-<% @received_valentines.each do |v| -%>
-  <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
-<% end -%>
-</ul>
+<div class="send_container">
+  <h3>Send an anonymous Valentine</h3>
+  <p class="errorMessage" style="display: none" id="create_valentine_form_error"></p>
+  <% form_remote_tag :url => valentines_path, :html => {:action => valentines_path, :id => "create_valentine_form"}, :after => "createValentineFormSubmit()", :complete => "createValentineFormComplete()" do -%>
+    <p><label>Who are you sending this anonymous Valentine to?</label> <span>Just the username, thanks.</span><br />
+    <%= text_field_tag :recipient, @recipient %></p>
+    <p><label>And what would you like to say?</label> <span>Keep it clean and friendly, pwetty pwease!</span><br />
+    <%= text_area_tag :message, @message, :rows => 5 %></p>
+    <p><%= submit_tag "Send my Valentine!", :id => "create_valentine_form_submit" %></p>
+  <% end -%>
+</div>
 
-<h3>Valentines you've sent</h3>
-<% if @sent_valentines.empty? -%>
-  <p>You haven't sent any valentines yet!</p>
-<% else -%>
-  <p>You've sent <%= pluralize(@sent_valentines.length, "valentine") %> so far</p>
-<% end -%>
-<ul id="sent_valentines">
-<% @sent_valentines.each do |v| -%>
-  <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
-<% end -%>
-</ul>
+<div class="received_container">
+  <h3>Valentines you've received</h3>
+  <% if @received_valentines.empty? -%>
+    <p>Oh no! You don't have any valentines yet!</p>
+  <% else -%>
+    <p>You've received <%= pluralize(@received_valentines.length, "valentine") %>, you lucky bunny!</p>
+  <% end -%>
+  <ul id="received_valentines">
+  <% @received_valentines.each do |v| -%>
+    <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
+  <% end -%>
+  </ul>
+</div>
 
+<div class="sent_container">
+  <h3>Valentines you've sent</h3>
+  <% if @sent_valentines.empty? -%>
+    <p>You haven't sent any valentines yet!</p>
+  <% else -%>
+    <p>You've sent <%= pluralize(@sent_valentines.length, "valentine") %> so far. How nice of you!</p>
+  <% end -%>
+  <ul id="sent_valentines">
+  <% @sent_valentines.each do |v| -%>
+    <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
+  <% end -%>
+  </ul>
+</div>
 
-<h3>Send an anonymous Valentine</h3>
-<p class="errorMessage" style="display: none" id="create_valentine_form_error"></p>
-<% form_remote_tag :url => valentines_path, :html => {:action => valentines_path, :id => "create_valentine_form"}, :after => "createValentineFormSubmit()", :complete => "createValentineFormComplete()" do -%>
-  <p>Who are you sending this anonymous Valentine to? (Just the username, please!)<br />
-  <%= text_field_tag :recipient, @recipient, :size => 30 %></p>
-  <p>And what would you like to say? (Keep it clean and friendly, pwetty pwease.)<br />
-  <%= text_area_tag :message, @message, :rows => 10, :cols => 50 %></p>
-  <p>Happy? All good? Then...<br />
-  <%= submit_tag "...send my Valentine!", :id => "create_valentine_form_submit" %></p>
-<% end -%>
-  
+<div class="clear"></div>
