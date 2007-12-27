@@ -74,12 +74,12 @@ class BunnyTest < Test::Unit::TestCase
       bunnies(:chrismear).received_valentines
   end
   
-  def test_should_not_log_in_automatically_created_bunny
-    assert_nil Bunny.authenticate("automatic", "")
-    assert_nil Bunny.authenticate("automatic", nil)
+  def test_should_not_log_in_proto_bunny
+    assert_nil Bunny.authenticate("proto", "")
+    assert_nil Bunny.authenticate("proto", nil)
   end
   
-  def test_should_be_able_to_automatically_create_a_bunny
+  def test_should_be_able_to_create_a_proto_bunny
     assert_difference "Bunny.count" do
       bunny = Bunny.create_proto_bunny("newbunny")
       assert !bunny.new_record?

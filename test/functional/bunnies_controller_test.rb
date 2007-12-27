@@ -89,18 +89,18 @@ class BunniesControllerTest < Test::Unit::TestCase
     assert_template "bunnies/new"
   end
   
-  def test_secret_with_automatically_created_bunny
+  def test_secret_with_proto_bunny
     assert_no_difference "Bunny.count" do
-      post :secret, :bunny => {:username => "automatic", :password => "letmein", :password_confirmation => "letmein"}
+      post :secret, :bunny => {:username => "proto", :password => "letmein", :password_confirmation => "letmein"}
     end
     
-    bunny = Bunny.find_by_username("automatic")
+    bunny = Bunny.find_by_username("proto")
     
     assert bunny.secret
     
     assert_select "p", Regexp.new(bunny.secret)
     
-    assert_select "a[href=http://metachat.org/users/automatic]"
+    assert_select "a[href=http://metachat.org/users/proto]"
     
     assert_select "form[action=/bunnies/4/check][method=post]" do
       assert_select "input[type=submit]"
@@ -108,7 +108,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     
     assert !bunny.crypted_password.blank?
     assert !bunny.salt.blank?
-    assert_equal bunny, Bunny.authenticate("automatic", "letmein")
+    assert_equal bunny, Bunny.authenticate("proto", "letmein")
   end
   
   def test_secret_with_new_bunny_and_errors
@@ -123,10 +123,10 @@ class BunniesControllerTest < Test::Unit::TestCase
   
   def test_secret_with_proto_bunny_and_errors
     assert_no_difference "Bunny.count" do
-      post :secret, :bunny => {:username => "automatic", :password => "letmein", :password_confimration => "incorrect password confirmation"}
+      post :secret, :bunny => {:username => "proto", :password => "letmein", :password_confimration => "incorrect password confirmation"}
     end
     
-    bunny = Bunny.find_by_username("automatic")
+    bunny = Bunny.find_by_username("proto")
     assert bunny.crypted_password.blank?
     
     assert flash[:error]
