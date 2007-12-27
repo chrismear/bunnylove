@@ -56,6 +56,17 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_equal bunny, valentine.recipient
   end
   
+  def test_should_not_be_able_to_create_with_blank_recipient
+    login_as(:bunny => :chrismear)
+    assert_no_difference "Valentine.count" do
+      post :create, :recipient => "", :message => "I am full of love, love, love for tasty you."
+    end
+    
+    assert flash[:error]
+    assert_response :success
+    assert_template "valentines/new"
+  end
+  
   def test_create_when_not_logged_in
     assert_no_difference "Valentine.count" do
       post :create, :recipient => "bob", :message => "Back at ya."

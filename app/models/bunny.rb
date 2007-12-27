@@ -34,8 +34,11 @@ class Bunny < ActiveRecord::Base
     b = self.new
     b.proto_bunny = true
     b.username = new_username
-    b.save!
-    b
+    if b.save
+      b
+    else
+      nil
+    end
   end
   
   def password_required?

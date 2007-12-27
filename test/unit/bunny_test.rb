@@ -89,6 +89,13 @@ class BunnyTest < Test::Unit::TestCase
     end
   end
   
+  def test_creating_a_proto_bunny_with_a_blank_username_should_fail
+    assert_no_difference "Bunny.count" do
+      bunny = Bunny.create_proto_bunny("")
+      assert_nil bunny
+    end
+  end
+  
   def test_should_not_be_able_to_mass_assign_proto_bunny_attribute
     b = Bunny.new(:username => "newbunny", :proto_bunny => true)
     assert_nil b.proto_bunny
