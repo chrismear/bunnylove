@@ -65,7 +65,7 @@ class BunnyTest < Test::Unit::TestCase
   end
   
   def test_should_have_sent_valentines_in_date_order
-    assert_equal [valentines(:to_confirmed_bunny), valentines(:to_unconfirmed_bunny)],
+    assert_equal [valentines(:to_unconfirmed_bunny), valentines(:to_confirmed_bunny)],
       bunnies(:chrismear).sent_valentines
   end
   

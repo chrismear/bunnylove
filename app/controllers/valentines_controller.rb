@@ -32,9 +32,9 @@ class ValentinesController < ApplicationController
     @valentine = Valentine.new(:sender => sender, :recipient => @recipient, :message => @message)
     
     if @valentine.save
+      flash[:success] = "Your Valentine has been sent to #{@recipient.username}!"
       respond_to do |format|
         format.html do
-          flash[:success] = "Your Valentine has been sent!"
           redirect_to(valentines_path)
         end
         format.js

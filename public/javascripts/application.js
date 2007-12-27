@@ -5,5 +5,5 @@ function createValentineFormSubmit() {
 
 function createValentineFormComplete() {
   Form.enable('create_valentine_form');
-  $('create_valentine_form_submit').value = "...send my valentine!";
+  $('create_valentine_form_submit').value = "Send my valentine!";
 }

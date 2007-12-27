@@ -1,6 +1,11 @@
 page.hide("create_valentine_form_error")
+page.replace_html("create_valentine_form_success", flash[:success])
+page.show("create_valentine_form_success")
 page << "createValentineFormComplete();"
 page << "Form.reset('create_valentine_form');"
-page.insert_html(:bottom, "sent_valentines", :partial => "shared/sent_valentine", :locals => {:v => @valentine})
+page.insert_html(:top, "sent_valentines", :partial => "shared/sent_valentine", :locals => {:v => @valentine})
 page.visual_effect(:highlight, "sent_valentine_#{@valentine.id}")
 page << "Form.focusFirstElement('create_valentine_form');"
+page.delay(3) do
+  page.visual_effect :fade, 'create_valentine_form_success'
+end

@@ -3,6 +3,7 @@
 <div class="send_container">
   <h3>Send an anonymous Valentine</h3>
   <p class="errorMessage" style="display: none" id="create_valentine_form_error"></p>
+  <p class="successMessage" style="display: none" id="create_valentine_form_success"></p>
   <% form_remote_tag :url => valentines_path, :html => {:action => valentines_path, :id => "create_valentine_form"}, :after => "createValentineFormSubmit()", :complete => "createValentineFormComplete()" do -%>
     <p><label>Who are you sending this anonymous Valentine to?</label> <span>Just the username, thanks.</span><br />
     <%= text_field_tag :recipient, @recipient %></p>
@@ -41,3 +42,7 @@
 </div>
 
 <div class="clear"></div>
+
+<script type="text/javascript">
+  Form.focusFirstElement('create_valentine_form');
+</script>
