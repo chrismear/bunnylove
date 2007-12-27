@@ -99,8 +99,15 @@ p.successMessage {
 
 div.received_container, div.sent_container {
   width: 48%;
-  float: left;
   text-align: center;
+}
+
+div.received_container {
+  float: left;
+}
+
+div.sent_container {
+  float: right;
 }
 
 div.send_container {

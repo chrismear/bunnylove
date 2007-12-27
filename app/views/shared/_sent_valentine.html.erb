@@ -1,5 +1,4 @@
 <li id="sent_valentine_<%= v.id %>">
-  <p class="recipient"><%=h v.recipient_username %></p>
   <div><%= htmlize_linebreaks(h(decode_message(v.message))) %></div>
-  <p class="timestamp"><%= v.created_at.to_s(:short_timestamp) %></p>
+  <p class="timestamp">Sent to <%=h v.recipient_username %> <%= v.created_at.to_s(:short_timestamp) %></p>
 </li>
