@@ -27,7 +27,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
       post :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :redirect
-    assert_redirected_to "/bunnies/current"
+    assert_redirected_to "/valentines"
     
     valentine = Valentine.find(:first, :order => "id DESC")
     
@@ -45,7 +45,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
       end
     end
     assert_response :redirect
-    assert_redirected_to "/bunnies/current"
+    assert_redirected_to "/valentines"
     
     valentine = Valentine.find(:first, :order => "id DESC")
     bunny = Bunny.find_by_username("newbunny")
@@ -75,4 +75,40 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_redirected_to "/bunny_sessions/new"
     assert_nil @response.session[:bunny]
   end
+  
+  def test_index
+    login_as(:bunny => :chrismear)
+    
+    get :index
+    
+    assert_response :success
+    assert_template "valentines/index"
+    
+    # Received valentines count
+    assert_select "p", /received 2 valentines/
+    
+    # Received valentines
+    assert_select "li", /compare thee/
+    assert_match /more temperate\.<br \/>And so on\./, @response.body
+    # Sent valentines count
+    assert_select "p", /sent 2 valentines/
+    
+    # Sent valentines
+    assert_select "li", /cute and confirmed/
+    assert_select "li", /don't exist yet/
+    
+    # New valentine form
+    assert_new_valentine_form
+    
+    # Logout link
+    assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
+  end
+  
+  def test_index_when_not_logged_in
+    get :index
+    
+    assert_response :redirect
+    assert_redirected_to "/bunny_sessions/new"
+  end
+  
 end

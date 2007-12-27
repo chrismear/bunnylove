@@ -1,5 +1,12 @@
 class ValentinesController < ApplicationController
   before_filter :bunny_login_required
+  layout "logged_in"
+  before_filter :find_bunny
+  
+  def index
+    @received_valentines = @bunny.received_valentines
+    @sent_valentines = @bunny.sent_valentines
+  end
   
   def new
   end
@@ -28,7 +35,7 @@ class ValentinesController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:success] = "Your Valentine has been sent!"
-          redirect_to(bunny_path("current"))
+          redirect_to(valentines_path)
         end
         format.js
       end
@@ -47,11 +54,16 @@ class ValentinesController < ApplicationController
   end
   
   def received
-    @bunny = current_bunny
     @received_valentines = @bunny.received_valentines
     respond_to do |format|
       format.html
       format.rss
     end
+  end
+  
+  private
+  
+  def find_bunny
+    @bunny = current_bunny
   end
 end

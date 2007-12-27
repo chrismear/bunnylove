@@ -17,7 +17,7 @@ class BunnySessionsControllerTest < Test::Unit::TestCase
     post :create, :username => 'chrismear', :password => 'qwerty'
     assert_equal 1, session[:bunny]
     assert_response :redirect
-    assert_redirected_to "/bunnies/current"
+    assert_redirected_to "/valentines"
   end
 
   def test_should_fail_login_and_not_redirect

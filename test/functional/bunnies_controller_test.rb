@@ -140,7 +140,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     @request.session[:pre_bunny] = 2
     get :check, :id => 2
     assert_response :redirect
-    assert_redirected_to "/bunnies/current"
+    assert_redirected_to "/valentines"
     
     assert_equal 2, @response.session[:bunny]
     assert bunnies(:unconfirmed_bunny).signed_up?
@@ -164,40 +164,5 @@ class BunniesControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to "/"
     assert_nil @response.session[:pre_bunny]
-  end
-  
-  def test_show
-    login_as(:bunny => :chrismear)
-    
-    get :show, :id => "current"
-    
-    assert_response :success
-    assert_template "bunnies/show"
-    
-    # Received valentines count
-    assert_select "p", /received 2 valentines/
-    
-    # Received valentines
-    assert_select "li", /compare thee/
-    assert_match /more temperate\.<br \/>And so on\./, @response.body
-    # Sent valentines count
-    assert_select "p", /sent 2 valentines/
-    
-    # Sent valentines
-    assert_select "li", /cute and confirmed/
-    assert_select "li", /don't exist yet/
-    
-    # New valentine form
-    assert_new_valentine_form
-    
-    # Logout link
-    assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
-  end
-  
-  def test_show_when_not_logged_in
-    get :show, :id => "current"
-    
-    assert_response :redirect
-    assert_redirected_to "/bunny_sessions/new"
   end
 end
