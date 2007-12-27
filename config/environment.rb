@@ -45,7 +45,7 @@ Rails::Initializer.run do |config|
   
   config.action_controller.session = {
     :session_key => '_bunnylove_session_id',
-    :secret => 'PyrukIkWo'
+    :secret => '967dffdd493bbb47ffc17be815cbfe85c0348740fdbdc87c65b10e9e1bd25a15dfc5aa70f1f1e1beff8e5e4faaadab1084b5e40044abeeee69d4a2e5a791162a'
   }
 end
 
