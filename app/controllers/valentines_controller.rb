@@ -18,7 +18,7 @@ class ValentinesController < ApplicationController
       return
     end
     
-    @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create(:username => params[:recipient])
+    @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create_proto_bunny(params[:recipient])
     
     @message = params[:message]
     

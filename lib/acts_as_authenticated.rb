@@ -67,8 +67,8 @@ module ActiveRecord
         
         # before filter
         def encrypt_password
-          return if password.blank?
           self.salt = Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--#{username}--") if new_record?
+          return if password.blank?
           self.crypted_password = encrypt(password)
         end
         

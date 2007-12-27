@@ -37,6 +37,25 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert valentine.created_at
   end
   
+  def test_create_to_new_bunny
+    login_as(:bunny => :chrismear)
+    assert_difference "Valentine.count" do
+      assert_difference "Bunny.count" do
+        post :create, :recipient => "newbunny", :message => "I simply adore you."
+      end
+    end
+    assert_response :redirect
+    assert_redirected_to "/bunnies/current"
+    
+    valentine = Valentine.find(:first, :order => "id DESC")
+    bunny = Bunny.find_by_username("newbunny")
+    
+    assert bunny
+    
+    assert_equal bunnies(:chrismear), valentine.sender
+    assert_equal bunny, valentine.recipient
+  end
+  
   def test_create_when_not_logged_in
     assert_no_difference "Valentine.count" do
       post :create, :recipient => "bob", :message => "Back at ya."

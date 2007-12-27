@@ -79,6 +79,21 @@ class BunnyTest < Test::Unit::TestCase
     assert_nil Bunny.authenticate("automatic", nil)
   end
   
+  def test_should_be_able_to_automatically_create_a_bunny
+    assert_difference "Bunny.count" do
+      bunny = Bunny.create_proto_bunny("newbunny")
+      assert !bunny.new_record?
+      assert bunny.crypted_password.blank?
+      assert !bunny.salt.blank?
+      assert_equal "newbunny", bunny.username
+    end
+  end
+  
+  def test_should_not_be_able_to_mass_assign_proto_bunny_attribute
+    b = Bunny.new(:username => "newbunny", :proto_bunny => true)
+    assert_nil b.proto_bunny
+  end
+  
   private
   
   def create_bunny(options={})

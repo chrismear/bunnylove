@@ -1,6 +1,5 @@
 class BunniesController < ApplicationController
   before_filter :bunny_login_required, :only => :show
-  layout "logged_in", :only => :show
   
   def new
     @bunny = Bunny.new
@@ -24,8 +23,17 @@ class BunniesController < ApplicationController
           render(:action => :new)
         end
       else
-        @bunny.generate_secret! unless @bunny.secret
-        session[:pre_bunny] = @bunny.id
+        # This is a proto-bunny
+        @bunny.password = params[:bunny][:password]
+        @bunny.password_confirmation = params[:bunny][:password_confirmation]
+        
+        if @bunny.save
+          @bunny.generate_secret! unless @bunny.secret
+          session[:pre_bunny] = @bunny.id
+        else
+          flash[:error] = "Uh-oh. Something wasn't right there."
+          render(:action => :new)
+        end
       end
     else
       @bunny = Bunny.new(params[:bunny])
@@ -60,5 +68,7 @@ class BunniesController < ApplicationController
     
     @received_valentines = @bunny.received_valentines
     @sent_valentines = @bunny.sent_valentines
+    
+    render(:layout => "logged_in")
   end
 end

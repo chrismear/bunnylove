@@ -7,6 +7,9 @@ class Bunny < ActiveRecord::Base
   has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "created_at ASC"
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
+  attr_accessor :proto_bunny
+  attr_protected :proto_bunny
+  
   def signed_up?
     !self.secret_confirmed_at.nil?
   end
@@ -25,5 +28,17 @@ class Bunny < ActiveRecord::Base
     else
       false
     end
+  end
+  
+  def self.create_proto_bunny(new_username)
+    b = self.new
+    b.proto_bunny = true
+    b.username = new_username
+    b.save!
+    b
+  end
+  
+  def password_required?
+    crypted_password.blank? && !self.proto_bunny
   end
 end

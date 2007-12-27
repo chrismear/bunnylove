@@ -72,8 +72,10 @@ class BunniesControllerTest < Test::Unit::TestCase
     assert_select "form[action=/bunnies/2/check][method=post]" do
       assert_select "input[type=submit]"
     end
-    # TODO test that password is set
-    flunk
+    
+    assert !bunny.crypted_password.blank?
+    assert !bunny.salt.blank?
+    assert_equal bunny, Bunny.authenticate("unconfirmed", "qwerty")
   end
   
   def test_secret_with_unconfirmed_bunny_which_already_has_password_and_bad_password_has_been_entered
@@ -104,14 +106,28 @@ class BunniesControllerTest < Test::Unit::TestCase
       assert_select "input[type=submit]"
     end
     
-    # TODO test that password is set
-    flunk
+    assert !bunny.crypted_password.blank?
+    assert !bunny.salt.blank?
+    assert_equal bunny, Bunny.authenticate("automatic", "letmein")
   end
   
   def test_secret_with_new_bunny_and_errors
     assert_no_difference "Bunny.count" do
       post :secret, :bunny => {:username => "new_bunny", :password => "password", :password_confirmation => "incorrect password confirmation"}
     end
+    
+    assert flash[:error]
+    assert_response :success
+    assert_template "bunnies/new"
+  end
+  
+  def test_secret_with_proto_bunny_and_errors
+    assert_no_difference "Bunny.count" do
+      post :secret, :bunny => {:username => "automatic", :password => "letmein", :password_confimration => "incorrect password confirmation"}
+    end
+    
+    bunny = Bunny.find_by_username("automatic")
+    assert bunny.crypted_password.blank?
     
     assert flash[:error]
     assert_response :success

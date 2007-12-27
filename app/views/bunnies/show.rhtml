@@ -5,24 +5,24 @@
   <p>Oh no! You don't have any valentines yet!</p>
 <% else -%>
   <p>You've received <%= pluralize(@received_valentines.length, "valentine") %>, you lucky bunny!</p>
-  <ul id="received_valentines">
-  <% @received_valentines.each do |v| -%>
-    <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
-  <% end -%>
-  </ul>
 <% end -%>
+<ul id="received_valentines">
+<% @received_valentines.each do |v| -%>
+  <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
+<% end -%>
+</ul>
 
 <h3>Valentines you've sent</h3>
 <% if @sent_valentines.empty? -%>
   <p>You haven't sent any valentines yet!</p>
 <% else -%>
   <p>You've sent <%= pluralize(@sent_valentines.length, "valentine") %> so far</p>
-  <ul id="sent_valentines">
-  <% @sent_valentines.each do |v| -%>
-    <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
-  <% end -%>
-  </ul>
 <% end -%>
+<ul id="sent_valentines">
+<% @sent_valentines.each do |v| -%>
+  <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
+<% end -%>
+</ul>
 
 
 <h3>Send an anonymous Valentine</h3>

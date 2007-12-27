@@ -26,6 +26,7 @@ confirmed_bunny:
 automatically_created_bunny:
   id: 4
   username: automatic
+  salt: 45b80f0fc55f994d2056e59ea4ff1503d11a0e49
   created_at: <%= 1.day.ago.to_s(:db) %>
 
 bob:
