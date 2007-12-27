@@ -1,0 +1,11 @@
+<% if received_valentines.empty? -%>
+  <% messages = ["Oh no! You don't have any valentines yet!", "Oh dear! You haven't been sent any valentines yet!", "I'm afraid you don't have any valentines yet. But it's still early days! Some people are just late starters, you know?"] %>
+  <p><%= messages.rand %></p>
+<% else -%>
+  <% messages = [
+      "You've received #{pluralize(received_valentines.length, 'valentine')}, you lucky bunny!",
+      "You've been sent #{pluralize(received_valentines.length, 'valentine')}. Somebody wubs you!",
+      "Aw, look at that. You've had #{pluralize(received_valentines.length, 'valentine')}."
+    ] %>
+  <p><%= messages.rand %></p>
+<% end -%>
