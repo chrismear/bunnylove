@@ -3,14 +3,14 @@ old_valentine_1:
   sender_id: 1
   recipient_id: 1
   created_at: <%= Time.utc(2006, 2, 14, 11, 10).to_s(:db) %>
-  message: "sofinsodifnsdf"
+  message: "V guvax lbh ner phgr."
 
 old_valentine_2:
   id: 2
   sender_id: 2
   recipient_id: 1
   created_at: <%= Time.utc(2006, 2, 14, 12, 34).to_s(:db) %>
-  message: "sofinsodifnsdf"
+  message: "Lbh ner ornhgvshy."
 
 to_confirmed_bunny:
   id: 11

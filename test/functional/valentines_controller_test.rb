@@ -116,4 +116,20 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_redirected_to "/bunny_sessions/new"
   end
   
+  def test_show
+    login_as(:bunny => :chrismear)
+    
+    get :show, :id => 2006
+    assert_response :success
+    
+    # Received
+    assert_select "p[id=received_valentines_tally]", /2 valentines/
+    assert_select "li[id=received_valentine_1]", /I think you are cute/
+    assert_select "li[id=received_valentine_2]", /You are beautiful/
+    
+    # Sent
+    assert_select "p[id=sent_valentines_tally]", /1 valentine/
+    assert_select "li[id=sent_valentine_1]", /I think you are cute/
+  end
+  
 end
