@@ -7,3 +7,5 @@
   <%= password_field_tag "password" %></p>
   <p><%= submit_tag "Lemme in!" %></p>
 <% end -%>
+
+<p>Forgotten your password? <%= link_to("Click here to reset it.", new_password_reset_path) %></p>
