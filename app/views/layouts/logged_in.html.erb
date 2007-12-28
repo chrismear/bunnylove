@@ -14,7 +14,7 @@
 <body>
 <h1><a href="/">bunny love</a></h1>
 <h2>MeCha Anonymous Valentines</h2>
-<p>Hi <%=h @bunny.username %>! <em><%= link_to("Click here to log out.", bunny_session_path("current"), :method => :delete) %></em></p>
+<p>Hi <%=h @bunny.username %>! <%= link_to("Log out.", bunny_session_path("current"), :method => :delete) %></p>
 
 <%= yield %>
 
