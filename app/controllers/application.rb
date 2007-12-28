@@ -4,5 +4,7 @@
 class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :message
   
+  protect_from_forgery
+  
   include AuthenticatedSystem
 end
