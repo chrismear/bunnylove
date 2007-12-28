@@ -44,4 +44,8 @@ class Bunny < ActiveRecord::Base
   def password_required?
     crypted_password.blank? && !self.proto_bunny
   end
+  
+  def received_valentines_after(valentine_id)
+    self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
+  end
 end

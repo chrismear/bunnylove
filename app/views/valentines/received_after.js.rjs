@@ -1,0 +1,11 @@
+unless @new_valentines.empty?
+  page.replace_html "received_valentines_tally", :partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines_count}
+  
+  @new_valentines.each do |v|
+    page.insert_html(:top, "received_valentines", :partial => "shared/received_valentine", :locals => {:v => v})
+    page.visual_effect(:highlight, "received_valentine_#{v.id}")
+  end
+  
+  page.assign "lastReceivedValentineId", @new_valentines.last.id
+  page << "lastReceivedValentineId = #{@new_valentines.last.id}"
+end

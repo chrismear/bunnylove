@@ -1,12 +1,12 @@
-<% if sent_valentines.empty? -%>
+<% if sent_valentines_count == 0 -%>
   <% messages = ["You haven't sent any valentines yet!", "It looks like you haven't sent any valentines yet!", "You're a lovely bunny. Why not send some valentines?", "You haven't sent a valentine yet! It doesn't have to be super-mushy, just let someone know you appreciate them!"]%>
-  <p><%= messages.rand %></p>
+  <%= messages.rand %>
 <% else -%>
   <% messages= [
-      "You've sent #{pluralize(sent_valentines.length, 'valentine')} so far. How nice of you!",
-      "Ooh, you've sent #{pluralize(sent_valentines.length, 'valentine')}. I bet you have a crush on someone. It's okay to admit it. That's what Valentine's is all about!",
-      "You're such a sweetie! You've sent #{pluralize(sent_valentines.length, 'valentine')}! Just think how good you've made them feel today!",
-      "Today's a day to share love and good wishes, and you've sent #{pluralize(sent_valentines.length, 'valentine')}. That's awesome!"
+      "You've sent #{pluralize(sent_valentines_count, 'valentine')} so far. How nice of you!",
+      "Ooh, you've sent #{pluralize(sent_valentines_count, 'valentine')}. I bet you have a crush on someone. It's okay to admit it. That's what Valentine's is all about!",
+      "You're such a sweetie! You've sent #{pluralize(sent_valentines_count, 'valentine')}! Just think how good you've made them feel today!",
+      "Today's a day to share love and good wishes, and you've sent #{pluralize(sent_valentines_count, 'valentine')}. That's awesome!"
     ] %>
-  <p><%= messages.rand %></p>
+  <%= messages.rand %>
 <% end -%>

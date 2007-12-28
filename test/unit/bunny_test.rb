@@ -101,6 +101,12 @@ class BunnyTest < Test::Unit::TestCase
     assert_nil b.proto_bunny
   end
   
+  def test_received_valentines_after
+    bunny = bunnies(:chrismear)
+    assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob)],
+      bunny.received_valentines_after(1)
+  end
+  
   private
   
   def create_bunny(options={})

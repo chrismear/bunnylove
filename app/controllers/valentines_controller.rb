@@ -33,6 +33,7 @@ class ValentinesController < ApplicationController
     
     if @valentine.save
       flash[:success] = "Your Valentine has been sent to #{@recipient.username}!"
+      @sent_valentines_count = @bunny.sent_valentines.count
       respond_to do |format|
         format.html do
           redirect_to(valentines_path)
@@ -58,6 +59,14 @@ class ValentinesController < ApplicationController
     respond_to do |format|
       format.html
       format.rss
+    end
+  end
+  
+  def received_after
+    @new_valentines = @bunny.received_valentines_after(params[:last_id])
+    @received_valentines_count = @bunny.received_valentines.count
+    respond_to do |format|
+      format.js
     end
   end
   

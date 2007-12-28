@@ -13,9 +13,17 @@
   <% end -%>
 </div>
 
+<script type="text/javascript">
+  <% if @received_valentines.empty? -%>
+    var lastReceivedValentineId = 0;
+  <% else -%>
+    var lastReceivedValentineId = <%= @received_valentines.first.id %>;
+  <% end -%>
+</script>
+
 <div class="received_container">
   <h3>Valentines you've received</h3>
-  <%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines => @received_valentines}) %>
+  <p id="received_valentines_tally"><%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines.length}) %></p>
   <ul id="received_valentines">
   <% @received_valentines.each do |v| -%>
     <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
@@ -25,7 +33,7 @@
 
 <div class="sent_container">
   <h3>Valentines you've sent</h3>
-  <%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines => @sent_valentines}) %>
+  <p id="sent_valentines_tally"><%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines.length}) %></p>
   <ul id="sent_valentines">
   <% @sent_valentines.each do |v| -%>
     <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
@@ -38,3 +46,5 @@
 <script type="text/javascript">
   Form.focusFirstElement('create_valentine_form');
 </script>
+
+<%= periodically_call_remote(:url => received_after_valentines_path, :with => "'last_id=' + lastReceivedValentineId", :frequency => 10) %>
