@@ -7,5 +7,4 @@ unless @new_valentines.empty?
   end
   
   page.assign "lastReceivedValentineId", @new_valentines.last.id
-  page << "lastReceivedValentineId = #{@new_valentines.last.id}"
 end

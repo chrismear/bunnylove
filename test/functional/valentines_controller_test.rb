@@ -153,4 +153,17 @@ class ValentinesControllerTest < Test::Unit::TestCase
       end
     end
   end
+  
+  def test_received_after
+    login_as(:bunny => :chrismear)
+    
+    xhr :post, :received_after, :last_id => 13
+    
+    assert_response :success
+    
+    assert_select_rjs :replace_html, "received_valentines_tally"
+    assert_select_rjs :insert, :top, "received_valentines" do
+      assert_select "li", 1
+    end
+  end
 end
