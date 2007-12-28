@@ -114,7 +114,6 @@ div.sent_container {
 
 div.send_container {
   text-align: center;
-  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
@@ -133,4 +132,14 @@ div.send_container textarea {
 
 .clear {
   clear: both;
+}
+
+p.archives {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.5em 0;
+}
+
+h3 {
+  text-align: center;
 }

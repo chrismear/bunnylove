@@ -2,10 +2,11 @@ class ValentinesController < ApplicationController
   before_filter :bunny_login_required, :except => :received
   layout "logged_in", :except => :received
   before_filter :find_bunny
+  before_filter :get_current_year, :only => [:index, :received]
   
   def index
-    @received_valentines = @bunny.received_valentines
-    @sent_valentines = @bunny.sent_valentines
+    @received_valentines = @bunny.received_valentines_for_year(@year)
+    @sent_valentines = @bunny.sent_valentines_for_year(@year)
   end
   
   def new
@@ -54,8 +55,14 @@ class ValentinesController < ApplicationController
     end
   end
   
+  def show
+    @year = params[:id]
+    @received_valentines = @bunny.received_valentines_for_year(@year)
+    @sent_valentines = @bunny.sent_valentines_for_year(@year)
+  end
+  
   def received
-    @received_valentines = @bunny.received_valentines
+    @received_valentines = @bunny.received_valentines_for_year(@year)
     respond_to do |format|
       format.rss
     end
@@ -73,5 +80,9 @@ class ValentinesController < ApplicationController
   
   def find_bunny
     @bunny = current_bunny || Bunny.find_by_key(params[:bunny_id])
+  end
+  
+  def get_current_year
+    @year = Time.now.utc.year
   end
 end

@@ -49,6 +49,16 @@ class Bunny < ActiveRecord::Base
     self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
   end
   
+  def received_valentines_for_year(year)
+    year = year.to_i
+    self.received_valentines.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+  end
+  
+  def sent_valentines_for_year(year)
+    year = year.to_i
+    self.sent_valentines.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+  end
+  
   def key
     unless self.read_attribute(:key)
       self.update_attribute(:key, Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--bunnybunnybunny--"))      
