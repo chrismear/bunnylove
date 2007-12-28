@@ -5,10 +5,6 @@ class BunnySessionsController < ApplicationController
   def create
     self.current_bunny = Bunny.authenticate(params[:username], params[:password])
     if current_bunny
-      if params[:remember_me] == "1"
-        self.current_bunny.remember_me
-        cookies[:bunny_auth_token] = { :value => self.current_bunny.remember_token , :expires => self.current_bunny.remember_token_expires_at }
-      end
       redirect_back_or_default(valentines_path)
     else
       flash[:error] = "We couldn't find those details. Please try again."
