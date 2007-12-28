@@ -1,7 +1,7 @@
 set :application, "bunnylove"
 set :repository, "http://mear.dyndns.org/svn/webapps/bunnylove/trunk"
 
-set :deploy_to "/var/www/bunnylove.org.uk/application"
+set :deploy_to, "/var/www/bunnylove.org.uk/application"
 
 role :web, "toru.odegy.net"
 role :app, "toru.odegy.net"
