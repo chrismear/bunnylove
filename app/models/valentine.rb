@@ -27,8 +27,7 @@ class Valentine < ActiveRecord::Base
     end
   end
   
-  def self.allow_valentines?
-    now = Time.now.utc
+  def self.allow_valentines?(now = Time.now.utc)
     start_date = Time.utc(now.year, @@start_month || START_MONTH, @@start_day || START_DAY)
     end_date = Time.utc(now.year, @@end_month || END_MONTH, @@end_day || END_DAY)
     end_date = end_date + 1.day
