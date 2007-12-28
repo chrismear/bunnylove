@@ -4,8 +4,10 @@ ActionController::Routing::Routes.draw do |map|
                 :member => {:check => :post}
   map.resources "bunny_sessions"
   map.resources "valentines",
-                :collection => {:received => :get, :received_after => :any}
+                :collection => {:received_after => :any}
   
   map.homepage "/", :controller => "misc", :action => "index"
   map.privacy "/privacy", :controller => "misc", :action => "privacy"
+  
+  map.received_bunny_valentines "/bunnies/:bunny_id/valentines/received.rss", :controller => "valentines", :action => "received", :format => "rss"
 end

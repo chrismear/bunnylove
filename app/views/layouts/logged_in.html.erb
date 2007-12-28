@@ -8,7 +8,7 @@
   <title>bunny love</title>
   <%= stylesheet_link_tag "screen" %>
   <%= javascript_include_tag :defaults %>
-  <%= auto_discovery_link_tag(:rss, received_valentines_url(:format => "rss")) %>
+  <%= auto_discovery_link_tag(:rss, received_bunny_valentines_url(:bunny_id => @bunny.key, :format => "rss")) %>
 </head>
 
 <body>

@@ -1,6 +1,6 @@
 class ValentinesController < ApplicationController
-  before_filter :bunny_login_required
-  layout "logged_in"
+  before_filter :bunny_login_required, :except => :received
+  layout "logged_in", :except => :received
   before_filter :find_bunny
   
   def index
@@ -57,7 +57,6 @@ class ValentinesController < ApplicationController
   def received
     @received_valentines = @bunny.received_valentines
     respond_to do |format|
-      format.html
       format.rss
     end
   end
@@ -73,6 +72,6 @@ class ValentinesController < ApplicationController
   private
   
   def find_bunny
-    @bunny = current_bunny
+    @bunny = current_bunny || Bunny.find_by_key(params[:bunny_id])
   end
 end

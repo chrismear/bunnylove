@@ -112,9 +112,11 @@ class BunnyTest < Test::Unit::TestCase
   end
   
   def test_key_for_bunny_without_key
-    key = bunnies(:bob).key
+    b = bunnies(:bob)
+    key = b.key
     assert !key.blank?
-    assert_equal key, bunnies(:bob).read_attribute(:key)
+    b.reload
+    assert_equal key, b.read_attribute(:key)
   end
   
   private

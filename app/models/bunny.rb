@@ -50,6 +50,9 @@ class Bunny < ActiveRecord::Base
   end
   
   def key
-    self.read_attribute(:key) || self.write_attribute(:key, Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--bunnybunnybunny--"))
+    unless self.read_attribute(:key)
+      self.update_attribute(:key, Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--bunnybunnybunny--"))      
+    end
+    self.read_attribute(:key)
   end
 end
