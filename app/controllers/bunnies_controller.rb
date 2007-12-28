@@ -1,50 +1,26 @@
 class BunniesController < ApplicationController
-  before_filter :bunny_login_required, :only => :show
-  
   def new
-    @bunny = Bunny.new
   end
   
   def secret
-    # TODO Make this neater
+    @bunny = Bunny.update_by_username_or_new(params[:bunny])
     
-    @bunny = Bunny.find_by_username(params[:bunny][:username])
-    
-    if @bunny
-      if @bunny.signed_up?
-        flash[:error] = "Whoops! Looks like you've already signed up. Perhaps you wanted to log in instead?"
-        redirect_to(new_bunny_session_path) and return
-      elsif @bunny.crypted_password
-        if @bunny == Bunny.authenticate(@bunny.username, params[:bunny][:password])
-          @bunny.generate_secret! unless @bunny.secret
-          session[:pre_bunny] = @bunny.id
-        else
-          flash[:error] = "Uh-oh. Something wasn't right there."
-          render(:action => :new)
-        end
-      else
-        # This is a proto-bunny
-        @bunny.password = params[:bunny][:password]
-        @bunny.password_confirmation = params[:bunny][:password_confirmation]
-        
-        if @bunny.save
-          @bunny.generate_secret! unless @bunny.secret
-          session[:pre_bunny] = @bunny.id
-        else
-          flash[:error] = "Uh-oh. Something wasn't right there."
-          render(:action => :new)
-        end
-      end
-    else
-      @bunny = Bunny.new(params[:bunny])
-      if @bunny.save
-        session[:pre_bunny] = @bunny.id
-        @bunny.generate_secret!
-      else
-        flash[:error] = "Uh-oh. Something wasn't right there."
-        render(:action => :new)
-      end
+    if @bunny.signed_up?
+      flash[:error] = "Whoops! Looks like you've already signed up. Perhaps you wanted to log in instead?"
+      redirect_to(new_bunny_session_path) and return
     end
+    
+    # If the bunny already has a password, then the password the user has just entered must match
+    raise BadBunny if @bunny.crypted_password && (@bunny != Bunny.authenticate(@bunny.username, params[:bunny][:password]))
+    
+    raise BadBunny unless @bunny.save
+    
+    session[:pre_bunny] = @bunny.id
+    @bunny.generate_secret! unless @bunny.secret
+    
+  rescue BadBunny
+    flash[:error] = "Uh-oh. Something wasn't right there."
+    render(:action => :new)
   end
   
   def check
@@ -62,4 +38,8 @@ class BunniesController < ApplicationController
       render(:action => :secret)
     end
   end
+  
+  private
+  
+  class BadBunny < RuntimeError; end
 end

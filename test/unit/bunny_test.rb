@@ -129,6 +129,19 @@ class BunnyTest < Test::Unit::TestCase
       bunnies(:chrismear).sent_valentines_for_year(2006)
   end
   
+  def test_update_by_username_or_new
+    b = Bunny.update_by_username_or_new(:username => "chrismear", :password => "newpassword", :password_confirmation => "wrong")
+    assert !b.new_record?
+    assert_equal 1, b.id
+    assert_equal "newpassword", b.password
+    assert_equal "wrong", b.password_confirmation
+    
+    b = Bunny.update_by_username_or_new(:username => "newbunny", :password => "newpassword", :password_confirmation => "wrong")
+    assert b.new_record?
+    assert_equal "newpassword", b.password
+    assert_equal "wrong", b.password_confirmation
+  end
+  
   private
   
   def create_bunny(options={})

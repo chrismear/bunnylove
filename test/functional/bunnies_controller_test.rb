@@ -123,7 +123,7 @@ class BunniesControllerTest < Test::Unit::TestCase
   
   def test_secret_with_proto_bunny_and_errors
     assert_no_difference "Bunny.count" do
-      post :secret, :bunny => {:username => "proto", :password => "letmein", :password_confimration => "incorrect password confirmation"}
+      post :secret, :bunny => {:username => "proto", :password => "letmein", :password_confirmation => "incorrect password confirmation"}
     end
     
     bunny = Bunny.find_by_username("proto")

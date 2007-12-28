@@ -65,4 +65,15 @@ class Bunny < ActiveRecord::Base
     end
     self.read_attribute(:key)
   end
+  
+  def self.update_by_username_or_new(options={})
+    return nil unless options[:username]
+    b = self.find(:first, :conditions => ["username = ?", options[:username]])
+    if b
+      b.attributes = options
+    else
+      b = self.new(options)
+    end
+    b
+  end
 end
