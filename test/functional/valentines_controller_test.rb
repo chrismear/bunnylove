@@ -132,4 +132,25 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_select "li[id=sent_valentine_1]", /I think you are cute/
   end
   
+  def test_received_rss
+    # N.B. No login required
+    
+    get :received, :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "rss"
+    assert_response :success
+    
+    assert_select "rss" do
+      assert_select "channel" do
+        assert_select "title"
+        assert_select "link"
+        # Should only get the two valentines from this year
+        assert_select "item", 2
+        assert_select "item" do
+          assert_select "description", /Shall I compare thee/
+        end
+        assert_select "item" do
+          assert_select "description", /Thou art more lovely/
+        end
+      end
+    end
+  end
 end
