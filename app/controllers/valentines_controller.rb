@@ -15,17 +15,6 @@ class ValentinesController < ApplicationController
   
   def create
     sender = current_bunny
-    unless sender
-      reset_session
-      respond_to do |format|
-        format.html {redirect_to(homepage_path)}
-        format.js do
-          flash[:error] = "Uh-oh, something went wrong there. Please log out and try again."
-          render(:action => :error)
-        end
-      end
-      return
-    end
     
     @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create_proto_bunny(params[:recipient])
     
