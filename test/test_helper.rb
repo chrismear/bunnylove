@@ -43,12 +43,4 @@ class Test::Unit::TestCase
       assert_select "input[type=submit]"
     end
   end
-  
-  def assert_new_valentine_form
-    assert_select "form[action=/valentines][method=post]" do
-      assert_select "input[name=recipient]"
-      assert_select "textarea[name=message]"
-      assert_select "input[type=submit]"
-    end
-  end
 end

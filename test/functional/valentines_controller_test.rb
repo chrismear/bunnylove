@@ -18,14 +18,6 @@ class ValentinesControllerTest < Test::Unit::TestCase
     Valentine.end_month = 12
   end
   
-  def test_new
-    login_as(:bunny => :chrismear)
-    get :new
-    assert_response :success
-    assert_template "valentines/new"
-    assert_new_valentine_form
-  end
-  
   def test_create
     login_as(:bunny => :chrismear)
     assert_difference "Valentine.count" do
@@ -125,10 +117,35 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_select "li", /don't exist yet/
     
     # New valentine form
-    assert_new_valentine_form
+    assert_select "form[action=/valentines][method=post][onsubmit*=new Ajax.Request]" do
+      assert_select "input[name=recipient]"
+      assert_select "textarea[name=message]"
+      assert_select "input[type=submit]"
+    end
+    
+    # Correctly-IDed elements for AJAX responses
+    assert_select "p[id=create_valentine_form_error]"
+    assert_select "p[id=create_valentine_form_success]"
+    assert_select "p[id=sent_valentines_tally]"
+    assert_select "p[id=received_valentines_tally]"
+    assert_select "ul[id=received_valentines]"
+    assert_select "ul[id=sent_valentines]"
+    
+    # TODO: Code for periodic updater
+    
     
     # Logout link
     assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
+  end
+  
+  def test_new
+    login_as(:bunny => :chrismear)
+    get :new
+    assert_select "form[action=/valentines][method=post]" do
+      assert_select "input[name=recipient]"
+      assert_select "textarea[name=message]"
+      assert_select "input[type=submit]"
+    end
   end
   
   def test_index_when_not_logged_in
