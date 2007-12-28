@@ -1,8 +1,10 @@
+<h3>Password reset</h3>
+<p>Great, it is you after all! Now, just choose a new password, and we're done.</p>
 <%= standard_flashes %>
 <%= error_messages_for :bunny -%>
 
 <% form_tag password_resets_path do -%>
-  <p><label>New password:</label> <%= password_field_tag(:password) -%></p>
-  <p><label>Confirm new password:</label> <%= password_field_tag(:password_confirmation) -%></p>
+  <p><label>New password:</label><br /><%= password_field_tag(:password) -%></p>
+  <p><label>Confirm new password:</label><br /><%= password_field_tag(:password_confirmation) -%></p>
   <p><%= submit_tag("Change my password") %></p>
 <% end -%>
