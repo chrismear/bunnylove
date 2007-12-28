@@ -81,6 +81,28 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_nil @response.session[:bunny]
   end
   
+  def test_create_with_ajax
+    login_as(:bunny => :chrismear)
+    assert_difference "Valentine.count" do
+      xhr :post, :create, :recipient => "bob", :message => "Back at ya."
+    end
+    assert_response :success
+    assert_select_rjs :replace_html, "create_valentine_form_success"
+    assert_select_rjs :replace_html, "sent_valentines_tally"
+    assert_select_rjs :insert, :top, "sent_valentines" do
+      assert_select "li", 1
+    end
+  end
+  
+  def test_create_with_ajax_with_blank_recipient
+    login_as(:bunny => :chrismear)
+    assert_no_difference "Valentine.count" do
+      xhr :post, :create, :recipient => "", :message => "Back at ya."
+    end
+    assert_response :success
+    assert_select_rjs :replace_html, "create_valentine_form_error"
+  end
+  
   def test_index
     login_as(:bunny => :chrismear)
     
