@@ -11,6 +11,11 @@ class ValentinesControllerTest < Test::Unit::TestCase
     @controller = ValentinesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    
+    Valentine.start_month = 1
+    Valentine.start_day = 1
+    Valentine.end_day = 31
+    Valentine.end_month = 12
   end
   
   def test_new
