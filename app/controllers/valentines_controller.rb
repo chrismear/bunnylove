@@ -1,6 +1,6 @@
 class ValentinesController < ApplicationController
-  before_filter :bunny_login_required, :except => :received
   layout "logged_in", :except => :received
+  before_filter :bunny_login_required, :except => :received
   before_filter :find_bunny
   before_filter :get_current_year, :only => [:index, :received]
   
@@ -14,13 +14,11 @@ class ValentinesController < ApplicationController
   end
   
   def create
-    sender = current_bunny
-    
     @recipient = Bunny.find_by_username(params[:recipient]) || Bunny.create_proto_bunny(params[:recipient])
     
     @message = params[:message]
     
-    @valentine = Valentine.new(:sender => sender, :recipient => @recipient, :message => @message)
+    @valentine = Valentine.new(:sender => current_bunny, :recipient => @recipient, :message => @message)
     
     if @valentine.save
       flash[:success] = "Your Valentine has been sent to #{@recipient.username}!"
@@ -32,13 +30,12 @@ class ValentinesController < ApplicationController
         format.js
       end
     else
+      flash[:error] = "Sorry, something's missing there."
       respond_to do |format|
         format.html do
-          flash[:error] = "Sorry, something's missing there."
           render(:action => :new)
         end
         format.js do
-          flash[:error] = "Sorry, something's missing there."
           render(:action => :error)
         end
       end
