@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "bunnies", :force => true do |t|
     t.string   "username"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 4) do
     t.datetime "remember_token_expires_at"
     t.string   "secret"
     t.datetime "secret_confirmed_at"
+    t.string   "key"
   end
 
   create_table "valentines", :force => true do |t|

@@ -6,6 +6,7 @@ chrismear:
   created_at: <%= 1.day.ago.to_s(:db) %>
   secret_confirmed_at: <%= 23.hours.ago.to_s(:db) %>
   secret: abcdef
+  key: 0bd994c5927d45ca9ffd8be84a8e45973e4073b6
 
 unconfirmed_bunny:
   id: 2

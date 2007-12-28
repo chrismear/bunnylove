@@ -8,7 +8,7 @@ class Bunny < ActiveRecord::Base
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
   attr_accessor :proto_bunny
-  attr_protected :proto_bunny
+  attr_protected :proto_bunny, :key, :crypted_password, :salt, :remember_token, :secret
   
   def signed_up?
     !self.secret_confirmed_at.nil?
@@ -47,5 +47,9 @@ class Bunny < ActiveRecord::Base
   
   def received_valentines_after(valentine_id)
     self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
+  end
+  
+  def key
+    self.read_attribute(:key) || self.write_attribute(:key, Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--bunnybunnybunny--"))
   end
 end

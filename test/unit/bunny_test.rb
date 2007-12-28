@@ -107,6 +107,16 @@ class BunnyTest < Test::Unit::TestCase
       bunny.received_valentines_after(1)
   end
   
+  def test_key_for_bunny_with_key
+    assert_equal "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", bunnies(:chrismear).key
+  end
+  
+  def test_key_for_bunny_without_key
+    key = bunnies(:bob).key
+    assert !key.blank?
+    assert_equal key, bunnies(:bob).read_attribute(:key)
+  end
+  
   private
   
   def create_bunny(options={})
