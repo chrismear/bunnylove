@@ -65,12 +65,12 @@ class BunnyTest < Test::Unit::TestCase
   end
   
   def test_should_have_sent_valentines_in_date_order
-    assert_equal [valentines(:to_unconfirmed_bunny), valentines(:to_confirmed_bunny)],
+    assert_equal [valentines(:to_unconfirmed_bunny), valentines(:to_confirmed_bunny), valentines(:old_valentine_1)],
       bunnies(:chrismear).sent_valentines
   end
   
   def test_should_have_received_valentines_in_reverse_date_order
-    assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob)],
+    assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob), valentines(:old_valentine_2), valentines(:old_valentine_1)],
       bunnies(:chrismear).received_valentines
   end
   
@@ -103,7 +103,7 @@ class BunnyTest < Test::Unit::TestCase
   
   def test_received_valentines_after
     bunny = bunnies(:chrismear)
-    assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob)],
+    assert_equal [valentines(:old_valentine_2), valentines(:from_confirmed_bunny), valentines(:from_bob)],
       bunny.received_valentines_after(1)
   end
   
@@ -117,6 +117,16 @@ class BunnyTest < Test::Unit::TestCase
     assert !key.blank?
     b.reload
     assert_equal key, b.read_attribute(:key)
+  end
+  
+  def test_received_valentines_for_year
+    assert_equal [:old_valentine_2, :old_valentine_1].map{|n| valentines(n)},
+      bunnies(:chrismear).received_valentines_for_year(2006)
+  end
+  
+  def test_sent_valentines_for_year
+    assert_equal [valentines(:old_valentine_1)],
+      bunnies(:chrismear).sent_valentines_for_year(2006)
   end
   
   private

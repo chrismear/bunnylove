@@ -1,26 +1,40 @@
-to_confirmed_bunny:
+old_valentine_1:
   id: 1
+  sender_id: 1
+  recipient_id: 1
+  created_at: <%= Time.utc(2006, 2, 14, 11, 10).to_s(:db) %>
+  message: "sofinsodifnsdf"
+
+old_valentine_2:
+  id: 2
+  sender_id: 2
+  recipient_id: 1
+  created_at: <%= Time.utc(2006, 2, 14, 12, 34).to_s(:db) %>
+  message: "sofinsodifnsdf"
+
+to_confirmed_bunny:
+  id: 11
   sender_id: 1
   recipient_id: 3
   created_at: <%= 3.hours.ago.to_s(:db) %>
   message: "Lbh ner fb phgr naq pbasvezrq."
 
 to_unconfirmed_bunny:
-  id: 2
+  id: 12
   sender_id: 1
   recipient_id: 2
   created_at: <%= 2.hours.ago.to_s(:db) %>
   message: "V ybir lbh, rira gubhtu lbh qba'g rkvfg lrg."
 
 from_confirmed_bunny:
-  id: 3
+  id: 13
   sender_id: 3
   recipient_id: 1
   created_at: <%= 4.hours.ago.to_s(:db) %>
   message: "Funyy V pbzcner gurr gb n Fhzzre'f qnl?"
 
 from_bob:
-  id: 4
+  id: 14
   sender_id: 5
   recipient_id: 1
   created_at: <%= 5.hours.ago.to_s(:db) %>
