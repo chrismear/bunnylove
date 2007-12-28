@@ -1,6 +1,3 @@
-require 'net/http'
-require 'uri'
-
 class Bunny < ActiveRecord::Base
   acts_as_authenticated
   
@@ -8,6 +5,7 @@ class Bunny < ActiveRecord::Base
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
   attr_accessor :proto_bunny
+  
   attr_protected :proto_bunny, :key, :crypted_password, :salt, :remember_token, :secret
   
   def signed_up?
@@ -20,8 +18,6 @@ class Bunny < ActiveRecord::Base
   end
   
   def check_secret!
-    response = Net::HTTP.get_response(URI.parse("http://metachat.org/users/#{self.username}"))
-    
     if Metachat.check_secret(self.username, self.secret)
       self.update_attribute(:secret_confirmed_at, Time.now.utc)
       true
