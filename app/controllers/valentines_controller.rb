@@ -7,6 +7,7 @@ class ValentinesController < ApplicationController
   def index
     @received_valentines = @bunny.received_valentines_for_year(@year)
     @sent_valentines = @bunny.sent_valentines_for_year(@year)
+    @allow_valentines = Valentine.allow_valentines?
   end
   
   def new
