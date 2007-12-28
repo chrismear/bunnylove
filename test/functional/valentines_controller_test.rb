@@ -85,7 +85,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_template "valentines/index"
     
     # Received valentines count
-    assert_select "p", /received 2 valentines/
+    assert_select "p", /2 valentines/
     
     # Received valentines
     assert_select "li", /compare thee/
