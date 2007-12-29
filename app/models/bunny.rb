@@ -1,7 +1,7 @@
 class Bunny < ActiveRecord::Base
   acts_as_authenticated
   
-  has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "created_at DESC"
+  has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "valentines.created_at DESC"
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
   attr_accessor :proto_bunny
@@ -52,7 +52,7 @@ class Bunny < ActiveRecord::Base
   
   def sent_valentines_for_year(year)
     year = year.to_i
-    self.sent_valentines.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+    self.sent_valentines.find(:all, :conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "valentines.created_at DESC", :include => :recipient)
   end
   
   def key
