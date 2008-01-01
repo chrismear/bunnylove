@@ -9,8 +9,7 @@ class Metachat
     end
   end
   
-  # Same as actual implementation
   def self.user_page_uri(username)
-    URI.parse("http://metachat.org/users/#{username.gsub(/ /, '%20')}")
+    URI.parse("http://metachat.org/users/#{CGI.escape(username)}")
   end
 end

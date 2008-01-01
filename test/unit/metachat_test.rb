@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class MetachatTest < Test::Unit::TestCase
-  def test_user_page_uri
+  def test_user_page_path
     assert_equal "http://metachat.org/users/chrismear", Metachat.user_page_uri("chrismear").to_s
-    assert_equal "http://metachat.org/users/It's%20Raining%20Florence%20Henderson", Metachat.user_page_uri("It's Raining Florence Henderson").to_s
+    assert_equal "http://metachat.org/users/It%27s+Raining+Florence+Henderson", Metachat.user_page_uri("It's Raining Florence Henderson").to_s
   end
   
   def test_check_secret_mock
