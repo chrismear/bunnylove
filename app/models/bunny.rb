@@ -41,8 +41,12 @@ class Bunny < ActiveRecord::Base
     crypted_password.blank? && !self.proto_bunny
   end
   
-  def received_valentines_after(valentine_id)
-    self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
+  def received_valentines_after(valentine_id, year=nil)
+    if year
+      self.received_valentines.find(:all, :conditions => ["id > ? AND created_at >= ?", valentine_id, Time.utc(year, 1, 1)], :order => "id ASC")
+    else
+      self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
+    end
   end
   
   def received_valentines_for_year(year)

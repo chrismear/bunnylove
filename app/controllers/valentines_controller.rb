@@ -2,7 +2,7 @@ class ValentinesController < ApplicationController
   layout "logged_in", :except => :received
   before_filter :bunny_login_required, :except => :received
   before_filter :find_bunny
-  before_filter :get_current_year, :only => [:index, :received]
+  before_filter :get_current_year, :only => [:index, :received, :received_after]
   
   def index
     @received_valentines = @bunny.received_valentines_for_year(@year)
@@ -56,7 +56,7 @@ class ValentinesController < ApplicationController
   end
   
   def received_after
-    @new_valentines = @bunny.received_valentines_after(params[:last_id])
+    @new_valentines = @bunny.received_valentines_after(params[:last_id], @year)
     @received_valentines_count = @bunny.received_valentines.count
     respond_to do |format|
       format.js

@@ -205,4 +205,22 @@ class ValentinesControllerTest < Test::Unit::TestCase
       assert_select "li", 1
     end
   end
+  
+  def test_received_after_with_zero_id_should_not_fetch_previous_years_valentines
+    # In a new year, before any valentines have been sent, the code for valentines/index.html.erb
+    # sets lastReceivedValentineId to zero. Previously, the received_after action didn't bother checking the year,
+    # so it would then go and fetch all of the valentines from ID zero upwards, including previous years'.
+    # It shouldn't do this. Instead, it should only fetch valentines from this year.
+    login_as(:bunny => :chrismear)
+    
+    xhr :post, :received_after, :last_id => 0
+    
+    assert_response :success
+    
+    assert_select_rjs :insert, :top, "received_valentines" do
+      assert_select "li", 2
+      assert_select "li[id=received_valentine_13]"
+      assert_select "li[id=received_valentine_14]"
+    end
+  end
 end

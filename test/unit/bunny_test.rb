@@ -142,6 +142,23 @@ class BunnyTest < Test::Unit::TestCase
     assert_equal "wrong", b.password_confirmation
   end
   
+  def test_received_after
+    b = bunnies(:chrismear)
+    year = Time.now.utc.year
+    
+    assert_equal [valentines(:from_confirmed_bunny), valentines(:from_bob)],
+      b.received_valentines_after(0, year)
+    
+    assert_equal [valentines(:old_valentine_1), valentines(:old_valentine_2), valentines(:from_confirmed_bunny), valentines(:from_bob)],
+      b.received_valentines_after(0)
+    
+    assert_equal [valentines(:from_bob)],
+      b.received_valentines_after(13)
+    
+    assert_equal [valentines(:from_bob)],
+      b.received_valentines_after(13, year)
+  end
+  
   private
   
   def create_bunny(options={})
