@@ -159,6 +159,14 @@ class BunnyTest < Test::Unit::TestCase
       b.received_valentines_after(13, year)
   end
   
+  def test_count_sent_valentines_for_year
+    assert_equal 2, bunnies(:chrismear).count_sent_valentines_for_year(Time.now.utc.year)
+  end
+  
+  def test_count_received_valentines_for_year
+    assert_equal 2, bunnies(:chrismear).count_received_valentines_for_year(Time.now.utc.year)
+  end
+  
   private
   
   def create_bunny(options={})

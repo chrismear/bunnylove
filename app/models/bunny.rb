@@ -54,9 +54,19 @@ class Bunny < ActiveRecord::Base
     self.received_valentines.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
   end
   
+  def count_received_valentines_for_year(year)
+    year = year.to_i
+    self.received_valentines.count(:conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+  end
+  
   def sent_valentines_for_year(year)
     year = year.to_i
     self.sent_valentines.find(:all, :conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "valentines.created_at DESC", :include => :recipient)
+  end
+  
+  def count_sent_valentines_for_year(year)
+    year = year.to_i
+    self.sent_valentines.count(:conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
   end
   
   def key

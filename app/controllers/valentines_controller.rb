@@ -2,7 +2,7 @@ class ValentinesController < ApplicationController
   layout "logged_in", :except => :received
   before_filter :bunny_login_required, :except => :received
   before_filter :find_bunny
-  before_filter :get_current_year, :only => [:index, :received, :received_after]
+  before_filter :get_current_year, :only => [:index, :received, :received_after, :create]
   
   def index
     @received_valentines = @bunny.received_valentines_for_year(@year)
@@ -22,7 +22,7 @@ class ValentinesController < ApplicationController
     
     if @valentine.save
       flash[:success] = "Your Valentine has been sent to #{@recipient.username}!"
-      @sent_valentines_count = @bunny.sent_valentines.count
+      @sent_valentines_count = @bunny.count_sent_valentines_for_year(@year)
       respond_to do |format|
         format.html do
           redirect_to(valentines_path)
@@ -57,7 +57,7 @@ class ValentinesController < ApplicationController
   
   def received_after
     @new_valentines = @bunny.received_valentines_after(params[:last_id], @year)
-    @received_valentines_count = @bunny.received_valentines.count
+    @received_valentines_count = @bunny.count_received_valentines_for_year(@year)
     respond_to do |format|
       format.js
     end

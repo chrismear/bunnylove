@@ -79,6 +79,7 @@ class ValentinesControllerTest < Test::Unit::TestCase
       xhr :post, :create, :recipient => "bob", :message => "Back at ya."
     end
     assert_response :success
+    assert_equal 3, assigns(:sent_valentines_count)
     assert_select_rjs :replace_html, "create_valentine_form_success"
     assert_select_rjs :replace_html, "sent_valentines_tally"
     assert_select_rjs :insert, :top, "sent_valentines" do
@@ -199,6 +200,8 @@ class ValentinesControllerTest < Test::Unit::TestCase
     xhr :post, :received_after, :last_id => 13
     
     assert_response :success
+    
+    assert_equal 2, assigns(:received_valentines_count)
     
     assert_select_rjs :replace_html, "received_valentines_tally"
     assert_select_rjs :insert, :top, "received_valentines" do
