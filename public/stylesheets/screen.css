@@ -52,9 +52,12 @@ ul#sent_valentines, ul#received_valentines {
 }
 
 ul#sent_valentines li, ul#received_valentines li {
-  margin: 0 0 0.5em;
-  padding: 5px;
+  margin: 0 0 1em;
+  padding: 5px 20px;
   background-color: #e2acad;
+  background-image: url(/images/message_background.png);
+  background-repeat: repeat-x;
+  background-position: top center;
 }
 
 ul#sent_valentines li div, ul#received_valentines li div {
