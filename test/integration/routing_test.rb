@@ -6,7 +6,13 @@ class RoutingTest < ActionController::IntegrationTest
   def test_received_rss
     assert_routing "/bunnies/0bd994c5927d45ca9ffd8be84a8e45973e4073b6/valentines/received.rss", :controller => "valentines", :action => "received", :format => "rss", :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6"
     
-    assert_routing received_bunny_valentines_path(:bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6"), :controller => "valentines", :action => "received", :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "rss"
+    assert_routing received_bunny_valentines_path(:bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "rss"), :controller => "valentines", :action => "received", :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "rss"
+  end
+  
+  def test_received_atom
+    assert_routing "/bunnies/0bd994c5927d45ca9ffd8be84a8e45973e4073b6/valentines/received.atom", :controller => "valentines", :action => "received", :format => "atom", :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6"
+    
+    assert_routing received_bunny_valentines_path(:bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "atom"), :controller => "valentines", :action => "received", :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "atom"
   end
   
   def test_normal_valentines_routes

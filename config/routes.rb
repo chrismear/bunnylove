@@ -12,5 +12,5 @@ ActionController::Routing::Routes.draw do |map|
   map.homepage "/", :controller => "misc", :action => "index"
   map.privacy "/privacy", :controller => "misc", :action => "privacy"
   
-  map.received_bunny_valentines "/bunnies/:bunny_id/valentines/received.rss", :controller => "valentines", :action => "received", :format => "rss"
+  map.received_bunny_valentines "/bunnies/:bunny_id/valentines/received.:format", :controller => "valentines", :action => "received"
 end

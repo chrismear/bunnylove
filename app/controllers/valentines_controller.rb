@@ -52,6 +52,7 @@ class ValentinesController < ApplicationController
     @received_valentines = @bunny.received_valentines_for_year(@year)
     respond_to do |format|
       format.rss
+      format.atom
     end
   end
   

@@ -194,6 +194,27 @@ class ValentinesControllerTest < Test::Unit::TestCase
     end
   end
   
+  def test_received_atom
+    # N.B. No login required
+    
+    get :received, :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "atom"
+    assert_response :success
+    
+    assert_select "feed" do
+      assert_select "link[href*=http://test.host]"
+      assert_select "title", "My Bunny Love Valentines"
+      # Should only get the two valentines from this year
+      assert_select "entry", 2
+      assert_select "entry" do
+        assert_select "title", /Shall I compare thee/
+      end
+      assert_select "entry" do
+        assert_select "title", /Thou art more lovely/
+      end
+    end
+  end
+  
+  
   def test_received_after
     login_as(:bunny => :chrismear)
     
