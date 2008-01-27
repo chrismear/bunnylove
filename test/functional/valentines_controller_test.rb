@@ -217,6 +217,20 @@ class ValentinesControllerTest < Test::Unit::TestCase
     end
   end
   
+  def test_received_atom_with_no_valentines
+    bunnies(:chrismear).received_valentines.destroy_all
+    
+    get :received, :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "atom"
+    assert_response :success
+  end
+  
+  def test_received_rss_with_no_valentines
+    bunnies(:chrismear).received_valentines.destroy_all
+    
+    get :received, :bunny_id => "0bd994c5927d45ca9ffd8be84a8e45973e4073b6", :format => "rss"
+    assert_response :success
+  end
+  
   
   def test_received_after
     login_as(:bunny => :chrismear)
