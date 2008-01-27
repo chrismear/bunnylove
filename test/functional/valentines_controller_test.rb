@@ -137,6 +137,9 @@ class ValentinesControllerTest < Test::Unit::TestCase
     
     # Logout link
     assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
+    
+    # Change password link
+    assert_select "a[href=/bunnies/current/edit]"
   end
   
   def test_new

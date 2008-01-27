@@ -165,4 +165,63 @@ class BunniesControllerTest < Test::Unit::TestCase
     assert_redirected_to "/"
     assert_nil @response.session[:pre_bunny]
   end
+  
+  def test_edit
+    login_as :bunny => :chrismear
+    
+    get :edit, :id => 'current'
+    
+    assert_response :success
+    
+    # raise @response.body
+    
+    assert_select "form[action=/bunnies/current]" do
+      assert_select "input[name=_method][value=put]"
+      assert_select "input[name='bunny[password]'][type=password]"
+      assert_select "input[name='bunny[password_confirmation]'][type=password]"
+      assert_select "input[type=submit]"
+    end
+    
+    assert_select "a[href=/valentines]"
+  end
+  
+  def test_update
+    login_as :bunny => :chrismear
+    
+    put :update, :id => "current", :bunny => {:password => "newpassword", :password_confirmation => "newpassword"}
+    
+    assert_response :redirect
+    assert_redirected_to "/valentines"
+    
+    assert flash[:success]
+    
+    assert_equal bunnies(:chrismear), Bunny.authenticate("chrismear", "newpassword")
+  end
+  
+  def test_update_with_errors
+    login_as :bunny => :chrismear
+    
+    put :update, :id => "current", :bunny => {:password => "newpassword", :password_confirmation => "wrongconfirmation"}
+    
+    assert_response :success
+    assert_template "bunnies/edit"
+    
+    assert flash[:error]
+    
+    # Should not have changed the bunny's password
+    assert_equal bunnies(:chrismear), Bunny.authenticate("chrismear", "qwerty")
+  end
+  
+  def test_access_control_for_edit
+    get :edit, :id => "current"
+    assert_redirected_to "/bunny_sessions/new"
+  end
+  
+  def test_protect_against_mass_assignment
+    login_as :bunny => :chrismear
+    
+    put :update, :id => "current", :bunny => {:username => "somebody else", :password => "newpassword", :password_confirmation => "newpassword"}
+    
+    assert_equal bunnies(:chrismear), Bunny.authenticate("chrismear", "newpassword")
+  end
 end

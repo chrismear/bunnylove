@@ -1,4 +1,7 @@
 class BunniesController < ApplicationController
+  before_filter :bunny_login_required, :only => [:edit, :update]
+  layout "logged_in", :only => [:edit, :update]
+  
   def new
   end
   
@@ -36,6 +39,24 @@ class BunniesController < ApplicationController
     else
       flash[:error] = "Uh-oh. I couldn't find your code on your MeCha profile page. Are you sure you put it there?"
       render(:action => :secret)
+    end
+  end
+  
+  def edit
+    @bunny = self.current_bunny
+  end
+  
+  def update
+    @bunny = self.current_bunny
+    @bunny.crypted_password = nil
+    @bunny.password = params[:bunny][:password]
+    @bunny.password_confirmation = params[:bunny][:password_confirmation]
+    if @bunny.save
+      flash[:success] = "Your password has been changed!"
+      redirect_to valentines_path
+    else
+      flash[:error] = "Uh-oh, something was wrong there."
+      render :action => :edit
     end
   end
   

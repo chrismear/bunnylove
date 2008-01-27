@@ -1,0 +1,12 @@
+<h3>Change your password</h3>
+
+<%= standard_flashes %>
+<%= error_messages_for :bunny %>
+
+<% form_for(:bunny, :url => bunny_path("current"), :html => {:method => :put}) do |f| -%>
+  <p><label>New password:</label><br /><%= f.password_field(:password) %></p>
+  <p><label>Confirm new password:</label><br /><%= f.password_field(:password_confirmation) %></p>
+  <p><%= submit_tag("Save new password") %></p>
+<% end -%>
+
+<p><%= link_to("Cancel and go back", valentines_path) %></p>
