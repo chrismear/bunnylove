@@ -1,8 +1,8 @@
 class Valentine < ActiveRecord::Base
   START_DAY = 14
-  START_MONTH = 2
+  START_MONTH = 1
   END_DAY = 15
-  END_MONTH = 2
+  END_MONTH = 1
   
   cattr_accessor :start_month, :start_day, :end_day, :end_month
   
@@ -32,5 +32,16 @@ class Valentine < ActiveRecord::Base
     end_date = Time.utc(now.year, @@end_month || END_MONTH, @@end_day || END_DAY)
     end_date = end_date + 1.day
     now >= start_date && now < end_date
+  end
+  
+  def self.before_valentines?(now = Time.now.utc)
+    start_date = Time.utc(now.year, @@start_month || START_MONTH, @@start_day || START_DAY)
+    now < start_date
+  end
+  
+  def self.after_valentines?(now = Time.now.utc)
+    end_date = Time.utc(now.year, @@end_month || END_MONTH, @@end_day || END_DAY)
+    end_date = end_date + 1.day
+    now >= end_date
   end
 end

@@ -73,6 +73,19 @@ class ValentineTest < Test::Unit::TestCase
     assert !Valentine.allow_valentines?(Time.utc(2008, 2, 16, 0, 2))
   end
   
+  def test_before_and_after_valentines
+    Valentine.start_month = 2
+    Valentine.start_day = 14
+    Valentine.end_month = 2
+    Valentine.end_day = 15
+    
+    assert Valentine.before_valentines?(Time.utc(2008,2,13,23,54))
+    assert !Valentine.after_valentines?(Time.utc(2008,2,13,23,54))
+    
+    assert Valentine.after_valentines?(Time.utc(2008,2,16,0,2))
+    assert !Valentine.before_valentines?(Time.utc(2008,2,16,0,2))
+  end
+  
   private
   
   def create_valentine(options={})
