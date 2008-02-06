@@ -1,8 +1,8 @@
 class Valentine < ActiveRecord::Base
   START_DAY = 14
-  START_MONTH = 1
+  START_MONTH = 2
   END_DAY = 15
-  END_MONTH = 1
+  END_MONTH = 2
   
   cattr_accessor :start_month, :start_day, :end_day, :end_month
   
