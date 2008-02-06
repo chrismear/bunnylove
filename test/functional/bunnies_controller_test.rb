@@ -16,6 +16,10 @@ class BunniesControllerTest < Test::Unit::TestCase
   def test_new
     get :new
     assert_response :success
+    
+    # Test against a bug where no layout was being used for actions other than edit and update
+    assert_select "html"
+    
     assert_sign_up_form
   end
   

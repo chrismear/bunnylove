@@ -1,6 +1,5 @@
 class BunniesController < ApplicationController
   before_filter :bunny_login_required, :only => [:edit, :update]
-  layout "logged_in", :only => [:edit, :update]
   
   def new
   end
@@ -44,6 +43,7 @@ class BunniesController < ApplicationController
   
   def edit
     @bunny = self.current_bunny
+    render(:layout => "logged_in")
   end
   
   def update
@@ -56,7 +56,7 @@ class BunniesController < ApplicationController
       redirect_to valentines_path
     else
       flash[:error] = "Uh-oh, something was wrong there."
-      render :action => :edit
+      render :action => :edit, :layout => "logged_in"
     end
   end
   
