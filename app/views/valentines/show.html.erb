@@ -3,7 +3,7 @@
 
 <div class="received_container">
   <h3>Valentines you received</h3>
-  <p id="received_valentines_tally"><%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines.length}) %></p>
+  <p id="received_valentines_tally"><%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines.length, :live => false}) %></p>
   <ul id="received_valentines">
   <% @received_valentines.each do |v| -%>
     <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
@@ -13,7 +13,7 @@
 
 <div class="sent_container">
   <h3>Valentines you sent</h3>
-  <p id="sent_valentines_tally"><%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines.length}) %></p>
+  <p id="sent_valentines_tally"><%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines.length, :live => false}) %></p>
   <ul id="sent_valentines">
   <% @sent_valentines.each do |v| -%>
     <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>

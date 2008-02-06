@@ -9,7 +9,7 @@ end
 page << "createValentineFormComplete();"
 page << "Form.reset('create_valentine_form');"
 
-page.replace_html "sent_valentines_tally", :partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines_count}
+page.replace_html "sent_valentines_tally", :partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines_count, :live => true}
 
 page.insert_html(:top, "sent_valentines", :partial => "shared/sent_valentine", :locals => {:v => @valentine})
 page.visual_effect(:highlight, "sent_valentine_#{@valentine.id}")

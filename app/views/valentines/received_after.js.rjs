@@ -1,5 +1,5 @@
 unless @new_valentines.empty?
-  page.replace_html "received_valentines_tally", :partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines_count}
+  page.replace_html "received_valentines_tally", :partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines_count, :live => true}
   
   @new_valentines.each do |v|
     page.insert_html(:top, "received_valentines", :partial => "shared/received_valentine", :locals => {:v => v})

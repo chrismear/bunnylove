@@ -15,8 +15,6 @@
     <p class="errorMessage" style="display: none" id="create_valentine_form_error"></p>
     <p class="successMessage" style="display: none" id="create_valentine_form_success"></p>
   </div>
-<% else -%>
-  <h3 class="valentines">Sorry, Valentine's is over now! But you can still read your messages.</h3>
 <% end -%>
 
 <script type="text/javascript">
@@ -29,7 +27,7 @@
 
 <div class="received_container">
   <h3>Valentines you've received</h3>
-  <p id="received_valentines_tally"><%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines.length}) %></p>
+  <p id="received_valentines_tally"><%= render(:partial => "shared/received_valentines_tally", :locals => {:received_valentines_count => @received_valentines.length, :live => @allow_valentines}) %></p>
   <ul id="received_valentines">
   <% @received_valentines.each do |v| -%>
     <%= render(:partial => "shared/received_valentine", :locals => {:v => v})%>
@@ -39,7 +37,7 @@
 
 <div class="sent_container">
   <h3>Valentines you've sent</h3>
-  <p id="sent_valentines_tally"><%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines.length}) %></p>
+  <p id="sent_valentines_tally"><%= render(:partial => "shared/sent_valentines_tally", :locals => {:sent_valentines_count => @sent_valentines.length, :live => @allow_valentines}) %></p>
   <ul id="sent_valentines">
   <% @sent_valentines.each do |v| -%>
     <%= render(:partial => "shared/sent_valentine", :locals => {:v => v})%>
