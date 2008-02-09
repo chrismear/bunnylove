@@ -1,5 +1,5 @@
 set :application, "bunnylove"
-set :repository, "http://mear.dyndns.org/svn/webapps/bunnylove/trunk"
+set :repository, "https://svn.odegy.net/webapps/bunnylove/trunk"
 
 set :deploy_to, "/var/www/bunnylove.org.uk/application"
 
