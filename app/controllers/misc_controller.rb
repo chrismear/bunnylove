@@ -7,4 +7,8 @@ class MiscController < ApplicationController
   
   def privacy
   end
+  
+  def boom
+    raise "Boom!"
+  end
 end

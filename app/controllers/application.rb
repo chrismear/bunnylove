@@ -2,6 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include ExceptionNotifiable
+  
   filter_parameter_logging :password, :message
   
   protect_from_forgery

@@ -77,3 +77,6 @@ ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
   :full => "%d %B %Y",
   :dmy => "%d/%m/%Y"
 ) 
+
+ExceptionNotifier.exception_recipients = %w(chris@feedmechocolate.com)
+ExceptionNotifier.email_prefix = "[Bunny Love]"
