@@ -79,4 +79,5 @@ ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
 ) 
 
 ExceptionNotifier.exception_recipients = %w(chris@feedmechocolate.com)
+ExceptionNotifier.sender_address = %("Application Error" <notifier@bunnylove.org.uk>)
 ExceptionNotifier.email_prefix = "[Bunny Love]"
