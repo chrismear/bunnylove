@@ -71,7 +71,7 @@ class Bunny < ActiveRecord::Base
   
   def key
     unless self.read_attribute(:key)
-      self.update_attribute(:key, Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--bunnybunnybunny--"))      
+      self.update_attribute(:key, Digest::SHA1.hexdigest("#{object_id}#{rand(255)}#{Time.now.utc.to_s}--bunnybunnybunny--"))      
     end
     self.read_attribute(:key)
   end
