@@ -231,6 +231,15 @@ class ValentinesControllerTest < Test::Unit::TestCase
     assert_response :success
   end
   
+  def test_received_atom_with_bad_key
+    get :received, :bunny_id => "doesnotexist", :format => "atom"
+    assert_response 404
+  end
+  
+  def test_received_rss_with_bad_key
+    get :received, :bunny_id => "doesnotexist", :format => "rss"
+    assert_response 404
+  end
   
   def test_received_after
     login_as(:bunny => :chrismear)

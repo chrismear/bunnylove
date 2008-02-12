@@ -51,6 +51,10 @@ class ValentinesController < ApplicationController
   end
   
   def received
+    unless @bunny
+      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+      return
+    end
     @received_valentines = @bunny.received_valentines_for_year(@year)
     respond_to do |format|
       format.rss
