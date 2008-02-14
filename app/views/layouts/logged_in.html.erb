@@ -9,7 +9,7 @@
   <%= stylesheet_link_tag "screen" %>
   <%= javascript_include_tag :all, :cache => true %>
   <%= auto_discovery_link_tag(:rss, received_bunny_valentines_url(:bunny_id => @bunny.key, :format => "rss")) %>
-  <%= auto_discovery_link_tag(:atom, received_bunny_valentines_url(:bunny_id => @bunny.key, :format => "atom")) %>
+  <%= auto_discovery_link_tag(:atom, received_bunny_valentines_url(:bunny_id => @bunny.key, :format => "atom"), :title => "Atom"  ) %>
 </head>
 
 <body>
