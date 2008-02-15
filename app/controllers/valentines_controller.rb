@@ -68,8 +68,6 @@ class ValentinesController < ApplicationController
     respond_to do |format|
       format.js
     end
-  rescue ActionController::InvalidAuthenticityToken
-    render :nothing => true
   end
   
   private
