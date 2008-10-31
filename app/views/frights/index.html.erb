@@ -6,9 +6,9 @@
   <div class="send_container">
     <h3>Send an anonymous fright</h3>
     <% form_remote_tag :url => frights_path, :html => {:action => frights_path, :id => "create_fright_form"}, :after => "createFrightFormSubmit()", :complete => "createFrightFormComplete()" do -%>
-      <p><label>Who would you like to spook?</label> <span>Just the username, thanks.</span><br />
+      <p><label>Who would you like to spook?</label><br /><span>Just the username, thanks.</span><br />
       <%= text_field_tag :recipient, @recipient %></p>
-      <p><label>And what would you like to say?</label> <span>Have fun, but don't be mean, or chrismear will have to haunt you.</span><br />
+      <p><label>And what would you like to say?</label><br /><span>You can be scary, or you could just send a nice comforting message on this terrible night.<br />But don't be mean, or chrismear will have to haunt you.</span><br />
       <%= text_area_tag :message, @message, :rows => 5, :cols => 20 %></p>
       <p><%= submit_tag "Send my fright!", :id => "create_fright_form_submit" %></p>
     <% end -%>

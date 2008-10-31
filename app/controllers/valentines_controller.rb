@@ -1,5 +1,5 @@
 class ValentinesController < ApplicationController
-  layout "logged_in", :except => :received
+  layout "valentines", :except => :received
   before_filter :bunny_login_required, :except => :received
   before_filter :find_bunny
   before_filter :get_current_year, :only => [:index, :received, :received_after, :create]

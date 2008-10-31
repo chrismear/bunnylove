@@ -1,6 +1,6 @@
 body {
-  background-color: #f7f9fb;
-  background-image: url(/images/bunnylove.gif);
+  background-color: #000000;
+  background-image: url(/images/bunnyfright.gif);
   background-repeat: no-repeat;
   background-position: 3px 10px;
   background-attachment: fixed;
@@ -8,7 +8,7 @@ body {
   padding: 1em 1em 1em 180px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: small;
-  color: black;
+  color: white;
   min-width: 500px;
 }
 
@@ -17,55 +17,55 @@ h1 {
 }
 
 h1 a {
-  color: black;
+  color: #ffffff;
   text-decoration: none;
 }
 
 h1 a:hover {
   text-decoration: underline;
   background-color: transparent;
-  color: black;
+  color: #ffffff;
 }
 
 h2 {
   font-size: 1em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #aaaaaa;
   margin: 0;
   padding: 0 0 1em;
 }
 
 a {
-  color: #0000ff;
+  color: #ff9900;
   text-decoration: underline;
 }
 
 a:hover {
-  background-color: #0000ff;
-  color: #f7f9fb;
+  background-color: #ff9900;
+  color: #000000;
   text-decoration: none;
 }
 
-ul#sent_valentines, ul#received_valentines {
+ul#sent_frights, ul#received_frights {
   list-style-type: none;
   margin: 0;
   padding: 0 1em;
 }
 
-ul#sent_valentines li, ul#received_valentines li {
+ul#sent_frights li, ul#received_frights li {
   margin: 0 0 1em;
   padding: 5px 20px;
   background-color: #e2acad;
-  background-image: url(/images/message_background.png);
+  background-image: url(/images/fright_background.png);
   background-repeat: repeat-x;
   background-position: top center;
 }
 
-ul#sent_valentines li div, ul#received_valentines li div {
+ul#sent_frights li div, ul#received_frights li div {
   margin: 0.5em 0;
   font-family: Georgia, Garamond, Times, "Times New Roman", serif;
 }
 
-ul#sent_valentines li p, ul#received_valentines li p {
+ul#sent_frights li p, ul#received_frights li p {
   margin: 0.5em 0;
 }
 
@@ -75,7 +75,7 @@ ul#sent_valentines li p, ul#received_valentines li p {
 
 #footer {
   font-size: 0.8em;
-  border-top: 1px solid black;
+  border-top: 1px solid #aaaaaa;
 }
 
 p.errorMessage {
@@ -117,7 +117,7 @@ div.sent_container {
 
 div.send_container {
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #aaaaaa;
 }
 
 div.send_container input {
@@ -132,26 +132,19 @@ div.send_container textarea {
   width: 300px;
 }
 
+div.send_container span {
+  font-style: italic;
+}
 
 .clear {
   clear: both;
 }
 
 p.archives {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #aaaaaa;
   padding: 0 0 0.5em;
 }
 
-h3.valentines {
+h3.frights {
   text-align: center;
 }
-
-#lightning, #darkness {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-#lightning {background-color: white;}
-#darkness {background-color: black;}

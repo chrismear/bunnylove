@@ -1,15 +1,29 @@
-<% unless received_frights_count == 0 -%>
+<% if received_frights_count == 0 -%>
   <%
     messages = if live then [
-      "You've received #{pluralize(received_frights_count, 'fright')}, you lucky bunny!",
-      "You've been sent #{pluralize(received_frights_count, 'fright')}. Somebody wubs you!",
-      "Aw, look at that. You've had #{pluralize(received_frights_count, 'fright')}."
+      "Phew! Nobody has tried to scare you... <em>yet...</em>",
+      "Looks like you haven't received any frights yet... but don't relax yet, Halloween's still in full swing!"
     ]
     else
     [
-      "You received #{pluralize(received_frights_count, 'fright')}, you lucky bunny!",
-      "You were sent #{pluralize(received_frights_count, 'fright')}. Somebody wubs you!",
-      "Aw, look at that. You got #{pluralize(received_frights_count, 'fright')}."
+      "Phew! Nobody tried to scare you! You got lucky... <em>this time...</em>",
+      "Looks like you got away with it this year..."
+    ]
+    end
+  -%>
+  <%= messages.rand %>
+<% else -%>
+  <%
+    messages = if live then [
+      "You've received #{pluralize(received_frights_count, 'fright')} &mdash; eek!",
+      "You've had #{pluralize(received_frights_count, 'fright')} so far. Scared yet?",
+      "Somebody's out to get you... you've had #{pluralize(received_frights_count, 'fright')}."
+    ]
+    else
+    [
+      "You received #{pluralize(received_frights_count, 'fright')} &mdash; eek!",
+      "You had #{pluralize(received_frights_count, 'fright')}. Did they scare you?",
+      "Somebody's out to get you... you got #{pluralize(received_frights_count, 'fright')}."
     ]
     end
   -%>

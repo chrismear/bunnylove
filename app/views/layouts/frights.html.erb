@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  
+  <title>bunny love</title>
+  <%= stylesheet_link_tag "frights" %>
+  <%= javascript_include_tag :all, :cache => true %>
+  <%= auto_discovery_link_tag(:rss, received_bunny_frights_url(:bunny_id => @bunny.key, :format => "rss")) %>
+  <%= auto_discovery_link_tag(:atom, received_bunny_frights_url(:bunny_id => @bunny.key, :format => "atom"), :title => "Atom"  ) %>
+</head>
+
+<body>
+<h1><a href="/">bunny <s>love</s> fright</a></h1>
+<h2>MeCha Anonymous Scary Halloween Time</h2>
+<p>Mwah-hah-hah! Ready for a good scare, <%=h @bunny.username %>? | Too afraid? Then <%= link_to("log out.", bunny_session_path("current"), :method => :delete) %> | <%= link_to("Change your password.", edit_bunny_path("current")) %></p>
+
+<%= yield %>
+
+
+<div id="footer">
+  <p>This is not an official MetaChat thingy. Any problems or questions, <a href="mailto:chris@feedmechocolate.com">contact chrismear</a>. <a href="/privacy">Privacy Policy.</a></p>
+</div>
+</body>
+</html>
