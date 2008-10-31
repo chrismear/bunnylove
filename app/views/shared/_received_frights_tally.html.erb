@@ -1,0 +1,17 @@
+<% unless received_frights_count == 0 -%>
+  <%
+    messages = if live then [
+      "You've received #{pluralize(received_frights_count, 'fright')}, you lucky bunny!",
+      "You've been sent #{pluralize(received_frights_count, 'fright')}. Somebody wubs you!",
+      "Aw, look at that. You've had #{pluralize(received_frights_count, 'fright')}."
+    ]
+    else
+    [
+      "You received #{pluralize(received_frights_count, 'fright')}, you lucky bunny!",
+      "You were sent #{pluralize(received_frights_count, 'fright')}. Somebody wubs you!",
+      "Aw, look at that. You got #{pluralize(received_frights_count, 'fright')}."
+    ]
+    end
+  -%>
+  <%= messages.rand %>
+<% end -%>

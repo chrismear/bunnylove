@@ -1,0 +1,25 @@
+<%= render(:partial => "archive_links") %>
+<h3 class="frights">Your Frights from <%= @year %></h3>
+
+<div class="received_container">
+  <h3>Frights you received</h3>
+  <p id="received_frights_tally"><%= render(:partial => "shared/received_frights_tally", :locals => {:received_frights_count => @received_frights.length, :live => false}) %></p>
+  <ul id="received_frights">
+  <% @received_frights.each do |v| -%>
+    <%= render(:partial => "shared/received_fright", :locals => {:v => v})%>
+  <% end -%>
+  </ul>
+</div>
+
+<div class="sent_container">
+  <h3>Frights you sent</h3>
+  <p id="sent_frights_tally"><%= render(:partial => "shared/sent_frights_tally", :locals => {:sent_frights_count => @sent_frights.length, :live => false}) %></p>
+  <ul id="sent_frights">
+  <% @sent_frights.each do |v| -%>
+    <%= render(:partial => "shared/sent_fright", :locals => {:v => v})%>
+  <% end -%>
+  </ul>
+</div>
+
+<div class="clear"></div>
+

@@ -4,6 +4,9 @@ class Bunny < ActiveRecord::Base
   has_many :sent_valentines, :class_name => "Valentine", :foreign_key => :sender_id, :order => "valentines.created_at DESC"
   has_many :received_valentines, :class_name => "Valentine", :foreign_key => :recipient_id, :order => "created_at DESC"
   
+  has_many :sent_frights, :class_name => "Fright", :foreign_key => :sender_id, :order => "frights.created_at DESC"
+  has_many :received_frights, :class_name => "Fright", :foreign_key => :recipient_id, :order => "created_at DESC"
+  
   attr_accessor :proto_bunny
   
   attr_protected :proto_bunny, :key, :crypted_password, :salt, :remember_token, :secret
@@ -68,6 +71,35 @@ class Bunny < ActiveRecord::Base
     year = year.to_i
     self.sent_valentines.count(:conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
   end
+  
+  def received_frights_after(fright_id, year=nil)
+    if year
+      self.received_frights.find(:all, :conditions => ["id > ? AND created_at >= ?", fright_id, Time.utc(year, 1, 1)], :order => "id ASC")
+    else
+      self.received_frights.find(:all, :conditions => ["id > ?", fright_id], :order => "id ASC")
+    end
+  end
+  
+  def received_frights_for_year(year)
+    year = year.to_i
+    self.received_frights.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+  end
+  
+  def count_received_frights_for_year(year)
+    year = year.to_i
+    self.received_frights.count(:conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+  end
+  
+  def sent_frights_for_year(year)
+    year = year.to_i
+    self.sent_frights.find(:all, :conditions => ["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "frights.created_at DESC", :include => :recipient)
+  end
+  
+  def count_sent_frights_for_year(year)
+    year = year.to_i
+    self.sent_frights.count(:conditions => ["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+  end
+  
   
   def key
     unless self.read_attribute(:key)

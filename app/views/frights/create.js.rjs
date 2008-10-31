@@ -1,0 +1,17 @@
+page.hide("create_fright_form_error")
+
+page.replace_html("create_fright_form_success", flash[:success])
+page.show("create_fright_form_success")
+page.delay(3) do
+  page.visual_effect :fade, 'create_fright_form_success'
+end
+
+page << "createFrightFormComplete();"
+page << "Form.reset('create_fright_form');"
+
+page.replace_html "sent_frights_tally", :partial => "shared/sent_frights_tally", :locals => {:sent_frights_count => @sent_frights_count, :live => true}
+
+page.insert_html(:top, "sent_frights", :partial => "shared/sent_fright", :locals => {:v => @fright})
+page.visual_effect(:highlight, "sent_fright_#{@fright.id}")
+
+page << "Form.focusFirstElement('create_fright_form');"

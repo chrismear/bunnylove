@@ -1,0 +1,72 @@
+<%= render(:partial => "archive_links") %>
+
+<%= standard_flashes %>
+
+<% if @allow_frights -%>
+  <div class="send_container">
+    <h3>Send an anonymous Fright</h3>
+    <% form_remote_tag :url => frights_path, :html => {:action => frights_path, :id => "create_fright_form"}, :after => "createFrightFormSubmit()", :complete => "createFrightFormComplete()" do -%>
+      <p><label>Who are you sending this anonymous Fright to?</label> <span>Just the username, thanks.</span><br />
+      <%= text_field_tag :recipient, @recipient %></p>
+      <p><label>And what would you like to say?</label> <span>Keep it clean and friendly, pwetty pwease!</span><br />
+      <%= text_area_tag :message, @message, :rows => 5, :cols => 20 %></p>
+      <p><%= submit_tag "Send my Fright!", :id => "create_fright_form_submit" %></p>
+    <% end -%>
+    <p class="errorMessage" style="display: none" id="create_fright_form_error"></p>
+    <p class="successMessage" style="display: none" id="create_fright_form_success"></p>
+  </div>
+<% elsif @before_frights -%>
+  <h3 class="frights">It isn't Fright's Day yet! Check back later...</h3>
+<% elsif @after_frights -%>
+  <h3 class="frights">Sorry, Fright's is over for this year! But you can still read your messages.</h3>
+<% end -%>
+
+<script type="text/javascript">
+  <% if @received_frights.empty? -%>
+    var lastReceivedFrightId = 0;
+  <% else -%>
+    var lastReceivedFrightId = <%= @received_frights.first.id %>;
+  <% end -%>
+</script>
+
+<% unless @before_frights -%>
+  <div class="received_container">
+    <% if @after_frights -%>
+      <h3>Frights you received</h3>
+    <% else -%>
+      <h3>Frights you've received</h3>
+    <% end -%>
+    <p id="received_frights_tally"><%= render(:partial => "shared/received_frights_tally", :locals => {:received_frights_count => @received_frights.length, :live => @allow_frights}) %></p>
+    <ul id="received_frights">
+    <% @received_frights.each do |v| -%>
+      <%= render(:partial => "shared/received_fright", :locals => {:v => v})%>
+    <% end -%>
+    </ul>
+  </div>
+
+  <div class="sent_container">
+    <% if @after_frights -%>
+      <h3>Frights you sent</h3>
+    <% else -%>
+      <h3>Frights you've sent</h3>
+    <% end -%>
+    <p id="sent_frights_tally"><%= render(:partial => "shared/sent_frights_tally", :locals => {:sent_frights_count => @sent_frights.length, :live => @allow_frights}) %></p>
+    <ul id="sent_frights">
+    <% @sent_frights.each do |v| -%>
+      <%= render(:partial => "shared/sent_fright", :locals => {:v => v})%>
+    <% end -%>
+    </ul>
+  </div>
+<% end -%>
+
+<div class="clear"></div>
+
+<% if @allow_frights -%>
+  
+  <script type="text/javascript">
+    Form.focusFirstElement('create_fright_form');
+  </script>
+  
+  <%= periodically_call_remote(:url => received_after_frights_path, :with => "'last_id=' + lastReceivedFrightId", :frequency => 20) %>
+  
+<% end -%>

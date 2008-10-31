@@ -1,0 +1,10 @@
+unless @new_frights.empty?
+  page.replace_html "received_frights_tally", :partial => "shared/received_frights_tally", :locals => {:received_frights_count => @received_frights_count, :live => true}
+  
+  @new_frights.each do |v|
+    page.insert_html(:top, "received_frights", :partial => "shared/received_fright", :locals => {:v => v})
+    page.visual_effect(:highlight, "received_fright_#{v.id}")
+  end
+  
+  page.assign "lastReceivedFrightId", @new_frights.last.id
+end

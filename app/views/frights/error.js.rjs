@@ -1,0 +1,4 @@
+page.replace_html("create_fright_form_error", flash[:error])
+page.show("create_fright_form_error")
+page << "createFrightFormComplete();"
+page << "Form.focusFirstElement('create_fright_form');"

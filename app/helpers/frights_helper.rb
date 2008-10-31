@@ -1,0 +1,2 @@
+module FrightsHelper
+end
