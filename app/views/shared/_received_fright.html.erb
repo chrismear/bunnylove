@@ -1,4 +1,4 @@
-<li id="received_fright_<%= v.id %>">
-  <div><%= htmlize_linebreaks(h(decode_message(v.message))) %></div>
-  <p class="timestamp">Received <%= v.created_at.to_s(:short_timestamp) %></p>
+<li id="received_fright_<%= f.id %>">
+  <div><%= htmlize_linebreaks(h(decode_message(f.message))) %></div>
+  <p class="timestamp">Received <%= f.created_at.to_s(:short_timestamp) %></p>
 </li>

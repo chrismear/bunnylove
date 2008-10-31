@@ -11,7 +11,7 @@ page << "Form.reset('create_fright_form');"
 
 page.replace_html "sent_frights_tally", :partial => "shared/sent_frights_tally", :locals => {:sent_frights_count => @sent_frights_count, :live => true}
 
-page.insert_html(:top, "sent_frights", :partial => "shared/sent_fright", :locals => {:v => @fright})
+page.insert_html(:top, "sent_frights", :partial => "shared/sent_fright", :locals => {:f => @fright})
 page.visual_effect(:highlight, "sent_fright_#{@fright.id}")
 
 page << "Form.focusFirstElement('create_fright_form');"

@@ -1,7 +1,7 @@
 xml.instruct! :xml, :version=>"1.0" 
 xml.rss(:version=>"2.0"){
   xml.channel{
-    xml.title("My Bunny Love Frights")
+    xml.title("My Bunny Frights")
     xml.link(frights_url)
       @received_frights.each do |fright|
         xml.item do
