@@ -1,5 +1,13 @@
+default_run_options[:pty] = true
+
 set :application, "bunnylove"
-set :repository, "https://svn.odegy.net/webapps/bunnylove/trunk"
+set :repository, "git@github.com:chrismear/bunnylove.git"
+set :scm, "git"
+set :user, "chris"
+set :checkout, "export"
+set :deploy_via, :remote_cache
+set :scm_verbose, true
+set :branch, "master"
 
 set :deploy_to, "/var/www/bunnylove.org.uk/application"
 
