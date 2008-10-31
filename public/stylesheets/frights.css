@@ -54,7 +54,7 @@ ul#sent_frights, ul#received_frights {
 ul#sent_frights li, ul#received_frights li {
   margin: 0 0 1em;
   padding: 5px 20px;
-  background-color: #e2acad;
+  background-color: #986500;
   background-image: url(/images/fright_background.png);
   background-repeat: repeat-x;
   background-position: top center;
