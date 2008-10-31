@@ -8,7 +8,7 @@
   <%= f.password_field :password %></p>
   <p>Confirm that password:<br />
   <%= f.password_field :password_confirmation %></p>
-  <p><%= submit_tag "Sign me up for Valentiney goodness!" %></p>
+  <p><%= submit_tag "Sign me up for Valentiney goodness!", :id => "signupsubmit" %></p>
 <% end -%>
 
 <h3>Already signed up?</h3>
@@ -17,7 +17,7 @@
   <%= text_field_tag "username" %></p>
   <p>Password<br />
   <%= password_field_tag "password" %></p>
-  <p><%= submit_tag "Lemme in!" %></p>
+  <p><%= submit_tag "Lemme in!", :id => "loginsubmit" %></p>
 <% end -%>
 
 <h3>Forgotten your password?</h3>

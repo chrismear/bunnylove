@@ -47,6 +47,10 @@ function doTransition() {
   new Effect.Shrink('bunnylovesubheading', {duration: 0.2, queue: 'with-last'});
   new Effect.Appear('bunnyfrightsubheading', {duration: 0.1, queue: 'with-last'});
   new Effect.Pulsate('bunnyfrightsubheading', {duration: 0.5, queue: 'with-last'});
+  
+  document.title = "bunny fright";
+  $('signupsubmit').value = "Sign me up for a confusing night of fear and whuffles!";
+  $('loginsubmit').value = "Begin the terror";
 }
 
 function spooky() {
