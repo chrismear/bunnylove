@@ -4,6 +4,8 @@ development:
   username: bunnylove
   password: metachat
   host: localhost
+  session_key: _bunnylove_session_id
+  secret: secret_goes_here
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -14,6 +16,8 @@ test:
   username: bunnylove
   password: metachat
   host: localhost
+  session_key: _bunnylove_session_id
+  secret: secret_goes_here
 
 production:
   adapter: mysql
@@ -21,3 +25,6 @@ production:
   username: bunnylove
   password: metachat 
   host: localhost
+  session_key: _bunnylove_session_id
+  secret: secret_goes_here
+
