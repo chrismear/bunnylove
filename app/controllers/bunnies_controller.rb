@@ -34,7 +34,7 @@ class BunniesController < ApplicationController
     if @bunny.check_secret!
       self.current_bunny = @bunny
       flash[:success] = "Okay, you're all set. Have fun!"
-      redirect_to(valentines_path)
+      redirect_to(frights_path)
     else
       flash[:error] = "Uh-oh. I couldn't find your code on your MeCha profile page. Are you sure you put it there?"
       render(:action => :secret)
@@ -43,7 +43,7 @@ class BunniesController < ApplicationController
   
   def edit
     @bunny = self.current_bunny
-    render(:layout => "logged_in")
+    render(:layout => "frights")
   end
   
   def update
@@ -53,10 +53,10 @@ class BunniesController < ApplicationController
     @bunny.password_confirmation = params[:bunny][:password_confirmation]
     if @bunny.save
       flash[:success] = "Your password has been changed!"
-      redirect_to valentines_path
+      redirect_to frights_path
     else
       flash[:error] = "Uh-oh, something was wrong there."
-      render :action => :edit, :layout => "logged_in"
+      render :action => :edit, :layout => "frights"
     end
   end
   

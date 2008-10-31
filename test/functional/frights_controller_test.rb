@@ -111,7 +111,7 @@ class FrightsControllerTest < Test::Unit::TestCase
     assert_select "li", /compare thee/
     assert_match /more temperate\.<br \/>And so on\./, @response.body
     # Sent frights count
-    assert_select "p", /sent 2 frights/
+    assert_select "p", /2 frights/
     
     # Sent frights
     assert_select "li", /cute and confirmed/
@@ -205,7 +205,7 @@ class FrightsControllerTest < Test::Unit::TestCase
     
     assert_select "feed" do
       assert_select "link[href*=http://test.host]"
-      assert_select "title", "My Bunny Love Frights"
+      assert_select "title", "My Bunny Frights"
       # Should only get the two frights from this year
       assert_select "entry", 2
       assert_select "entry" do

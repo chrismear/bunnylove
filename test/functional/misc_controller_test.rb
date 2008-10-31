@@ -28,7 +28,7 @@ class MiscControllerTest < Test::Unit::TestCase
     get :index
     
     assert_response :redirect
-    assert_redirected_to "/valentines"
+    assert_redirected_to "/frights"
   end
   
   def test_privacy
