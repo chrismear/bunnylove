@@ -5,7 +5,11 @@ class BunnySessionsController < ApplicationController
   def create
     self.current_bunny = Bunny.authenticate(params[:username], params[:password])
     if current_bunny
-      redirect_back_or_default(valentines_path)
+      if Fright.allow_frights?
+        redirect_back_or_default(frights_path)
+      else
+        redirect_back_or_default(valentines_path)
+      end
     else
       flash[:error] = "We couldn't find those details. Please try again."
       render(:action => :new)

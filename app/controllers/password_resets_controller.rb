@@ -29,8 +29,13 @@ class PasswordResetsController < ApplicationController
     @bunny.password_confirmation = params[:password_confirmation]
     if @bunny.save
       self.current_bunny = @bunny
-      flash[:success] = "Your password has been changed. Welcome back to Bunny Love!"
-      redirect_to(valentines_path)
+      if Fright.allow_frights?
+        flash[:success] = "Your password has been changed. Welcome back! Mwah-hah-hah."
+        redirect_to(frights_path)
+      else
+        flash[:success] = "Your password has been changed. Welcome back to Bunny Love!"
+        redirect_to(valentines_path)
+      end
     else
       flash[:error] = "There was a problem with the new password."
       render(:action => :check)

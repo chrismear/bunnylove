@@ -28,4 +28,20 @@ module ApplicationHelper
   def htmlize_linebreaks(message)
     message.gsub(/\n/, "<br />")
   end
+  
+  def current_year
+    Time.now.utc.year
+  end
+  
+  def previous_valentines_years
+    years = []
+    (current_year - 1).downto(2007){|y| years.push(y)}
+    years
+  end
+  
+  def previous_frights_years
+    years = []
+    (current_year - 1).downto(2008){|y| years.push(y)}
+    years
+  end
 end

@@ -7,12 +7,25 @@
   
   <title>bunny love</title>
   <%= stylesheet_link_tag "screen" %>
+  <% if Fright.allow_frights? -%>
+    <%= stylesheet_link_tag "frights", :title => "frights", :rel => "alternate stylesheet" %>
+  <% end -%>
   <%= javascript_include_tag :all, :cache => true %>
 </head>
 
-<body>
-<h1 id="bunnyloveheading"><a href="/">bunny love</a></h1>
-<h2 id="bunnylovesubheading">MeCha Anonymous Valentines</h2>
+<% if Fright.allow_frights? -%>
+  <body onload="spooky();">
+  <div id="lightning" style="display: none;"></div>  
+  <div id="darkness" style="display: none;"></div>  
+  <h1 id="bunnyloveheading"><a href="/">bunny love</a></h1>
+  <h1 id="bunnyfrightheading" style="display: none;"><a href="/">bunny <s>love</s> fright</a></h1>
+  <h2 id="bunnylovesubheading">MeCha Anonymous Valentines</h2>
+  <h2 id="bunnyfrightsubheading" style="display: none;">MeCha Anonymous Scary Halloween Time</h2>
+<% else -%>
+  <body>
+    <h1 id="bunnyloveheading"><a href="/">bunny love</a></h1>
+    <h2 id="bunnylovesubheading">MeCha Anonymous Valentines</h2>
+<% end -%>
 
 <%= yield %>
 

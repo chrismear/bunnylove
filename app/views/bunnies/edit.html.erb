@@ -9,4 +9,8 @@
   <p><%= submit_tag("Save new password") %></p>
 <% end -%>
 
-<p><%= link_to("Cancel and go back", valentines_path) %></p>
+<% if Fright.allow_frights? -%>
+  <p><%= link_to("Cancel and go back", frights_path) %></p>
+<% else -%>
+  <p><%= link_to("Cancel and go back", valentines_path) %></p>
+<% end -%>
