@@ -1,17 +1,9 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'valentines_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class ValentinesController; def rescue_action(e) raise e end; end
-
-class ValentinesControllerTest < Test::Unit::TestCase
+class ValentinesControllerTest < ActionController::TestCase
   fixtures :bunnies, :valentines
   
   def setup
-    @controller = ValentinesController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-    
     Valentine.start_month = 1
     Valentine.start_day = 1
     Valentine.end_day = 31

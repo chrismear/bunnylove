@@ -1,23 +1,22 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'frights_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class FrightsController; def rescue_action(e) raise e end; end
-
-class FrightsControllerTest < Test::Unit::TestCase
+class FrightsControllerTest < ActionController::TestCase
   fixtures :bunnies, :frights
   
   def setup
-    @controller = FrightsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-    
-    Fright.start_month = 1
-    Fright.start_day = 1
-    Fright.end_day = 31
-    Fright.end_month = 12
+    Fright.start_day = Time.now.utc.day
+    Fright.start_month = Time.now.utc.month
+    Fright.end_day = (Time.now.utc + 1.day).day
+    Fright.end_day = (Time.now.utc + 1.day).month
   end
   
+  def teardown
+    Fright.start_day = 31
+    Fright.start_month = 10
+    Fright.end_day = 1
+    Fright.end_month = 11
+  end
+    
   def test_create
     login_as(:bunny => :chrismear)
     assert_difference "Fright.count" do

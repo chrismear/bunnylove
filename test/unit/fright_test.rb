@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class FrightTest < Test::Unit::TestCase
+class FrightTest < ActiveSupport::TestCase
   fixtures :frights, :bunnies
   
   def test_should_have_sender

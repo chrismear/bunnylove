@@ -1,17 +1,7 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'bunnies_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class BunniesController; def rescue_action(e) raise e end; end
-
-class BunniesControllerTest < Test::Unit::TestCase
+class BunniesControllerTest < ActionController::TestCase
   fixtures :bunnies, :valentines, :frights
-  
-  def setup
-    @controller = BunniesController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
   
   def test_new
     get :new
@@ -144,7 +134,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     @request.session[:pre_bunny] = 2
     get :check, :id => 2
     assert_response :redirect
-    assert_redirected_to "/frights"
+    assert_redirected_to "/valentines"
     
     assert_equal 2, @response.session[:bunny]
     assert bunnies(:unconfirmed_bunny).signed_up?
@@ -186,7 +176,7 @@ class BunniesControllerTest < Test::Unit::TestCase
       assert_select "input[type=submit]"
     end
     
-    assert_select "a[href=/frights]"
+    assert_select "a[href=/valentines]"
   end
   
   def test_update
@@ -195,7 +185,7 @@ class BunniesControllerTest < Test::Unit::TestCase
     put :update, :id => "current", :bunny => {:password => "newpassword", :password_confirmation => "newpassword"}
     
     assert_response :redirect
-    assert_redirected_to "/frights"
+    assert_redirected_to "/valentines"
     
     assert flash[:success]
     

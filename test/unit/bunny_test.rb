@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class BunnyTest < Test::Unit::TestCase
+class BunnyTest < ActiveSupport::TestCase
   fixtures :bunnies, :valentines
   
   def test_should_create_bunny

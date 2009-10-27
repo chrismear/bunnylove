@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class MetachatTest < Test::Unit::TestCase
+class MetachatTest < ActiveSupport::TestCase
   def test_user_page_path
     assert_equal "http://metachat.org/users/chrismear", Metachat.user_page_uri("chrismear").to_s
     assert_equal "http://metachat.org/users/It%27s+Raining+Florence+Henderson", Metachat.user_page_uri("It's Raining Florence Henderson").to_s

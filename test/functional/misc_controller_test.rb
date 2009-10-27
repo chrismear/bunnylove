@@ -1,18 +1,8 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'misc_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class MiscController; def rescue_action(e) raise e end; end
-
-class MiscControllerTest < Test::Unit::TestCase
+class MiscControllerTest < ActionController::TestCase
   fixtures :bunnies
-  
-  def setup
-    @controller = MiscController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
-  
+    
   def test_index_when_logged_out
     get :index
     assert_response :success
@@ -28,7 +18,7 @@ class MiscControllerTest < Test::Unit::TestCase
     get :index
     
     assert_response :redirect
-    assert_redirected_to "/frights"
+    assert_redirected_to "/valentines"
   end
   
   def test_privacy
