@@ -1,5 +1,5 @@
 <%
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -22,7 +22,7 @@
 <%= standard_flashes %>
 <%= error_messages_for :bunny -%>
 
-<% form_tag password_resets_path do -%>
+<%= form_tag password_resets_path do -%>
   <p><label>New password:</label><br /><%= password_field_tag(:password) -%></p>
   <p><label>Confirm new password:</label><br /><%= password_field_tag(:password_confirmation) -%></p>
   <p><%= submit_tag("Change my password") %></p>

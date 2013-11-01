@@ -1,5 +1,5 @@
 <%
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -21,7 +21,7 @@
 <%= standard_flashes %>
 <%= error_messages_for :bunny %>
 
-<% form_for(:bunny, :url => bunny_path("current"), :html => {:method => :put}) do |f| -%>
+<%= form_for(:bunny, :url => bunny_path("current"), :html => {:method => :put}) do |f| -%>
   <p><label>New password:</label><br /><%= f.password_field(:password) %></p>
   <p><label>Confirm new password:</label><br /><%= f.password_field(:password_confirmation) %></p>
   <p><%= submit_tag("Save new password") %></p>
