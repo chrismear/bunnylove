@@ -28,9 +28,9 @@ set :branch, "master"
 
 set :deploy_to, "/var/www/bunnylove.org.uk/application"
 
-role :web, "toru.odegy.net"
-role :app, "toru.odegy.net"
-role :db,  "toru.odegy.net", :primary => true
+role :web, "bunnylove.org.uk"
+role :app, "bunnylove.org.uk"
+role :db,  "bunnylove.org.uk", :primary => true
 
 
 after "deploy:update", :link_config
