@@ -1,4 +1,4 @@
-# Copyright (c) 2004-2009 David Heinemeier Hansson
+# Copyright (c) 2004-2010 David Heinemeier Hansson
 # 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -24,5 +24,5 @@
 # You can add backtrace silencers for libraries that you're using but don't wish to see in your backtraces.
 # Rails.backtrace_cleaner.add_silencer { |line| line =~ /my_noisy_library/ }
 
-# You can also remove all the silencers if you're trying do debug a problem that might steem from framework code.
+# You can also remove all the silencers if you're trying to debug a problem that might stem from framework code.
 # Rails.backtrace_cleaner.remove_silencers!

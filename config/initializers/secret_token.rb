@@ -36,35 +36,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Bunnylove.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV["RAILS_ENV"] = "test"
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
+# Be sure to restart your server when you modify this file.
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  # fixtures :all
+# Your secret key for verifying the integrity of signed cookies.
+# If you change this key, all old signed cookies will become invalid!
+# Make sure the secret is at least 30 characters and all random,
+# no regular words or you'll be exposed to dictionary attacks.
 
-  # Add more helper methods to be used by all tests here...
-
-  def assert_sign_up_form
-    assert_select "form[action=/bunnies/new/secret][method=post]" do
-      assert_select "input[name='bunny[username]']"
-      assert_select "input[name='bunny[password]'][type=password]"
-      assert_select "input[name='bunny[password_confirmation]'][type=password]"
-      assert_select "input[type=submit]"
-    end
-  end
-  
-  def assert_login_form
-    assert_select "form[action=/bunny_sessions][method=post]" do
-      assert_select "input[name=username]"
-      assert_select "input[name=password][type=password]"
-      assert_select "input[type=submit]"
-    end
-  end
-  
-  include AuthenticatedTestHelper
-end
+db = YAML.load_file('config/database.yml')
+Bunnylove::Application.config.secret_token = db[Rails.env]['secret']

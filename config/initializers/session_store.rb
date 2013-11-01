@@ -1,4 +1,4 @@
-# Copyright (c) 2004-2009 David Heinemeier Hansson
+# Copyright (c) 2004-2010 David Heinemeier Hansson
 # 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -19,7 +19,7 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -38,18 +38,12 @@
 
 # Be sure to restart your server when you modify this file.
 
-# Your secret key for verifying cookie session data integrity.
-# If you change this key, all old sessions will become invalid!
-# Make sure the secret is at least 30 characters and all random, 
-# no regular words or you'll be exposed to dictionary attacks.
-require 'yaml'
 db = YAML.load_file('config/database.yml')
-ActionController::Base.session = {
-  :key         => db[RAILS_ENV]['session_key'],
-  :secret      => db[RAILS_ENV]['secret']
-}
+Bunnylove::Application.config.session_store(:cookie_store,
+  :key => db[Rails.env]['session_key']
+)
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
-# (create the session table with "rake db:sessions:create")
-# ActionController::Base.session_store = :active_record_store
+# (create the session table with "rails generate session_migration")
+# Bunnylove::Application.config.session_store :active_record_store
