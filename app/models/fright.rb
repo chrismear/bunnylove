@@ -18,7 +18,7 @@
 class Fright < ActiveRecord::Base
   START_DAY = 31
   START_MONTH = 10
-  END_DAY = 1
+  END_DAY = 4
   END_MONTH = 11
   
   cattr_accessor :start_month, :start_day, :end_day, :end_month
