@@ -71,7 +71,7 @@ class Bunny < ActiveRecord::Base
   
   def received_valentines_for_year(year)
     year = year.to_i
-    self.received_valentines.where["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("created_at DESC")
+    self.received_valentines.where(["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("created_at DESC")
   end
   
   def count_received_valentines_for_year(year)
