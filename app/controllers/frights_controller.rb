@@ -69,7 +69,7 @@ class FrightsController < ApplicationController
   
   def received
     unless @bunny
-      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+      render :file => "#{Rails.root}/public/404.html", :status => 404
       return
     end
     @received_frights = @bunny.received_frights_for_year(@year)
