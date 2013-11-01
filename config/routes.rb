@@ -22,10 +22,10 @@ Bunnylove::Application.routes.draw do
   end
   resources :bunny_sessions
   resources :valentines do
-    any 'received_after', :on => :collection
+    post 'received_after', :on => :collection
   end
   resources :frights do
-    any 'received_after', :on => :collection
+    post 'received_after', :on => :collection
   end
   resources :password_resets do
     post 'secret', :on => :new
