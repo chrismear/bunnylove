@@ -1,4 +1,4 @@
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -18,7 +18,7 @@
 default_run_options[:pty] = true
 
 set :application, "bunnylove"
-set :repository, "git@github.com:chrismear/bunnylove.git"
+set :repository, "https://github.com/chrismear/bunnylove.git"
 set :scm, "git"
 set :user, "chris"
 set :checkout, "export"
