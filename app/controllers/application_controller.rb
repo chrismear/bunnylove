@@ -21,8 +21,6 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   
-  filter_parameter_logging :password, :message
-  
   protect_from_forgery
   
   include AuthenticatedSystem
