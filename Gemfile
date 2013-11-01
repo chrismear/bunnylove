@@ -7,6 +7,8 @@ gem 'rails', '3.0.20'
 
 gem 'mysql2', '<0.3'
 
+gem 'exception_notification_rails3'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

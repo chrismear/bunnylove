@@ -25,6 +25,7 @@ Time::DATE_FORMATS[:short_timestamp] = "at %I:%M %p on %d %B, %Y"
 Date::DATE_FORMATS[:full] = "%d %B %Y"
 Date::DATE_FORMATS[:dmy] = "%d/%m/%Y"
 
-ExceptionNotifier.exception_recipients = %w(chris@feedmechocolate.com)
-ExceptionNotifier.sender_address = %("Application Error" <notifier@bunnylove.org.uk>)
-ExceptionNotifier.email_prefix = "[Bunny Love]"
+Bunnylove::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[Bunny Love] ",
+  :sender_address => %{"Application Error" <notifier@bunnylove.org.uk>},
+  :exception_recipients => %w{chris@feedmechocolate.com}
