@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 set :application, "bunnylove"
 set :repository,  "git://github.com/chrismear/bunnylove.git"
 
