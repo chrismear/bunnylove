@@ -34,7 +34,7 @@ class RoutingTest < ActionController::IntegrationTest
   
   def test_normal_valentines_routes
     assert_routing "/valentines", :controller => "valentines", :action => "index"
-    assert_routing "/valentines/received_after", :controller => "valentines", :action => "received_after"
+    assert_routing({:method => :post, :path => "/valentines/received_after"}, :controller => "valentines", :action => "received_after")
   end
   
   def test_received_frights_rss
@@ -51,6 +51,6 @@ class RoutingTest < ActionController::IntegrationTest
   
   def test_normal_frights_routes
     assert_routing "/frights", :controller => "frights", :action => "index"
-    assert_routing "/frights/received_after", :controller => "frights", :action => "received_after"
+    assert_routing({:method => :post, :path => "/frights/received_after"}, :controller => "frights", :action => "received_after")
   end
 end
