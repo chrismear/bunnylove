@@ -33,7 +33,7 @@ class Fright < ActiveRecord::Base
   end
   
   def message=(new_message)
-    self.write_attribute("message", self.class.rot13(new_message))
+    self["message"] = self.class.rot13(new_message)
   end
   
   def self.rot13(missive)
