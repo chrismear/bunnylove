@@ -1,37 +1,34 @@
-# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
-# 
-# This file is part of Bunnylove.
-# 
-# Bunnylove is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-# 
-# Bunnylove is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-# 
-# You should have received a copy of the GNU Affero General Public License
-# along with Bunnylove.  If not, see <http://www.gnu.org/licenses/>.
-
-default_run_options[:pty] = true
-
 set :application, "bunnylove"
-set :repository, "https://github.com/chrismear/bunnylove.git"
-set :scm, "git"
-set :user, "chris"
-set :checkout, "export"
-set :deploy_via, :remote_cache
-set :scm_verbose, true
-set :branch, "master"
+set :repository,  "git://github.com/chrismear/bunnylove.git"
 
+set :user, 'chris'
 set :deploy_to, "/var/www/bunnylove.org.uk/application"
+set :use_sudo, false
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
-role :web, "bunnylove.org.uk"
-role :app, "bunnylove.org.uk"
-role :db,  "bunnylove.org.uk", :primary => true
+# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
+# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
+role :web, "bunnylove.org.uk"                          # Your HTTP server, Apache/etc
+role :app, "bunnylove.org.uk"                          # This may be the same as your `Web` server
+role :db,  "bunnylove.org.uk", :primary => true # This is where Rails migrations will run
+
+# if you want to clean up old releases on each deploy uncomment this:
+# after "deploy:restart", "deploy:cleanup"
+
+# if you're still using the script/reaper helper you will need
+# these http://github.com/rails/irs_process_scripts
+
+# If you are using Passenger mod_rails uncomment this:
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
 
 after "deploy:update", :link_config
 
@@ -39,10 +36,3 @@ desc "Link in production database config"
 task :link_config do
   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 end
-
-namespace :deploy do
-  task :restart, :roles => :app do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-end
-
