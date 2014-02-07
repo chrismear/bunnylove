@@ -8,6 +8,7 @@ gem 'rails', '3.0.20'
 gem 'mysql2', '<0.3'
 
 gem 'exception_notification_rails3', :require => 'exception_notifier'
+gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'

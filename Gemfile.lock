@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/rails/prototype_legacy_helper.git
+  revision: a2cd95c3e3c1a4f7a9566efdab5ce59c886cb05f
+  specs:
+    prototype_legacy_helper (0.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -77,4 +83,5 @@ PLATFORMS
 DEPENDENCIES
   exception_notification_rails3
   mysql2 (< 0.3)
+  prototype_legacy_helper (= 0.0.0)!
   rails (= 3.0.20)
