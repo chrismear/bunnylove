@@ -124,7 +124,7 @@ class ValentinesControllerTest < ActionController::TestCase
     
     # Sent valentines
     assert_select "li", /cute and confirmed/
-    assert_select "li", /don't exist yet/
+    assert_select "li", /don&#x27;t exist yet/
     
     # New valentine form
     assert_select "form[action=/valentines][method=post][onsubmit*=new Ajax.Request]" do

@@ -43,7 +43,7 @@ module ApplicationHelper
   end
   
   def htmlize_linebreaks(message)
-    message.gsub(/\n/, "<br />")
+    h(message).gsub(/\n/, "<br />").html_safe
   end
   
   def current_year
