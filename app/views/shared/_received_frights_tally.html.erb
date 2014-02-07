@@ -30,7 +30,7 @@
     ]
     end
   -%>
-  <%= messages.sample %>
+  <%= messages.sample.html_safe %>
 <% else -%>
   <%
     messages = if live then [
@@ -46,5 +46,5 @@
     ]
     end
   -%>
-  <%= messages.sample %>
+  <%= messages.sample.html_safe %>
 <% end -%>
