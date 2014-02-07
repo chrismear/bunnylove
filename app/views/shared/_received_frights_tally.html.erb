@@ -30,7 +30,7 @@
     ]
     end
   -%>
-  <%= messages.rand %>
+  <%= messages.sample %>
 <% else -%>
   <%
     messages = if live then [
@@ -46,5 +46,5 @@
     ]
     end
   -%>
-  <%= messages.rand %>
+  <%= messages.sample %>
 <% end -%>
