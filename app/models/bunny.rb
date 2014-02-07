@@ -63,9 +63,9 @@ class Bunny < ActiveRecord::Base
   
   def received_valentines_after(valentine_id, year=nil)
     if year
-      self.received_valentines.where(["id > ? AND created_at >= ?", valentine_id, Time.utc(year, 1, 1)]).order("id ASC")
+      self.received_valentines.where(["id > ? AND created_at >= ?", valentine_id, Time.utc(year, 1, 1)]).except(:order).order(:id)
     else
-      self.received_valentines.where(["id > ?", valentine_id]).order("id ASC")
+      self.received_valentines.where(["id > ?", valentine_id]).except(:order).order(:id)
     end
   end
   
@@ -91,9 +91,9 @@ class Bunny < ActiveRecord::Base
   
   def received_frights_after(fright_id, year=nil)
     if year
-      self.received_frights.where(["id > ? AND created_at >= ?", fright_id, Time.utc(year, 1, 1)], :order => "id ASC")
+      self.received_frights.where(["id > ? AND created_at >= ?", fright_id, Time.utc(year, 1, 1)]).except(:order).order("id ASC")
     else
-      self.received_frights.where(["id > ?", fright_id], :order => "id ASC")
+      self.received_frights.where(["id > ?", fright_id]).except(:order).order("id ASC")
     end
   end
   
