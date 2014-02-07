@@ -1,5 +1,5 @@
 <%
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -20,7 +20,7 @@
 <%= standard_flashes %>
 
 <h3>New bunny?</h3>
-<% form_for :bunny, :url => secret_new_bunny_path do |f| -%>
+<%= form_for :bunny, :url => secret_new_bunny_path do |f| -%>
   <p>What's your username on MeCha?<br />
   <%= f.text_field :username %></p>
   <p>Choose a password:<br />
@@ -31,7 +31,7 @@
 <% end -%>
 
 <h3>Already signed up?</h3>
-<% form_tag bunny_sessions_path do -%>
+<%= form_tag bunny_sessions_path do -%>
   <p>Username<br />
   <%= text_field_tag "username" %></p>
   <p>Password<br />

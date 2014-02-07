@@ -131,7 +131,7 @@ class FrightsControllerTest < ActionController::TestCase
     
     # Sent frights
     assert_select "li", /cute and confirmed/
-    assert_select "li", /don't exist yet/
+    assert_select "li", /don&#x27;t exist yet/
     
     # New fright form
     assert_select "form[action=/frights][method=post][onsubmit*=new Ajax.Request]" do
@@ -152,7 +152,7 @@ class FrightsControllerTest < ActionController::TestCase
     
     
     # Logout link
-    assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
+    assert_select "a[href=/bunny_sessions/current][data-method=delete]"
     
     # Change password link
     assert_select "a[href=/bunnies/current/edit]"

@@ -86,6 +86,4 @@
     Form.focusFirstElement('create_valentine_form');
   </script>
   
-  <%= periodically_call_remote(:url => received_after_valentines_path, :with => "'last_id=' + lastReceivedValentineId", :frequency => 20) %>
-  
 <% end -%>

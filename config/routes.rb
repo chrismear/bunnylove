@@ -1,4 +1,4 @@
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -15,23 +15,27 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Bunnylove.  If not, see <http://www.gnu.org/licenses/>.
 
-ActionController::Routing::Routes.draw do |map|
-  map.resources "bunnies",
-                :new => {:secret => :post},
-                :member => {:check => :post}
-  map.resources "bunny_sessions"
-  map.resources "valentines",
-                :collection => {:received_after => :any}
-  map.resources "frights",
-                :collection => {:received_after => :any}
-  map.resources "password_resets",
-                :new => {:secret => :post},
-                :member => {:check => :post}
+Bunnylove::Application.routes.draw do
+  resources :bunnies do
+    post 'secret', :on => :new
+    post 'check', :on => :member
+  end
+  resources :bunny_sessions
+  resources :valentines do
+    post 'received_after', :on => :collection
+  end
+  resources :frights do
+    post 'received_after', :on => :collection
+  end
+  resources :password_resets do
+    post 'secret', :on => :new
+    post 'check', :on => :member
+  end
+
+  match '/' => 'misc#index', :as => :homepage
+  match '/privacy' => 'misc#privacy', :as => :privacy
+  match 'boom' => 'misc#boom', :as => :boom
   
-  map.homepage "/", :controller => "misc", :action => "index"
-  map.privacy "/privacy", :controller => "misc", :action => "privacy"
-  map.boom "boom", :controller => "misc", :action => "boom"
-  
-  map.received_bunny_valentines "/bunnies/:bunny_id/valentines/received.:format", :controller => "valentines", :action => "received"
-  map.received_bunny_frights "/bunnies/:bunny_id/frights/received.:format", :controller => "frights", :action => "received"
+  match '/bunnies/:bunny_id/valentines/received.:format' => 'valentines#received', :as => :received_bunny_valentines
+  match '/bunnies/:bunny_id/frights/received.:format' => 'frights#received', :as => :received_bunny_frights
 end

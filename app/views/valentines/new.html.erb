@@ -1,5 +1,5 @@
 <%
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -20,7 +20,7 @@
 <h3>Send an anonymous Valentine</h3>
 <%= standard_flashes %>
 
-<% form_tag valentines_path do -%>
+<%= form_tag valentines_path do -%>
   <p>Who are you sending this anonymous Valentine to? (Just the username, please!)<br />
   <%= text_field_tag :recipient, @recipient, :size => 30 %></p>
   <p>And what would you like to say? (Keep it clean and friendly, pwetty pwease.)<br />

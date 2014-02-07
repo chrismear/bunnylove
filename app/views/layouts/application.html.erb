@@ -16,16 +16,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Bunnylove.  If not, see <http://www.gnu.org/licenses/>.
 -%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name = "viewport" content = "width = 700">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="apple-touch-startup-image" href="/images/apple-touch-startup.png">
-  
+
   <% if Fright.allow_frights? -%>
     <title>bunny fright</title>
     <%= stylesheet_link_tag "frights" -%>
@@ -33,9 +31,11 @@
     <title>bunny love</title>
     <%= stylesheet_link_tag "screen" %>
   <% end -%>
-  <%= javascript_include_tag :all, :cache => true %>
+  <title>Bunnylove</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
 </head>
-
 <body>
 
 <% if Fright.allow_frights? -%>
@@ -47,7 +47,6 @@
 <% end -%>
 
 <%= yield %>
-
 
 <div id="footer">
   <p>This is not an official MetaChat thingy. Any problems or questions, <a href="mailto:chris@feedmechocolate.com">contact chrismear</a>. <a href="/privacy">Privacy Policy.</a> The <a href="http://github.com/chrismear/bunnylove/">code for Bunny Love</a> is available under the AGPL.</p>

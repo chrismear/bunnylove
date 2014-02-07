@@ -27,7 +27,7 @@
         "You haven't sent a valentine yet! It doesn't have to be super-mushy, just let someone know you appreciate them!"
       ]
   -%>
-  <%= messages.rand %>
+  <%= messages.sample %>
   <% end -%>
 <% else -%>
   <%
@@ -45,5 +45,5 @@
     ]
     end
     %>
-  <%= messages.rand %>
+  <%= messages.sample %>
 <% end -%>

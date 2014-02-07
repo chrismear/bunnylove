@@ -1,4 +1,4 @@
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -63,58 +63,58 @@ class Bunny < ActiveRecord::Base
   
   def received_valentines_after(valentine_id, year=nil)
     if year
-      self.received_valentines.find(:all, :conditions => ["id > ? AND created_at >= ?", valentine_id, Time.utc(year, 1, 1)], :order => "id ASC")
+      self.received_valentines.where(["id > ? AND created_at >= ?", valentine_id, Time.utc(year, 1, 1)]).except(:order).order(:id)
     else
-      self.received_valentines.find(:all, :conditions => ["id > ?", valentine_id], :order => "id ASC")
+      self.received_valentines.where(["id > ?", valentine_id]).except(:order).order(:id)
     end
   end
   
   def received_valentines_for_year(year)
     year = year.to_i
-    self.received_valentines.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+    self.received_valentines.where(["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("created_at DESC")
   end
   
   def count_received_valentines_for_year(year)
     year = year.to_i
-    self.received_valentines.count(:conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+    self.received_valentines.where(["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).count
   end
   
   def sent_valentines_for_year(year)
     year = year.to_i
-    self.sent_valentines.find(:all, :conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "valentines.created_at DESC", :include => :recipient)
+    self.sent_valentines.where(["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("valentines.created_at DESC").includes(:recipient)
   end
   
   def count_sent_valentines_for_year(year)
     year = year.to_i
-    self.sent_valentines.count(:conditions => ["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+    self.sent_valentines.where(["valentines.created_at >= ? AND valentines.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).count
   end
   
   def received_frights_after(fright_id, year=nil)
     if year
-      self.received_frights.find(:all, :conditions => ["id > ? AND created_at >= ?", fright_id, Time.utc(year, 1, 1)], :order => "id ASC")
+      self.received_frights.where(["id > ? AND created_at >= ?", fright_id, Time.utc(year, 1, 1)]).except(:order).order("id ASC")
     else
-      self.received_frights.find(:all, :conditions => ["id > ?", fright_id], :order => "id ASC")
+      self.received_frights.where(["id > ?", fright_id]).except(:order).order("id ASC")
     end
   end
   
   def received_frights_for_year(year)
     year = year.to_i
-    self.received_frights.find(:all, :conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "created_at DESC")
+    self.received_frights.where(["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("created_at DESC")
   end
   
   def count_received_frights_for_year(year)
     year = year.to_i
-    self.received_frights.count(:conditions => ["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+    self.received_frights.where(["created_at >= ? AND created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).count
   end
   
   def sent_frights_for_year(year)
     year = year.to_i
-    self.sent_frights.find(:all, :conditions => ["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)], :order => "frights.created_at DESC", :include => :recipient)
+    self.sent_frights.where(["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).order("frights.created_at DESC").includes(:recipient)
   end
   
   def count_sent_frights_for_year(year)
     year = year.to_i
-    self.sent_frights.count(:conditions => ["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)])
+    self.sent_frights.where(["frights.created_at >= ? AND frights.created_at < ?", Time.utc(year, 1, 1), Time.utc(year+1, 1, 1)]).count
   end
   
   
@@ -127,7 +127,7 @@ class Bunny < ActiveRecord::Base
   
   def self.update_by_username_or_new(options={})
     return nil unless options[:username]
-    b = self.find(:first, :conditions => ["username = ?", options[:username]])
+    b = self.where(["username = ?", options[:username]]).first
     if b
       b.attributes = options
     else

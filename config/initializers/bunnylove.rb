@@ -1,4 +1,4 @@
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -18,17 +18,14 @@
 require 'acts_as_authenticated'
 ActiveRecord::Base.send(:include, ActiveRecord::Acts::Authenticated)
 
-ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!( 
-  :full => "%d %B %Y",
-  :dmy => "%d/%m/%Y",
-  :short_timestamp => "at %I:%M %p on %d %B, %Y"
-) 
+Time::DATE_FORMATS[:full] = "%d %B %Y"
+Time::DATE_FORMATS[:dmy] = "%d/%m/%Y"
+Time::DATE_FORMATS[:short_timestamp] = "at %I:%M %p on %d %B, %Y"
 
-ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!( 
-  :full => "%d %B %Y",
-  :dmy => "%d/%m/%Y"
-) 
+Date::DATE_FORMATS[:full] = "%d %B %Y"
+Date::DATE_FORMATS[:dmy] = "%d/%m/%Y"
 
-ExceptionNotifier.exception_recipients = %w(chris@feedmechocolate.com)
-ExceptionNotifier.sender_address = %("Application Error" <notifier@bunnylove.org.uk>)
-ExceptionNotifier.email_prefix = "[Bunny Love]"
+Bunnylove::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[Bunny Love] ",
+  :sender_address => %{"Application Error" <notifier@bunnylove.org.uk>},
+  :exception_recipients => %w{chris@feedmechocolate.com}

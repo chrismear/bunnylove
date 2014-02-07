@@ -1,5 +1,5 @@
 <%
-# Copyright 2007, 2008, 2009, 2010 Chris Mear
+# Copyright 2007, 2008, 2009, 2010, 2013 Chris Mear
 # 
 # This file is part of Bunnylove.
 # 
@@ -19,7 +19,7 @@
 
 <h3>Reset your password</h3>
 <%= standard_flashes("First, let me know who you are.") %>
-<% form_tag secret_new_password_reset_path do -%>
+<%= form_tag secret_new_password_reset_path do -%>
   <p>Username: <%= text_field_tag :username %></p>
   <p><%= submit_tag("Go!") %></p>
 <% end -%>
