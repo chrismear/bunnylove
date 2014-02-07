@@ -20,14 +20,14 @@ module ApplicationHelper
   def standard_flashes(default_message = nil)
     output = ""
     [:notice, :success, :error].each do |flash_type|
-      output += "<p class=\"#{flash_type}Message\">#{flash[flash_type]}</p>" if flash[flash_type]
+      output += "<p class=\"#{h(flash_type)}Message\">#{h(flash[flash_type])}</p>" if flash[flash_type]
     end
     
     if output == "" && default_message
-      output = "<p>#{default_message}</p>"
+      output = "<p>#{h(default_message)}</p>"
     end
     
-    output
+    output.html_safe
   end
   
   def error_messages_for(object)
