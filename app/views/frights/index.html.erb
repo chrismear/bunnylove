@@ -85,7 +85,5 @@
   <script type="text/javascript">
     Form.focusFirstElement('create_fright_form');
   </script>
-  
-  <%= periodically_call_remote(:url => received_after_frights_path, :with => "'last_id=' + lastReceivedFrightId", :frequency => 20) %>
-  
+
 <% end -%>
