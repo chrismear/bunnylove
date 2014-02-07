@@ -36,9 +36,16 @@ GEM
     activesupport (3.0.20)
     arel (2.0.10)
     builder (2.1.2)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     exception_notification_rails3 (1.2.0)
+    highline (1.6.20)
     i18n (0.5.0)
     json (1.8.1)
     mail (2.2.20)
@@ -48,6 +55,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     mysql2 (0.2.20)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.8.0)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     polyglot (0.3.3)
     rack (1.2.8)
     rack-mount (0.6.14)
@@ -81,6 +95,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano (~> 2.15.5)
   exception_notification_rails3
   mysql2 (< 0.3)
   prototype_legacy_helper (= 0.0.0)!
