@@ -152,7 +152,7 @@ class FrightsControllerTest < ActionController::TestCase
     
     
     # Logout link
-    assert_select "a[href=/bunny_sessions/current][onclick*=delete]"
+    assert_select "a[href=/bunny_sessions/current][data-method=delete]"
     
     # Change password link
     assert_select "a[href=/bunnies/current/edit]"
